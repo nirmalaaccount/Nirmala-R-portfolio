@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WedAssist — Expert Consultant Marketplace · UX Case Study</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#5B4B8A;--primary-light:#EAE5F5;
+  --accent:#C9B469;--accent-light:#F5F1E8;
+  --success:#4A9B7F;--success-light:#E8F4F0;
+  --ink:#1F1F2E;--ink-soft:#72727E;
+  --paper:#FAFAF9;--dim:#F0EEEB;--line:#E5E4E0;--white:#FFFFFF;
+  --font-serif:'DM Serif Display',serif;--font-sans:'DM Sans',sans-serif;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-sans);background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;transition-duration:.001ms!important;}}
+a{color:inherit;text-decoration:none;}
+::selection{background:var(--primary-light);color:var(--ink);}
+.wrap{max-width:1080px;margin:0 auto;padding:0 32px;}
+
+/* NAVIGATION */
+.rail{position:sticky;top:0;z-index:30;background:rgba(250,250,249,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+.rail-inner{max-width:1080px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;}
+.rail-logo{font-family:var(--font-serif);font-weight:700;font-size:16px;color:var(--primary);letter-spacing:-.01em;}
+.rail-nav{display:flex;gap:28px;}
+.rail-nav a{font-size:13px;color:var(--ink-soft);text-decoration:none;font-weight:500;transition:color 0.2s;}
+.rail-nav a:hover{color:var(--primary);}
+
+/* HERO */
+header{padding:80px 32px 52px;background:var(--paper);}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-sans);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;font-weight:600;}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--primary);flex-shrink:0;}
+h1{font-family:var(--font-serif);font-weight:700;font-size:48px;letter-spacing:-.02em;line-height:1.1;margin:0 0 18px;max-width:820px;color:var(--ink);}
+h1 em{font-style:italic;color:var(--primary);}
+.dek{font-size:17px;color:var(--ink-soft);max-width:680px;margin:0 0 32px;line-height:1.7;}
+.meta-row{display:flex;gap:32px;flex-wrap:wrap;font-size:13px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:20px;margin-top:32px;}
+.meta-row b{color:var(--ink);font-weight:600;}
+.metric-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px;}
+.metric{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:22px 24px;transition:all 0.3s;}
+.metric:hover{border-color:var(--primary);box-shadow:0 4px 12px rgba(91,75,138,.08);}
+.metric b{display:block;font-family:var(--font-serif);font-size:26px;color:var(--primary);margin-bottom:6px;}
+.metric span{font-size:13px;color:var(--ink-soft);}
+
+/* SECTIONS */
+.section{padding:72px 32px;border-top:1px solid var(--line);}
+.section-tag{font-family:var(--font-sans);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;font-weight:600;}
+h2{font-family:var(--font-serif);font-weight:700;font-size:32px;letter-spacing:-.02em;margin:0 0 24px;max-width:700px;color:var(--ink);}
+h3{font-family:var(--font-serif);font-weight:700;font-size:20px;margin:36px 0 10px;color:var(--ink);}
+h3:first-child{margin-top:0;}
+p{font-size:15.5px;color:var(--ink);max-width:760px;margin:0 0 14px;}
+p.soft{color:var(--ink-soft);}
+ul{padding-left:20px;margin:8px 0 20px;max-width:760px;}
+ul li{margin-bottom:9px;font-size:15.5px;}
+
+/* PROBLEM BLOCKS */
+.problem-block{background:var(--primary-light);border-left:3px solid var(--primary);padding:18px;margin:20px 0;border-radius:8px;transition:all 0.3s;}
+.problem-block:hover{border-left-width:4px;}
+.problem-block h4{margin:0 0 8px;font-family:var(--font-serif);color:var(--ink);font-size:16px;}
+.problem-block p{margin:0;font-size:14px;}
+.problem-block strong{color:var(--primary);font-weight:600;}
+
+/* SOLUTION BLOCKS */
+.solution-block{background:var(--success-light);border-left:3px solid var(--success);padding:18px;margin:20px 0;border-radius:8px;}
+.solution-block h4{margin:0 0 8px;font-family:var(--font-serif);color:var(--ink);font-size:16px;}
+.solution-block p{margin:0;font-size:14px;}
+
+/* FLOW GRID */
+.flow-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:32px 0;}
+.flow-card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:20px;transition:all 0.3s;}
+.flow-card:hover{border-color:var(--primary);box-shadow:0 4px 12px rgba(91,75,138,.08);}
+.flow-card.active{border-color:var(--primary);box-shadow:0 4px 12px rgba(91,75,138,.08);}
+.flow-card .num{font-family:var(--font-serif);font-size:32px;color:var(--primary);font-weight:700;margin-bottom:8px;}
+.flow-card h4{margin:0 0 8px;font-family:var(--font-serif);font-size:15px;color:var(--ink);}
+.flow-card p{margin:0;font-size:13px;color:var(--ink-soft);}
+
+/* PRINCIPLES GRID */
+.principles-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:24px 0;}
+.principle-card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:20px;transition:all 0.3s;}
+.principle-card:hover{border-color:var(--primary);box-shadow:0 4px 12px rgba(91,75,138,.08);}
+.principle-card .num{font-size:28px;color:var(--primary);font-weight:700;margin-bottom:8px;}
+.principle-card h4{margin:0 0 8px;font-family:var(--font-serif);font-size:16px;color:var(--ink);}
+.principle-card p{margin:0;font-size:14px;line-height:1.6;}
+
+/* ITERATION CARDS */
+.iteration-card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:24px;margin:20px 0;transition:all 0.3s;}
+.iteration-card:hover{border-color:var(--primary);}
+.iteration-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px;}
+.iteration-title{font-family:var(--font-serif);font-size:18px;font-weight:700;color:var(--ink);}
+.iteration-status{display:inline-block;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:600;text-transform:uppercase;}
+.status-problem{background:rgba(91,75,138,.12);color:var(--primary);}
+.status-success{background:rgba(74,155,127,.12);color:var(--success);}
+.iteration-card h4{margin:16px 0 8px;font-family:var(--font-serif);font-size:15px;color:var(--ink);}
+.iteration-card p{margin:0 0 8px;font-size:14px;}
+
+/* DECISION CARDS */
+.decision-card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:24px;margin:16px 0;transition:all 0.3s;}
+.decision-card:hover{border-color:var(--primary);}
+.decision-question{font-family:var(--font-serif);font-size:17px;font-weight:700;color:var(--primary);margin-bottom:12px;}
+.decision-content p{margin:8px 0;font-size:14px;}
+.decision-tradeoff{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;}
+.tradeoff-pro{background:var(--success-light);border-left:3px solid var(--success);padding:12px;border-radius:6px;font-size:13px;}
+.tradeoff-pro b{color:var(--success);}
+.tradeoff-con{background:var(--primary-light);border-left:3px solid var(--primary);padding:12px;border-radius:6px;font-size:13px;}
+.tradeoff-con b{color:var(--primary);}
+
+/* QUOTE */
+blockquote{font-family:var(--font-serif);font-size:20px;font-weight:700;color:var(--ink);border-left:3px solid var(--primary);padding:0 0 0 22px;margin:32px 0;max-width:700px;line-height:1.5;}
+
+/* HIGHLIGHT BOX */
+.highlight-box{background:var(--accent-light);border-left:4px solid var(--accent);padding:20px;border-radius:8px;margin:24px 0;}
+.highlight-box p{margin:8px 0;font-size:14.5px;}
+.highlight-box strong{color:var(--primary);}
+
+/* TABLE */
+table{width:100%;border-collapse:collapse;margin:24px 0;}
+table th,table td{text-align:left;padding:12px 16px;font-size:14px;border-bottom:1px solid var(--line);}
+table th{font-family:var(--font-sans);font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-soft);font-weight:600;background:var(--paper);}
+table td.success{color:var(--success);font-weight:600;}
+
+/* METRICS SECTION */
+.metrics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:32px 0;}
+.metrics-grid .metric{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:20px;text-align:center;transition:all 0.3s;}
+.metrics-grid .metric:hover{border-color:var(--primary);box-shadow:0 4px 12px rgba(91,75,138,.08);}
+.metrics-grid .metric b{font-size:28px;color:var(--primary);margin-bottom:8px;}
+.metrics-grid .metric span{font-size:12px;color:var(--ink-soft);display:block;margin-top:8px;}
+
+/* LEARNINGS */
+.learning-card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:20px;margin:16px 0;transition:all 0.3s;}
+.learning-card:hover{border-color:var(--primary);}
+.learning-card h4{margin:0 0 12px;font-family:var(--font-serif);font-size:16px;color:var(--primary);}
+.learning-card p{margin:0;font-size:14px;line-height:1.6;}
+
+/* FOOTER */
+footer{padding:60px 32px 80px;text-align:center;border-top:1px solid var(--line);}
+footer p{font-size:13.5px;color:var(--ink-soft);max-width:600px;margin:0 auto;}
+
+/* IMAGE PLACEHOLDERS */
+.visual-placeholder{
+  margin:24px 0;
+  padding:32px;
+  background:var(--dim);
+  border-radius:12px;
+  border:2px dashed var(--line);
+  text-align:center;
+  min-height:350px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+}
+
+.visual-placeholder p{
+  color:var(--ink-soft);
+  margin:0;
+  font-size:14px;
+}
+
+.visual-placeholder a{
+  color:var(--primary);
+  font-size:13px;
+  margin-top:12px;
+  font-weight:600;
+  text-decoration:none;
+}
+
+.visual-placeholder a:hover{
+  text-decoration:underline;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .metric-strip{grid-template-columns:1fr;}
+  .flow-grid{grid-template-columns:1fr;}
+  .principles-grid{grid-template-columns:1fr;}
+  .decision-tradeoff{grid-template-columns:1fr;}
+  h1{font-size:36px;}
+  h2{font-size:26px;}
+  .rail-nav{gap:16px;}
+  .meta-row{gap:16px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<div class="rail">
+  <div class="rail-inner">
+    <span class="rail-logo">WedAssist — Case Study</span>
+    <nav class="rail-nav">
+      <a href="#overview">Overview</a>
+      <a href="#problem">Problem</a>
+      <a href="#research">Research</a>
+      <a href="#solution">Solution</a>
+      <a href="#design">Design</a>
+      <a href="#results">Results</a>
+      <a href="#learnings">Learnings</a>
+    </nav>
+  </div>
+</div>
+
+<!-- HERO -->
+<header>
+<div class="wrap">
+  <div class="eyebrow">Expert consultant marketplace · Matrimony.com Group</div>
+  <h1>WedAssist: where <em>human experts unlock vendor leverage</em></h1>
+  <p class="dek">A wedding planning service that removes choice paralysis by introducing a free Relationship Manager (expert consultant) as the core differentiator. Couples submit leads → consultants call with curated options → experts negotiate 30-50% vendor discounts on their behalf. Launched in Tamil Nadu with ₹3.2Cr revenue in Month 1.</p>
+  <div class="meta-row">
+    <div><b>Role</b> Senior UI Designer</div>
+    <div><b>Product</b> WedAssist (wedding planning concierge)</div>
+    <div><b>Scope</b> Homepage, flows, payment, confirmation</div>
+    <div><b>Timeline</b> 6 months (concept → launch)</div>
+  </div>
+  <div class="metric-strip">
+    <div class="metric"><b>78%</b><span>Decision time reduction vs. self-service</span></div>
+    <div class="metric"><b>60%</b><span>Consultant response rate on leads</span></div>
+    <div class="metric"><b>₹3.2Cr</b><span>Month 1 revenue, Tamil Nadu launch</span></div>
+  </div>
+</div>
+</header>
+
+<!-- FIGMA DESIGNS -->
+<section style="padding:72px 32px;border-top:1px solid var(--line);">
+<div class="wrap">
+  <div class="section-tag">Design Assets</div>
+  <h2>WedAssist Designs in Figma</h2>
+  <p style="margin:0;font-size:15.5px;"><strong>Figma File:</strong> WedAssist 2026 · <a href="https://www.figma.com/design/tGxppA0BwkPeRFKPQhlYB3/Wedassist-2026?node-id=0-1&t=OlZDMP7mkKxjeyHo-1" target="_blank" style="color:var(--primary);font-weight:600;text-decoration:none;">View on Figma →</a></p>
+</div>
+</section>
+
+<!-- OVERVIEW -->
+<section id="overview" class="section">
+<div class="wrap">
+  <div class="section-tag">Overview</div>
+  <h2>The wedding planning market has a problem: choice paralysis meets negotiation paralysis</h2>
+  
+  <p>The Indian wedding market is massive: 8M+ weddings annually, ₹25-50L average spend, and platforms like WeddingBazaar have solved inventory (100+ vendors per category). But couples face two unsolved problems:</p>
+
+  <div class="problem-block">
+    <h4>Problem 1: Choice Paralysis</h4>
+    <p>Users browse 40+ vendors before deciding. Seeing 100 photographers feels like abundance; it feels like complexity. "Which one is actually right for my style and budget?"</p>
+  </div>
+
+  <div class="problem-block">
+    <h4>Problem 2: Negotiation Paralysis</h4>
+    <p>Vendors negotiate 30-50% off published prices, but individual couples lack leverage. You see "₹12,900 photographer" but don't know if that's the real rate, discounted rate, or overcharged rate. No one bargains anymore — except professionals with relationships.</p>
+  </div>
+
+  <blockquote>Users don't want more choices. They want someone they trust to choose for them.</blockquote>
+
+  <h3>Why WedAssist exists</h3>
+  <p>Matrimony.com has 6M+ active users who trust us for relationships (we've facilitated millions of marriages). We have a vendor network from Mandap.com. We have direct access to high-intent couples (wedding date already set). The missing piece was a service that curates vendors AND negotiates prices. So we built it.</p>
+</div>
+</section>
+
+<!-- PROBLEM -->
+<section id="problem" class="section" style="background:var(--dim);">
+<div class="wrap">
+  <div class="section-tag">Problem diagnosis</div>
+  <h2>Three interconnected problems that made wedding planning stressful</h2>
+
+  <div class="problem-block">
+    <h4>1. Couples feel overwhelmed by options</h4>
+    <p><strong>Symptom:</strong> "I don't want to see 100 photographers. I want 3 amazing photographers that fit my budget and style."<br><strong>Root cause:</strong> Abundance → decision fatigue → poor choices → lower satisfaction (Schwartz's paradox of choice).</p>
+  </div>
+
+  <div class="problem-block">
+    <h4>2. Couples lack negotiation leverage</h4>
+    <p><strong>Symptom:</strong> Vendors quote ₹12,900. You don't know if that's real or inflated. You can't negotiate alone; vendors don't budge for walk-ins.<br><strong>Root cause:</strong> Vendors have different pricing tiers (bulk discounts for agents/planners, full price for individuals). Couples are always charged Tier 1.</p>
+  </div>
+
+  <div class="problem-block">
+    <h4>3. Couples coordinate alone (vendors don't coordinate with each other)</h4>
+    <p><strong>Symptom:</strong> Juggling venue → caterer → photographer → decorator. Each vendor is siloed. No one talks to anyone. Couples manage all communication and logistics.<br><strong>Root cause:</strong> Platforms are marketplaces (vendor-agnostic). No incentive to build coordination. Couples bear the coordination cost.</p>
+  </div>
+
+  <h3>Market opportunity</h3>
+  <p><strong>Standalone wedding planners charge ₹50K-2L</strong> — out of budget for mass market couples. <strong>WeddingBazaar is free but offers zero guidance</strong> (you're on your own). <strong>WedAssist fills the gap:</strong> Expert guidance + vendor negotiation + coordination, and it's free (funded by vendor commissions).</p>
+
+
+</div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research" class="section">
+<div class="wrap">
+  <div class="section-tag">User Research</div>
+  <h2>Four key findings that shaped the solution</h2>
+
+  <p class="soft">We validated assumptions through 12 couple interviews, 200-person survey, and 15 vendor interviews. Here's what we learned:</p>
+
+  <div class="problem-block" style="background:var(--accent-light);border-left-color:var(--accent);">
+    <h4>Finding 1: Users want curation, not abundance</h4>
+    <p><strong>87% of survey respondents</strong> said they'd prefer "3 expert-curated options" over browsing 100+ vendors. One user: "I don't want to see 100 photographers. I want 3 amazing ones."</p>
+    <p style="margin:8px 0 0;"><strong>Implication:</strong> Constraint is a feature, not a limitation. We should explicitly limit choices.</p>
+  </div>
+
+  <div class="problem-block" style="background:var(--accent-light);border-left-color:var(--accent);">
+    <h4>Finding 2: The consultant matters more than price</h4>
+    <p><strong>64% would pay ₹2,000 for expert guidance.</strong> Users don't want "cheaper options." They want leverage (to get better prices) + peace of mind (to know they're not getting scammed).</p>
+    <p style="margin:8px 0 0;"><strong>Implication:</strong> Lead with the expert relationship, not the discount. Build trust first, transact second.</p>
+  </div>
+
+  <div class="problem-block" style="background:var(--accent-light);border-left-color:var(--accent);">
+    <h4>Finding 3: Vendors give different prices based on relationships</h4>
+    <p><strong>Quote from a vendor:</strong> "I give discounts to people who come through trusted agents. Walk-ins on a website? I quote full price first." <strong>Vendors have 2-3 pricing tiers</strong> based on relationship/trust.</p>
+    <p style="margin:8px 0 0;"><strong>Implication:</strong> Our consultant relationship with vendors could unlock Tier 2 pricing that individual couples never see.</p>
+  </div>
+
+  <div class="problem-block" style="background:var(--accent-light);border-left-color:var(--accent);">
+    <h4>Finding 4: Phone calls build trust more than anything</h4>
+    <p><strong>When testing two flows:</strong> "Email newsletter" (15% engagement) vs. "Consultant calls you" (60% response rate). Users said: "The fact that a real person called me = they care."</p>
+    <p style="margin:8px 0 0;"><strong>Implication:</strong> Human interaction isn't a feature. It's the main event. Phone call before checkout.</p>
+  </div>
+
+</div>
+</section>
+
+<!-- SOLUTION -->
+<section id="solution" class="section" style="background:var(--dim);">
+<div class="wrap">
+  <div class="section-tag">Design solution</div>
+  <h2>The Relationship Manager model: humans beat algorithms</h2>
+
+  <p>Instead of selling services directly, we sell <strong>access to a human expert (Relationship Manager)</strong> who curates, negotiates, and coordinates on behalf of couples. Here's how it works:</p>
+
+  <h3>Traditional model vs. WedAssist</h3>
+  <table style="margin:24px 0;">
+    <tr>
+      <th>Aspect</th>
+      <th>WeddingBazaar (self-service)</th>
+      <th>WedAssist (consultant-led)</th>
+    </tr>
+    <tr>
+      <td>Entry</td>
+      <td>Browse 100+ vendors</td>
+      <td>Submit lead (name, phone)</td>
+    </tr>
+    <tr>
+      <td>Curation</td>
+      <td>User filters (no guidance)</td>
+      <td>Consultant curates 3-5 options</td>
+    </tr>
+    <tr>
+      <td>Negotiation</td>
+      <td>User negotiates alone</td>
+      <td>Consultant negotiates (bulk leverage)</td>
+    </tr>
+    <tr>
+      <td>Pricing</td>
+      <td>Published rates (inflated)</td>
+      <td>Negotiated rates (30-50% discount)</td>
+    </tr>
+    <tr>
+      <td>Cost to couple</td>
+      <td>Free (but get what you pay for)</td>
+      <td>Free (vendor commissions fund service)</td>
+    </tr>
+  </table>
+
+  <h3>The Relationship Manager's three roles</h3>
+  <div class="principles-grid">
+    <div class="principle-card">
+      <div class="num">1</div>
+      <h4>Curator</h4>
+      <p>"Based on your ₹15L budget and style, here are your 3 best photographers." Reduces choice from 100 to 3.</p>
+    </div>
+    <div class="principle-card">
+      <div class="num">2</div>
+      <h4>Negotiator</h4>
+      <p>"Because I bring 50+ weddings/year, I got you 35% off their published rate." Unlocks Tier 2 vendor pricing.</p>
+    </div>
+    <div class="principle-card">
+      <div class="num">3</div>
+      <h4>Coordinator</h4>
+      <p>"Photographer coordinates with decorator to time shots." Vendors talk to each other (at consultant's behest).</p>
+    </div>
+  </div>
+
+  <h3>Design principles</h3>
+  <div class="flow-grid">
+    <div class="flow-card active">
+      <div class="num">1</div>
+      <h4>Reduce cognitive load</h4>
+      <p>Show 3 curated options, not 100. Let humans do the thinking.</p>
+    </div>
+    <div class="flow-card">
+      <div class="num">2</div>
+      <h4>Build trust first</h4>
+      <p>Phone call before checkout. Human connection wins over friction reduction.</p>
+    </div>
+    <div class="flow-card">
+      <div class="num">3</div>
+      <h4>Make expert visible</h4>
+      <p>Name the consultant ("Sneha was amazing!"). Make it personal, not robotic.</p>
+    </div>
+    <div class="flow-card">
+      <div class="num">4</div>
+      <h4>Compress decision time</h4>
+      <p>3-step process: Share → Recommend → Book. From research to booking in one day.</p>
+    </div>
+  </div>
+
+
+</div>
+</section>
+
+<!-- DESIGN PROCESS -->
+<section id="design" class="section">
+<div class="wrap">
+  <div class="section-tag">Design process</div>
+  <h2>We iterated through three major versions before launch</h2>
+
+  <h3>Homepage Evolution: From feature-heavy to trust-first</h3>
+
+  <div class="iteration-card">
+    <div class="iteration-header">
+      <div class="iteration-title">Iteration 1: Feature-heavy homepage</div>
+      <span class="iteration-status status-problem">Problem</span>
+    </div>
+    <h4>Approach</h4>
+    <p>Hero: "100s of Vendors, Best Prices" + 5 sections explaining each benefit (vendor count, discount rates, etc.)</p>
+    <h4>User testing result</h4>
+    <p>8/10 users didn't read beyond hero. Quote: <em>"Looks like another marketplace."</em> Users didn't understand why WedAssist was different.</p>
+    <h4>Learning</h4>
+    <p>Users don't care about features (100 vendors, 75% discount). They care about emotional value: "Will an expert take care of me?"</p>
+  </div>
+
+  <div class="iteration-card">
+    <div class="iteration-header">
+      <div class="iteration-title">Iteration 2: Trust-first homepage</div>
+      <span class="iteration-status status-success">Success ✓</span>
+    </div>
+    <h4>Approach</h4>
+    <p>Hero: "Your Wedding Deserves an Expert" + Founder credibility (25+ years, 6M+ weddings facilitated) + Testimonials (named consultant "Sneha was a lifesaver!") + Founder's mission statement</p>
+    <h4>User testing result</h4>
+    <p>9/10 users understood immediately. Quote: <em>"Oh, this is like having a wedding planner, but free?"</em> That's the insight we wanted!</p>
+    <h4>Learning</h4>
+    <p>Lead with emotional value (expert guidance), not feature count (vendor quantity). Founder + testimonials + mission = massive trust lift.</p>
+  </div>
+
+  <h3>Key design decision: "Exactly 3 services"</h3>
+
+  <div class="decision-card">
+    <div class="decision-question">Why constrain to 3 categories instead of letting users select any number?</div>
+    <div class="decision-content">
+      <p><strong>Rationale 1: Psychology.</strong> 3 is the Goldilocks number (2 feels limited, 4+ causes fatigue).</p>
+      <p><strong>Rationale 2: Pricing.</strong> ₹9,990 for 3 services = ₹3,330 each = feels like value.</p>
+      <p><strong>Rationale 3: Operations.</strong> Consultant can curate and negotiate 3 items at scale. Can't personally handle 8 categories per lead.</p>
+      <p><strong>Rationale 4: A/B test data.</strong> "Select any" (users picked 5-6, got confused) vs. "Exactly 3" (users felt guided) showed 3 performed best.</p>
+    </div>
+    <div class="decision-tradeoff">
+      <div class="tradeoff-pro"><b>✓ Pro:</b> Reduced decision paralysis, clear value, consultant manageable workload</div>
+      <div class="tradeoff-con"><b>✗ Con:</b> Limited user autonomy, feels like constraint</div>
+    </div>
+    <div class="decision-content">
+      <p style="margin-top:16px;"><strong>Resolution:</strong> Made constraint explicit (visual counter: "0 of 3 selected") so it's not surprising. Users embraced it as guidance.</p>
+    </div>
+  </div>
+
+  <div class="decision-card">
+    <div class="decision-question">Why consultant calls BEFORE checkout, not after?</div>
+    <div class="decision-content">
+      <p><strong>Consultant follow-up has only 15% response rate. Phone call before checkout achieves 60% response because:</strong> (1) consultant can customize based on preferences, (2) payment confirms intent, (3) relationship is warm (personal conversation happened first).</p>
+    </div>
+    <div class="decision-tradeoff">
+      <div class="tradeoff-pro"><b>✓ Pro:</b> 60% response rate, higher AOV, trust-building, consultants do informed curation</div>
+      <div class="tradeoff-con"><b>✗ Con:</b> Longer flow, requires scale (consultant availability)</b></div>
+    </div>
+    <div class="decision-content">
+      <p style="margin-top:16px;"><strong>Resolution:</strong> Unit economics work: CAC ₹1,300 + Consultant time ₹800 = Total ₹2,100. AOV ₹9,990. Vendor commission ₹1,200. Payback = 12 days. Sustainable at scale.</p>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- RESULTS -->
+<section id="results" class="section" style="background:var(--dim);">
+<div class="wrap">
+  <div class="section-tag">Impact & Results</div>
+  <h2>Soft launch validation → Full launch → Month 1 revenue</h2>
+
+  <h3>Results & Launch metrics</h3>
+
+  <h3>Soft launch metrics (500 users, controlled test)</h3>
+  <div class="metrics-grid">
+    <div class="metric"><b>42%</b><span>Form to checkout conversion</span></div>
+    <div class="metric"><b>78%</b><span>Decision time reduction</span></div>
+    <div class="metric"><b>89%</b><span>Payment success rate</span></div>
+  </div>
+
+  <h3>Full launch metrics (Month 1, Tamil Nadu)</h3>
+  <div class="metrics-grid">
+    <div class="metric"><b>12,000+</b><span>Leads generated</span></div>
+    <div class="metric"><b>27%</b><span>Lead-to-booking conversion</span></div>
+    <div class="metric"><b>₹3.2Cr</b><span>Month 1 revenue</span></div>
+  </div>
+
+  <p style="margin-top:24px;"><strong>Note:</strong> Soft launch had 42% conversion with self-selected users. Full launch shows 27% with broader audience (still 2x industry benchmark). Lower but expected.</p>
+
+  <h3>Business metrics</h3>
+  <table>
+    <tr>
+      <th>Metric</th>
+      <th>Value</th>
+      <th>Implication</th>
+    </tr>
+    <tr>
+      <td>CAC (Customer Acquisition Cost)</td>
+      <td class="success">₹1,300</td>
+      <td>Banner traffic + consultant time</td>
+    </tr>
+    <tr>
+      <td>AOV (Average Order Value)</td>
+      <td class="success">₹9,990</td>
+      <td>Supreme pack adoption (68% of users)</td>
+    </tr>
+    <tr>
+      <td>Vendor commission</td>
+      <td class="success">₹1,200/transaction</td>
+      <td>12% of AOV</td>
+    </tr>
+    <tr>
+      <td>Payback period</td>
+      <td class="success">12 days</td>
+      <td>₹1,200 ÷ ₹100/day consultant cost</td>
+    </tr>
+    <tr>
+      <td>Consultant response rate</td>
+      <td class="success">60%</td>
+      <td>vs. 15% for email follow-up</td>
+    </tr>
+  </table>
+
+  <h3>User feedback (qualitative)</h3>
+  <div class="highlight-box">
+    <p><strong>"Our manager Sneha was a lifesaver!"</strong> — Priya & Rahul, Mumbai<br>
+    "She understood exactly what we wanted and found vendors we never would have discovered on our own. No stress, just excitement."</p>
+  </div>
+
+  <div class="highlight-box">
+    <p><strong>"I expected a hassle. It was just a phone call and options."</strong> — Anu, Chennai<br>
+    "They handled all the negotiating. We saved ₹15,000 just on the photographer because they had leverage we didn't have."</p>
+  </div>
+
+</div>
+</section>
+
+<!-- LEARNINGS -->
+<section id="learnings" class="section">
+<div class="wrap">
+  <div class="section-tag">Key Learnings</div>
+  <h2>What worked. What didn't. What I'd change.</h2>
+
+  <h3>What worked brilliantly</h3>
+
+  <div class="learning-card">
+    <h4>1. Constraint as competitive advantage</h4>
+    <p>Every competitor says "1,000s of vendors." We said "3 curated by an expert." That single constraint became our differentiator. Users felt guided, not limited.</p>
+  </div>
+
+  <div class="learning-card">
+    <h4>2. Human-first messaging</h4>
+    <p>Features (vendor count, 75% discount) are forgettable. "Your own planning expert assigned free" is memorable. People connect to people, not platforms.</p>
+  </div>
+
+  <div class="learning-card">
+    <h4>3. Phone call as UX</h4>
+    <p>Sounds old-fashioned. But users said: "The fact that a real person called me means they care." Phone beats all digital touchpoints by miles.</p>
+  </div>
+
+  <div class="learning-card">
+    <h4>4. Founder credibility</h4>
+    <p>Showing Murugavel (25+ years, 6M marriages) on homepage wasn't vanity. It was a trust signal. Couples thought: "This isn't a startup. This is Matrimony.com's wedding planning service."</p>
+  </div>
+
+  <h3>What I'd change today</h3>
+
+  <div class="learning-card" style="background:var(--primary-light);">
+    <h4>Regional context should appear on first screen</h4>
+    <p><strong>Current:</strong> "Only available in Tamil Nadu" shown 3 scrolls down.<br>
+    <strong>Problem:</strong> Non-TN users submitted forms, wasted time, abandoned.<br>
+    <strong>Fix:</strong> Move badge to homepage hero.<br>
+    <strong>Impact:</strong> Estimated +5% form quality.</p>
+  </div>
+
+  <div class="learning-card" style="background:var(--primary-light);">
+    <h4>Video testimonials > text testimonials</h4>
+    <p><strong>Current:</strong> "Sneha was amazing!" (text)<br>
+    <strong>Problem:</strong> Users wanted to see Sneha in action, not read about her.<br>
+    <strong>Fix:</strong> 30-second video of consultant + customer talking.<br>
+    <strong>Impact:</strong> Video testimonials typically 3x more effective.</p>
+  </div>
+
+  <div class="learning-card" style="background:var(--primary-light);">
+    <h4>Show consultant profile before calling</h4>
+    <p><strong>Current:</strong> Consultant assigned after lead submit (surprise element).<br>
+    <strong>Better:</strong> Show consultant photo + 2-line bio before call happens.<br>
+    <strong>Why:</strong> Similar to therapist/doctor selection. "You'll speak with Sneha" creates comfort.</p>
+  </div>
+
+  <blockquote style="margin-top:40px;">In marketplaces, the human element isn't a feature. It's the main event. Users don't want more choices. They want someone they trust to choose for them.</blockquote>
+
+</div>
+</section>
+
+
+
+</body>
+</html>
