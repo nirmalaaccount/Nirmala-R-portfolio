@@ -193,6 +193,33 @@ footer p{font-size:13.5px;color:var(--ink-soft);max-width:600px;margin:0 auto;}
   </div>
 
   <blockquote>The homepage was built for platform convenience, not user context.</blockquote>
+
+  <h3 style="margin-top:48px;">Visual comparison: Before vs. After</h3>
+  
+  <div style="background:var(--white);border:1px solid var(--line);border-radius:12px;padding:24px;margin:24px 0;">
+    <p style="font-size:13px;color:var(--marigold);font-weight:600;text-transform:uppercase;letter-spacing:.08em;margin:0 0 16px;">OLD HOMEPAGE (Before)</p>
+    <ul style="font-size:14px;color:var(--ink);line-height:1.8;margin:0;padding-left:20px;">
+      <li>Generic hero: "Wedding venues in over 100 cities"</li>
+      <li>Manual city dropdown (100+ options)</li>
+      <li>National aggregate stats: "Lawns: 7,653" (platform-wide)</li>
+      <li>One-size-fits-all city grid (always shows metros first)</li>
+      <li>No guidance for low-inventory or zero-venue cities</li>
+      <li><strong>Result:</strong> User friction, wrong expectations, high abandonment</li>
+    </ul>
+  </div>
+
+  <div style="background:var(--teal-light);border:1px solid var(--teal);border-radius:12px;padding:24px;margin:24px 0;">
+    <p style="font-size:13px;color:var(--teal);font-weight:600;text-transform:uppercase;letter-spacing:.08em;margin:0 0 16px;">NEW HOMEPAGE (After)</p>
+    <ul style="font-size:14px;color:var(--ink);line-height:1.8;margin:0;padding-left:20px;">
+      <li>City auto-detected on load (geolocation + IP lookup)</li>
+      <li>Personalized headline: "Beautiful wedding venues in [City]"</li>
+      <li>Local aggregate stats: "[N] venues in [City]" — honest, relevant</li>
+      <li>Featured categories tailored to detected city (Kalyana, Premium, Seaside, etc.)</li>
+      <li>Adaptive states for high/low/zero inventory (with nudges + assistance)</li>
+      <li><strong>Result:</strong> Immediate trust, correct expectations, guided journey for every city</li>
+    </ul>
+  </div>
+
 </div>
 </section>
 
@@ -211,6 +238,10 @@ footer p{font-size:13.5px;color:var(--ink-soft);max-width:600px;margin:0 auto;}
     <li><strong>Detection fails:</strong> Graceful fallback to legacy homepage or empty search. User can type their city manually.</li>
     <li><strong>User can always override:</strong> City chip in top-right. Tap to change city. Search re-renders instantly.</li>
   </ul>
+
+  <h3 style="margin-top:48px;"><strong>→ View full design in Figma</strong></h3>
+  <p style="font-size:16px;margin:12px 0;">New design (city-aware homepage): <a href="https://www.figma.com/design/Np0FzcIIx83R2FdX9cS4n3/mandap-Citybased-home-page?node-id=0-1" style="color:var(--rose);text-decoration:underline;font-weight:600;" target="_blank">→ Open in Figma</a></p>
+  <p style="font-size:14px;color:var(--ink-soft);">All four design states, interactions, and component details are documented in this Figma file.</p>
 
   <div class="solution-block">
     <h4>Core principle: Passive personalization</h4>
@@ -262,15 +293,24 @@ footer p{font-size:13.5px;color:var(--ink-soft);max-width:600px;margin:0 auto;}
   <h3 style="margin-top:48px;">State 1: Detected homepage</h3>
   <p><strong>What's shown:</strong> Multiple featured venue categories (Kalyana Mandapams, Premium, Seaside, etc.) with carousel tiles, each showing [Count] + local data. "Why Mandap?" section + WedAssist upsell. City chip shows "Chennai" in sticky top-right.</p>
   <p><strong>Key detail:</strong> Categories shown are <em>city-aware</em>. "Sea side venues" only appears in coastal cities. Counts are local, not national.</p>
+  <div style="background:rgba(244,164,96,.06);border-left:3px solid var(--marigold);padding:16px;margin:16px 0;border-radius:6px;font-size:13px;">
+    <strong>→ See in Figma:</strong> Frame "State 1 — City Detected" in the design file shows the full homepage layout with all featured categories, search bar, and personalization signals.
+  </div>
 
   <h3 style="margin-top:48px;">State 2: High inventory results</h3>
   <p><strong>Scenario:</strong> User searched in Chennai (427 Kalyana Mandapams). Results page with 3-column venue grid.</p>
   <p><strong>Design decision:</strong> No extra nudges. User has plenty of choice. Focus is browsing venues, rating, checking availability.</p>
+  <div style="background:rgba(0,184,169,.06);border-left:3px solid var(--teal);padding:16px;margin:16px 0;border-radius:6px;font-size:13px;">
+    <strong>→ See in Figma:</strong> Frame "State 2 — High Inventory (427)" shows the 3-column grid layout with no nudges or additional guidance.
+  </div>
 
   <h3 style="margin-top:48px;">State 3: Low inventory results</h3>
   <p><strong>Scenario:</strong> User searched in Coimbatore for Kalyana Mandapams (only 35 available). 2-column grid on left, info card on right.</p>
   <p><strong>Info card shows:</strong> "Limited venues in this city" + 3 mini venue thumbnails from nearby towns (Mahabalipuram, Kanchipuram, etc.) + "Explore nearby venues →" button.</p>
   <p><strong>Design decision:</strong> Smart auto-include of 50km radius venues in results. Info card makes this visible. User doesn't re-search; they just click to see more options.</p>
+  <div style="background:rgba(244,164,96,.06);border-left:3px solid var(--marigold);padding:16px;margin:16px 0;border-radius:6px;font-size:13px;">
+    <strong>→ See in Figma:</strong> Frame "State 3 — Low Inventory (35)" shows the 2-column grid + info card nudging to nearby cities. This is the key innovation for tier-2/tier-3 cities.
+  </div>
 
   <h3 style="margin-top:48px;">State 4: Zero venues (no results OR detection failed)</h3>
   <p><strong>Centered empty state with:</strong></p>
@@ -285,6 +325,10 @@ footer p{font-size:13.5px;color:var(--ink-soft);max-width:600px;margin:0 auto;}
     <li><strong>Secondary (outline button):</strong> "Explore nearby venues" Shows 50km radius results.</li>
   </ul>
   <p><strong>Below (context, not CTA):</strong> WedAssist card — "Assisted Wedding Planning Service" with consultant photo. Upsell for users who need full planning, not just venue booking.</p>
+
+  <div style="background:rgba(232,99,74,.06);border-left:3px solid var(--rose);padding:16px;margin:16px 0;border-radius:6px;font-size:13px;">
+    <strong>→ See in Figma:</strong> Frame "State 4 — Zero Venues" shows the honest empty state with 2 CTAs and WedAssist context card. This is where low-inventory becomes a conversion opportunity (via concierge).
+  </div>
 
   <h3 style="margin-top:48px;">Fallback: Detection failed</h3>
   <p><strong>If city detection fails (permission denied + IP lookup empty):</strong> Show legacy homepage or prompt "Where are you planning?" User types city manually. No errors, no confusion.</p>
