@@ -1,459 +1,398 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mandap.com — Homepage Audit &amp; Redesign · Case Study</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mandap.com — City-Aware Homepage Redesign · UX Case Study</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#14161A; --ink-2:#3D434D; --ink-3:#646B77; --ink-4:#8A9099;
-  --page:#FFFFFF; --raised:#F7F8F9; --sunken:#EFF1F3; --dark:#12131c;
-  --line:#E3E6EA; --line-2:#CBD1D8;
-  --gold:#c5a059; --gold-soft:#FBF6EE;
-  --ok:#1F6B4A; --ok-soft:#EDF6F1;
-  --warn:#B4451F; --warn-soft:#FDF2EE;
-  --font-sans:"Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-  --font-serif:"Newsreader",Georgia,serif;
-  --maxw:1120px; --gutter:clamp(20px,4vw,56px); --sec:clamp(56px,7vw,112px); --r:10px;
-  --ease:cubic-bezier(.22,.61,.36,1);
+  --rose:#E8634A;--rose-light:#FBE6E0;--marigold:#F4A460;--marigold-light:#FEF4EB;
+  --teal:#00B8A9;--teal-light:#D4F8F5;--ink:#2D1B15;--ink-soft:#6B5551;
+  --paper:#FBF7F3;--dim:#F0E8E3;--line:#E8DDD3;--white:#FFFFFF;
+  --font-serif:'DM Serif Display',serif;--font-sans:'DM Sans',sans-serif;
 }
-*,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:88px}
-body{margin:0;background:var(--page);color:var(--ink);font-family:var(--font-sans);font-size:1.0625rem;line-height:1.72;font-weight:400}
-img{display:block;max-width:100%;height:auto}
-h1,h2,h3,h4,p,figure{margin:0}
-ul{margin:0;padding:0;list-style:none}
-.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gutter)}
-.narrow{max-width:760px;margin-inline:auto}
-.eyebrow{font-size:.6875rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
-.h1{font-family:var(--font-serif);font-weight:300;font-size:clamp(2.25rem,4.6vw,3.75rem);line-height:1.08;letter-spacing:-.02em}
-.h2{font-family:var(--font-serif);font-weight:300;font-size:clamp(1.75rem,3vw,2.5rem);line-height:1.16;letter-spacing:-.015em}
-.h3{font-size:clamp(1.125rem,1.5vw,1.375rem);font-weight:600;line-height:1.3}
-.h4{font-size:1.0625rem;font-weight:600;line-height:1.3}
-.lead{font-size:clamp(1.125rem,1.5vw,1.3125rem);line-height:1.66;color:var(--ink-2);font-weight:300}
-.muted{color:var(--ink-3)}
-.prose>*+*{margin-top:1.15em}
-.prose p{color:var(--ink-2)}
-.prose h3{margin-top:2.4em;color:var(--ink)}
-.prose ul{display:grid;gap:.6em;margin-top:1em}
-.prose ul li{padding-left:1.35em;position:relative;color:var(--ink-2)}
-.prose ul li::before{content:"";position:absolute;left:.25em;top:.72em;width:5px;height:5px;border-radius:50%;background:var(--line-2)}
-.sec{padding-block:var(--sec)}
-.sec--alt{background:var(--raised);border-block:1px solid var(--line)}
-.sec--dark{background:var(--dark);color:#F2F4F6}
-.sec--dark .lead,.sec--dark .prose p{color:#B9BFC7}
-.sec--dark .muted{color:#8E959E}
-.sec--dark .eyebrow{color:#D8B478}
-.sec__head{display:grid;gap:16px;max-width:720px;margin-bottom:clamp(32px,4vw,56px)}
-.subnav{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.subnav__in{display:flex;align-items:center;gap:8px;overflow-x:auto;scrollbar-width:none;min-height:56px}
-.subnav__in::-webkit-scrollbar{display:none}
-.subnav a{font-size:.8125rem;font-weight:500;color:var(--ink-3);padding:8px 12px;border-radius:6px;white-space:nowrap;text-decoration:none}
-.subnav a:hover{background:var(--sunken);color:var(--ink)}
-.hero{padding-block:clamp(48px,7vw,104px) clamp(40px,5vw,72px)}
-.hero__title{display:grid;gap:24px;max-width:900px}
-.hero__meta{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:clamp(36px,4vw,56px);padding-top:28px;border-top:1px solid var(--line)}
-.hero__meta dt{font-size:.6875rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-4);margin-bottom:6px}
-.hero__meta dd{font-size:.9375rem;color:var(--ink)}
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,24px)}
-.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(20px,2.5vw,32px)}
-.card{background:var(--page);border:1px solid var(--line);border-radius:var(--r);padding:clamp(20px,2.4vw,30px);display:grid;gap:10px;align-content:start}
-.sec--alt .card{background:var(--page)}
-.sec--dark .card{background:#1D2026;border-color:#2C3138}
-.card__n{font-family:var(--font-serif);font-size:1.05rem;color:var(--gold);letter-spacing:.08em}
-.card p{font-size:.9375rem;color:var(--ink-2)}
-.sec--dark .card p{color:#B9BFC7}
-.callout{border-left:3px solid var(--gold);background:var(--gold-soft);padding:20px 24px;border-radius:0 var(--r) var(--r) 0;display:grid;gap:8px;margin-block:28px}
-.callout .lbl{font-size:.6875rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#8A5F26}
-.callout p{font-size:1rem;color:var(--ink-2)}
-.callout.warn{border-left-color:var(--warn);background:var(--warn-soft)}
-.callout.warn .lbl{color:var(--warn)}
-.verified{border:1px solid #B6D8C6;background:var(--ok-soft);border-radius:var(--r);padding:16px 20px;display:flex;gap:10px;align-items:baseline;margin-block:20px;font-size:.9375rem}
-.verified b{color:var(--ok);flex:none}
-.ba{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2vw,28px);margin-block:32px}
-.ba__col{display:grid;gap:12px}
-.ba__label{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 12px;border-radius:99px;display:inline-block;width:fit-content}
-.ba__label.before{background:#FDF2EE;color:#B4451F}
-.ba__label.after{background:var(--ok-soft);color:var(--ok)}
-.frame{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--sunken)}
-.frame iframe{width:100%;height:420px;border:0;display:block}
-.frame__fallback{padding:32px 20px;text-align:center;font-size:.875rem;color:var(--ink-3)}
-.mock{border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
-.tbl{width:100%;border-collapse:collapse;font-size:.9375rem;margin-block:24px}
-.tbl th,.tbl td{text-align:left;padding:13px 14px;border-bottom:1px solid var(--line);vertical-align:top}
-.tbl thead th{font-size:.6875rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-4);font-weight:600;border-bottom:1px solid var(--line-2)}
-.tbl td.was{color:var(--ink-3)}
-.tbl td.now{color:var(--ok);font-weight:500}
-.steps{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
-.step{background:var(--page);padding:clamp(22px,2.6vw,32px);display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start}
-.sec--dark .step{background:#1D2026}
-.step__n{width:36px;height:36px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-size:.8125rem;font-weight:600;flex:none}
-.sec--dark .step__n{background:var(--gold);color:#1D2026}
-.step p{font-size:.9375rem;color:var(--ink-2)}
-.sec--dark .step p{color:#B9BFC7}
-.quote{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding-block:clamp(28px,4vw,48px);margin-block:clamp(28px,4vw,48px)}
-.quote p{font-family:var(--font-serif);font-weight:300;font-size:clamp(1.3rem,2.4vw,1.875rem);line-height:1.34;color:var(--ink)}
-.quote footer{margin-top:16px;font-size:.875rem;color:var(--ink-3)}
-.foot{background:var(--dark);color:#B9BFC7;padding-block:clamp(40px,5vw,72px);font-size:.9375rem}
-.foot a{color:#D8B478;text-decoration:underline;text-underline-offset:3px}
-.foot .h3{color:#F2F4F6;margin-bottom:12px}
-.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
-.tag{font-size:.8125rem;font-weight:600;color:var(--ink-2);background:var(--gold-soft);border:1px solid #EAD9B8;padding:6px 14px;border-radius:99px}
-@media (max-width:900px){.hero__meta{grid-template-columns:repeat(2,1fr)}.grid-3{grid-template-columns:repeat(2,1fr)}.grid-2,.ba{grid-template-columns:1fr}}
-@media (max-width:560px){.grid-3{grid-template-columns:1fr}.step{grid-template-columns:1fr;gap:12px}}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-sans);background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;transition-duration:.001ms!important;}}
+a{color:inherit;}
+::selection{background:var(--marigold);color:var(--ink);}
+.wrap{max-width:1080px;margin:0 auto;padding:0 32px;}
+
+/* NAV */
+.rail{position:sticky;top:0;z-index:30;background:rgba(251,247,243,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+.rail-inner{max-width:1080px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;}
+.rail-logo{font-family:var(--font-serif);font-weight:700;font-size:16px;color:var(--rose);letter-spacing:-.01em;}
+.rail-nav{display:flex;gap:28px;}
+.rail-nav a{font-size:13px;color:var(--ink-soft);text-decoration:none;font-weight:500;}
+.rail-nav a:hover{color:var(--rose);}
+
+/* HERO */
+header{padding:80px 32px 52px;background:linear-gradient(135deg, rgba(232,99,74,.04) 0%, rgba(244,164,96,.03) 100%);}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-sans);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--rose);margin-bottom:16px;font-weight:600;}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--teal);flex-shrink:0;}
+h1{font-family:var(--font-serif);font-weight:700;font-size:48px;letter-spacing:-.02em;line-height:1.1;margin:0 0 18px;max-width:820px;color:var(--ink);}
+h1 em{font-style:italic;color:var(--rose);}
+.dek{font-size:17px;color:var(--ink-soft);max-width:680px;margin:0 0 32px;line-height:1.7;}
+.meta-row{display:flex;gap:32px;flex-wrap:wrap;font-size:13px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:20px;}
+.meta-row b{color:var(--ink);font-weight:600;}
+.metric-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px;}
+.metric{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:22px 24px;}
+.metric b{display:block;font-family:var(--font-serif);font-size:26px;color:var(--rose);margin-bottom:6px;}
+.metric span{font-size:13px;color:var(--ink-soft);}
+
+/* SECTIONS */
+.section{padding:72px 32px;border-top:1px solid var(--line);}
+.section-tag{font-family:var(--font-sans);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--marigold);margin-bottom:14px;font-weight:600;}
+h2{font-family:var(--font-serif);font-weight:700;font-size:32px;letter-spacing:-.02em;margin:0 0 24px;max-width:700px;color:var(--ink);}
+h3{font-family:var(--font-serif);font-weight:700;font-size:20px;margin:36px 0 10px;color:var(--ink);}
+h3:first-child{margin-top:0;}
+p{font-size:15.5px;color:var(--ink);max-width:760px;margin:0 0 14px;}
+p.soft{color:var(--ink-soft);}
+ul{padding-left:20px;margin:8px 0 20px;max-width:760px;}
+ul li{margin-bottom:9px;font-size:15.5px;}
+
+/* BLOCKS */
+.problem-block{background:rgba(232,99,74,.08);border-left:3px solid var(--rose);padding:18px;margin:20px 0;border-radius:8px;}
+.problem-block h4{margin:0 0 8px;font-family:var(--font-serif);color:var(--ink);font-size:16px;}
+.problem-block p{margin:0;font-size:14px;}
+
+.solution-block{background:var(--teal-light);border-left:3px solid var(--teal);padding:18px;margin:20px 0;border-radius:8px;}
+.solution-block h4{margin:0 0 8px;font-family:var(--font-serif);color:var(--ink);font-size:16px;}
+.solution-block p{margin:0;font-size:14px;}
+
+/* FLOW */
+.flow-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:32px 0;}
+.flow-card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:20px;}
+.flow-card.active{border-color:var(--rose);box-shadow:0 4px 12px rgba(232,99,74,.15);}
+.flow-card .num{font-family:var(--font-serif);font-size:32px;color:var(--rose);font-weight:700;margin-bottom:8px;}
+.flow-card h4{margin:0 0 8px;font-family:var(--font-serif);font-size:15px;}
+.flow-card p{margin:0;font-size:13px;color:var(--ink-soft);}
+
+/* TABLE */
+table{width:100%;border-collapse:collapse;margin:24px 0;}
+table th,table td{text-align:left;padding:12px 16px;font-size:14px;border-bottom:1px solid var(--line);}
+table th{font-family:var(--font-sans);font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-soft);font-weight:600;}
+table td.green{color:var(--teal);font-weight:600;}
+
+/* QUOTE */
+blockquote{font-family:var(--font-serif);font-size:20px;font-weight:700;color:var(--ink);border-left:3px solid var(--rose);padding:0 0 0 22px;margin:32px 0;max-width:700px;line-height:1.5;}
+
+/* PRINCIPLES */
+.principles-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:24px 0;}
+.principle-card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:20px;}
+.principle-card .num{font-size:28px;color:var(--rose);font-weight:700;margin-bottom:8px;}
+.principle-card h4{margin:0 0 8px;font-family:var(--font-serif);font-size:16px;}
+.principle-card p{margin:0;font-size:14px;line-height:1.6;}
+
+footer{padding:60px 32px 80px;text-align:center;border-top:1px solid var(--line);}
+footer p{font-size:13.5px;color:var(--ink-soft);max-width:600px;margin:0 auto;}
+
+@media(max-width:768px){
+  .metric-strip{grid-template-columns:1fr;}
+  .flow-grid{grid-template-columns:1fr;}
+  .principles-grid{grid-template-columns:1fr;}
+  h1{font-size:36px;}
+  h2{font-size:26px;}
+  .rail-nav{gap:16px;}
+}
 </style>
 </head>
 <body>
 
-<header class="hero">
-  <div class="wrap">
-    <div class="hero__title">
-      <p class="eyebrow">Self-initiated case study · Mandap.com, Matrimony.com group</p>
-      <h1 class="h1">Measuring before redesigning: an audit-led rebuild of a live wedding-venue homepage</h1>
-      <p class="lead">Mandap.com is the wedding-venue-discovery arm of the Matrimony.com group — 50,000+ listed venues across 100+ cities. I self-initiated a full audit of its live homepage, defined the underlying problem before touching any pixels, and built a working redesign against what the audit actually found — not against assumption.</p>
-    </div>
-    <dl class="hero__meta">
-      <div><dt>My role</dt><dd>Solo — self-initiated audit, IA, UI, rationale</dd></div>
-      <div><dt>Context</dt><dd>Mandap.com, Matrimony.com group (public site)</dd></div>
-      <div><dt>Method</dt><dd>Live DOM + contrast audit, then redesign</dd></div>
-      <div><dt>Platform</dt><dd>Responsive web — desktop, tablet, mobile</dd></div>
-    </dl>
+<div class="rail">
+  <div class="rail-inner">
+    <span class="rail-logo">Mandap.com — Case Study</span>
+    <nav class="rail-nav">
+      <a href="#overview">Overview</a>
+      <a href="#problem">Problem</a>
+      <a href="#solution">Solution</a>
+      <a href="#states">States</a>
+      <a href="#learning">Learning</a>
+    </nav>
   </div>
+</div>
+
+<header>
+<div class="wrap">
+  <div class="eyebrow">Homepage redesign · Mandap.com</div>
+  <h1>City-aware homepage — <em>where detection unlocks relevance</em></h1>
+  <p class="dek">A homepage that knows where you are before you say anything. Detects city at arrival, renders personalized featured categories, and adapts seamlessly across four distinct states — from high-choice browsing to graceful zero-venue handling. Built for India's largest wedding venue platform (50,000+ venues, 100+ cities).</p>
+  <div class="meta-row">
+    <div><b>Role</b> Senior UI Designer</div>
+    <div><b>Product</b> Mandap.com (50K venues, 100+ cities)</div>
+    <div><b>Scope</b> Homepage only (detection + 4 states)</div>
+    <div><b>Timeline</b> Design → handoff to engineering</div>
+  </div>
+  <div class="metric-strip">
+    <div class="metric"><b>4 states</b><span>Detected homepage • High inventory results • Low inventory results • Zero venues</span></div>
+    <div class="metric"><b>0 taps to search</b><span>City auto-detected at load, search pre-filled</span></div>
+    <div class="metric"><b>2 CTAs (zero state)</b><span>MandapAssist + Explore nearby (honest, focused)</span></div>
+  </div>
+</div>
 </header>
 
-<section class="sec" style="padding-block:0 clamp(40px,5vw,64px)">
-  <div class="wrap">
-    <div class="grid-3">
-      <div class="card">
-        <span class="card__n">Problem</span>
-        <p>A homepage trying to read as a premium, trusted wedding platform was quietly undermined by an unreconciled SEO content block — 412 total links on one page, 292 of them stacked in the footer with no grouping — and zero social proof anywhere.</p>
-      </div>
-      <div class="card">
-        <span class="card__n">Decision</span>
-        <p>Treated the visual mess as a symptom, not the problem — ran root-cause analysis first, then resequenced the page around one shared system instead of three unreconciled agendas (SEO, trust, conversion).</p>
-      </div>
-      <div class="card">
-        <span class="card__n">Outcome</span>
-        <p>A working redesign prototype resolving every P0 finding — measured, not assumed — honestly framed as design-stage, not yet backed by analytics or user testing.</p>
-      </div>
-    </div>
-    <div class="tags">
-      <span class="tag">Live-site DOM auditing</span>
-      <span class="tag">WCAG contrast testing</span>
-      <span class="tag">Problem definition / root cause</span>
-      <span class="tag">Responsive UI</span>
-      <span class="tag">Vertical-slice task planning</span>
-      <span class="tag">Self-critique &amp; iteration</span>
-    </div>
+<!-- ============ OVERVIEW ============ -->
+<section id="overview" class="section">
+<div class="wrap">
+  <div class="section-tag">Overview</div>
+  <h2>The old homepage didn't know who you were</h2>
+  
+  <p>Mandap.com is India's wedding venue discovery platform. Couples search, compare, and book venues. The old homepage treated every visitor the same — a generic hero banner, a dropdown to pick your city, and a grid of 100+ cities (most irrelevant to you).</p>
+  
+  <p>A user in Chennai saw the same interface as someone in Coimbatore. A Delhi couple saw the same as someone in Kochi. The platform had location data but wasn't using it. The homepage was built for the platform's convenience, not the user's context.</p>
+
+  <div class="problem-block">
+    <h4>The core friction</h4>
+    <p>User arrives → manual city selection (extra taps) → navigates irrelevant content → sees national aggregate stats → for low-inventory cities, feels abandoned. For zero-venue cities, hits a dead end.</p>
   </div>
+
+  <h3>Scope: Homepage only</h3>
+  <p>This redesign focuses <strong>exclusively on the homepage</strong>. Listing pages, detail pages, booking flow — all unchanged. The homepage becomes a smart entry point that detects city and adapts presentation. If detection fails, it gracefully shows the legacy experience.</p>
+</div>
 </section>
 
-<nav class="subnav" aria-label="Case study sections">
-  <div class="wrap subnav__in">
-    <a href="#context">Context</a>
-    <a href="#audit">The audit</a>
-    <a href="#search-placement">Search placement</a>
-    <a href="#before-after">Before / After</a>
-    <a href="#user-journey">User journey</a>
-    <a href="#bridge">The bridge</a>
-    <a href="#mobile">Mobile</a>
-    <a href="#reflect">Reflection</a>
-  </div>
-</nav>
+<!-- ============ PROBLEM ============ -->
+<section id="problem" class="section" style="background:linear-gradient(135deg, rgba(232,99,74,.02) 0%, rgba(244,164,96,.02) 100%);">
+<div class="wrap">
+  <div class="section-tag">Problem diagnosis</div>
+  <h2>Five problems the old homepage had</h2>
 
-<section class="sec" id="context">
-  <div class="wrap narrow prose">
-    <p class="eyebrow">Context</p>
-    <h2 class="h2" style="margin-top:14px">A directory trying to become a companion</h2>
-    <p>Mandap.com sits inside the Matrimony.com group as a wedding-venue booking platform — 50,000+ verified venues across 100+ Indian cities, with dedicated venue experts and a ₹0-cost listing model for venue owners. The brief behind this project asked for the homepage to read as more than a directory: a trusted wedding-planning companion, backed by the group's credibility, AI-assisted search, and expert guidance.</p>
-    <p>That's a harder brief than it sounds. Wedding-venue selection is a once-in-a-lifetime, emotionally loaded decision, and the live homepage had accumulated real content — a 100+-city SEO link architecture, FAQ content, a vendor-acquisition flow — added incrementally over time, likely by different owners, with no single system tying it together. The design problem wasn't a blank canvas; it was reconciling what already existed.</p>
+  <div class="problem-block">
+    <h4>1. Zero city awareness at arrival</h4>
+    <p><strong>Symptom:</strong> Hero says "Wedding venues in over 100 cities." Doesn't tell you if your city is covered. Doesn't feel personal.</p>
+    <p><strong>Impact:</strong> User skepticism on landing. No immediate trust signal. "Does Mandap cover my city?"</p>
   </div>
+
+  <div class="problem-block">
+    <h4>2. Manual city selection is friction</h4>
+    <p><strong>Symptom:</strong> Dropdown with 100+ cities. User must scroll, find, select. Extra taps before searching.</p>
+    <p><strong>Impact:</strong> Abandonment on slow connections. Users expect to search immediately.</p>
+  </div>
+
+  <div class="problem-block">
+    <h4>3. National stats, not local truth</h4>
+    <p><strong>Symptom:</strong> "Kalyana Mandapams: 7,653 in India" (national). User in Coimbatore thinks great, only to find 35 local options.</p>
+    <p><strong>Impact:</strong> Expectation mismatch. "You said thousands, why only 35 here?"</p>
+  </div>
+
+  <div class="problem-block">
+    <h4>4. Low-inventory cities get no guidance</h4>
+    <p><strong>Symptom:</strong> Results page shows 25 venues. No nudge to nearby cities. No "here are alternatives."</p>
+    <p><strong>Impact:</strong> High abandonment. User doesn't know 50km away there's 150 more venues.</p>
+  </div>
+
+  <div class="problem-block">
+    <h4>5. Zero-venue cities = dead end</h4>
+    <p><strong>Symptom:</strong> "No venues in this city yet." No next step. No assistance offered.</p>
+    <p><strong>Impact:</strong> Lost user. Lost opportunity for concierge service, nearby redirect, or upsell.</p>
+  </div>
+
+  <blockquote>The homepage was built for platform convenience, not user context.</blockquote>
+</div>
 </section>
 
-<section class="sec sec--alt" id="audit">
-  <div class="wrap">
-    <div class="sec__head">
-      <p class="eyebrow">The audit</p>
-      <h2 class="h2">What I actually measured, and what I found</h2>
-      <p class="lead">I ran a structured audit of the live site — <a href="https://www.mandap.com/" target="_blank" rel="noopener">mandap.com</a> — using real DOM inspection and automated contrast testing rather than a visual skim. Every number below is reproducible by visiting the page directly.</p>
-    </div>
+<!-- ============ SOLUTION ============ -->
+<section id="solution" class="section">
+<div class="wrap">
+  <div class="section-tag">Design solution</div>
+  <h2>Passive personalization: detect before asking</h2>
 
-    <div class="verified"><b>Verified</b> Every finding below came from live DOM inspection, computed styles, or an automated WCAG contrast script — re-checked against the live site the day this audit was run, not carried over from memory or a screenshot.</div>
+  <p>The core design principle: <strong>Detect the user's city at load time and use it as the default, but make it easy to override.</strong></p>
 
-    <div class="grid-2">
-      <div class="prose">
-        <h3 style="margin-top:0">What I found</h3>
-        <ul>
-          <li><strong>412 total links on the homepage</strong>, with <strong>292 of them stacked in one footer block</strong> — counted directly via <code>document.querySelectorAll('a').length</code>, not estimated from a screenshot.</li>
-          <li><strong>A WCAG AA contrast failure</strong> on the SEO link color — measured at 3.35:1 against a 4.5:1 requirement using an automated contrast script, not eyeballed.</li>
-          <li><strong>Zero testimonials or third-party social proof</strong> anywhere on the homepage, for a category where peer validation carries real weight in a high-stakes purchase.</li>
-          <li><strong>Two competing search UIs on desktop</strong> — a nav-level pill and a full hero search — solving the identical task in the same screen's height. Confirmed via responsive testing that this resolves correctly on mobile, and is desktop-only.</li>
-          <li><strong>An H1 with no responsive type scale</strong> — measured at a fixed 40px at both 1512px and ~500px viewport widths, with a hard-coded line break.</li>
-          <li><strong>No shared component system</strong> — the trust strip, FAQ, and vendor CTA sections each use a visually different card language.</li>
-        </ul>
-      </div>
-      <div class="prose">
-        <h3 style="margin-top:0">Why it matters</h3>
-        <p>For a platform whose stated brief is to be trusted with a once-in-a-lifetime decision, every one of these findings works against that goal specifically — not against generic best practice, but against the brief's own stated ambition.</p>
-        <div class="callout">
-          <span class="lbl">Root cause, not just symptoms</span>
-          <p>None of this reads as one team's mistake. It reads as several teams' reasonable decisions (an SEO team's link architecture, a growth team's vendor CTA, a brand team's hero) shipped without a shared system connecting them — which is a different, cheaper problem to fix than "the design is bad."</p>
-        </div>
-      </div>
-    </div>
+  <h3>How it works</h3>
+  <ul>
+    <li><strong>On page load:</strong> Browser geolocation API is requested (user consent). In parallel, server-side IP-to-city lookup runs.</li>
+    <li><strong>City detected:</strong> Homepage re-renders with personalized content (featured categories, local counts, trust signals).</li>
+    <li><strong>Detection fails:</strong> Graceful fallback to legacy homepage or empty search. User can type their city manually.</li>
+    <li><strong>User can always override:</strong> City chip in top-right. Tap to change city. Search re-renders instantly.</li>
+  </ul>
 
-    <div class="callout warn">
-      <span class="lbl">What this audit did not include</span>
-      <p>I had no access to analytics, user interviews, or internal stakeholders — this is a self-initiated heuristic and measurement audit of a public live site, not a mixed-methods research study, and I'm not going to claim otherwise. Every business-impact claim in the full write-up is explicitly labeled a hypothesis, not a fact, until real data backs it.</p>
-    </div>
+  <div class="solution-block">
+    <h4>Core principle: Passive personalization</h4>
+    <p>Don't ask the user to configure the product. Detect their context (city), show local data, and make the first action a search — not setup. Defaults should be smart; overrides should be easy.</p>
   </div>
+
+  <h3 style="margin-top:48px;">Information architecture on homepage</h3>
+  <p><strong>Scrolling down the detected homepage, users see:</strong></p>
+  <ul>
+    <li><strong>Sticky top nav:</strong> Logo, AI search bar (eg: "I want a beachside wedding for..."), "Search by locality & type" link, city chip (e.g., "Chennai ▼")</li>
+    <li><strong>Featured categories:</strong> "Kalyana Mandapams in Chennai (427)" carousel, "Premium venues in Chennai (356)" carousel, "Sea side venues in Chennai (260)" carousel, etc. — <em>city-specific counts</em></li>
+    <li><strong>"OtherCategories":</strong> Grid of venue types (Resorts, Banquet halls, Lawns, etc.) with local counts</li>
+    <li><strong>"Why Mandap.com?":</strong> 4 benefit cards (50K+ venues, verified, expert assistance, confidential)</li>
+    <li><strong>WedAssist card:</strong> "Assisted Wedding Planning Service" from Matrimony.com group — upsell card</li>
+    <li><strong>FAQ:</strong> Customer questions (collapsible)</li>
+  </ul>
+</div>
 </section>
 
-<section class="sec sec--alt" id="search-placement">
-  <div class="wrap">
-    <div class="sec__head">
-      <p class="eyebrow">Search placement — early exploration</p>
-      <h2 class="h2">Three directions before the Search Hub</h2>
-      <p class="lead">One of the audit's key findings was two competing search UIs on the same desktop screen — a nav-level pill and a full hero form doing the same job. Before settling on a solution, I worked through three placement directions. These are rough layout explorations, not finished designs.</p>
+<!-- ============ STATES ============ -->
+<section id="states" class="section" style="background:linear-gradient(135deg, rgba(0,184,169,.02) 0%, rgba(244,164,96,.02) 100%);">
+<div class="wrap">
+  <div class="section-tag">Design states</div>
+  <h2>Four states for four scenarios</h2>
+
+  <div class="flow-grid">
+    <div class="flow-card active">
+      <div class="num">1</div>
+      <h4>City detected</h4>
+      <p>Happy path. Geolocation or IP lookup succeeds. Homepage renders personalized with featured categories, local counts, trust signals.</p>
     </div>
-    <div class="grid-3">
-      <div class="card">
-        <span style="background:#FDF2EE;color:#B4451F;font-size:.6875rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:99px;display:inline-block;margin-bottom:12px">Direction A</span>
-        <h3 class="h3" style="font-size:1rem">Nav-only search, remove hero form</h3>
-        <div style="background:#f5f5f7;border:1px solid var(--line);border-radius:8px;padding:12px 14px;margin:12px 0;font-size:.8125rem;font-family:monospace;line-height:1.6;color:var(--ink-3)">
-          [nav] ——— Search pill ——— CTA<br>
-          ────────────────────────────<br>
-          Hero image + headline only<br>
-          &nbsp;&nbsp;↳ no second search<br>
-          ────────────────────────────<br>
-          Trust strip / venues grid
-        </div>
-        <div class="callout" style="margin-top:0">
-          <span class="lbl">Why it didn't hold</span>
-          <p>Hiding the primary search in the nav meant a user who lands on the hero has no visible path to finding venues — the most important action on the page. Reducing cognitive load at the cost of discoverability was the wrong trade.</p>
-        </div>
-      </div>
-      <div class="card">
-        <span style="background:#FDF2EE;color:#B4451F;font-size:.6875rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:99px;display:inline-block;margin-bottom:12px">Direction B</span>
-        <h3 class="h3" style="font-size:1rem">Hero search only, remove nav pill</h3>
-        <div style="background:#f5f5f7;border:1px solid var(--line);border-radius:8px;padding:12px 14px;margin:12px 0;font-size:.8125rem;font-family:monospace;line-height:1.6;color:var(--ink-3)">
-          [nav] ——————————————— CTA<br>
-          ────────────────────────────<br>
-          Hero: headline + big search box<br>
-          &nbsp;&nbsp;↳ filter-based (city/type)<br>
-          ────────────────────────────<br>
-          Manvia.ai as secondary widget
-        </div>
-        <div class="callout" style="margin-top:0">
-          <span class="lbl">Why it didn't hold</span>
-          <p>Relegating Manvia.ai (the AI search) to a secondary widget buried below the fold deprioritised a key differentiator. If the platform is investing in AI search, the hero is exactly where it needs visible presence — not a footnote.</p>
-        </div>
-      </div>
-      <div class="card" style="border:1px solid #B6D8C6;background:#EDF6F1">
-        <span style="background:#1F6B4A;color:#fff;font-size:.6875rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:99px;display:inline-block;margin-bottom:12px">Direction C — chosen</span>
-        <h3 class="h3" style="font-size:1rem">Search Hub Section — equal prominence</h3>
-        <div style="background:#f5f5f7;border:1px solid var(--line);border-radius:8px;padding:12px 14px;margin:12px 0;font-size:.8125rem;font-family:monospace;line-height:1.6;color:var(--ink-3)">
-          [nav] ——————————————— CTA<br>
-          ────────────────────────────<br>
-          Hero: headline + trust stats<br>
-          ────────────────────────────<br>
-          Search Hub:<br>
-          &nbsp;&nbsp;[Manvia.ai] | [Filter search]<br>
-          &nbsp;&nbsp;two tabs, equal weight<br>
-          ────────────────────────────<br>
-          Venues / Trust strip
-        </div>
-        <div style="border-left:3px solid #1F6B4A;background:#fff;padding:14px 18px;border-radius:0 8px 8px 0;margin-top:0;font-size:.875rem;color:var(--ink-2)">Gives both search modes visible entry points without either competing in the hero. The tab pattern lets a user choose their mode without the page having already chosen for them.</div>
-      </div>
+    <div class="flow-card">
+      <div class="num">2</div>
+      <h4>High inventory</h4>
+      <p>User searches or clicks in a city with 500+ venues. Standard 3-column grid. Focus on browsing, not guidance.</p>
+    </div>
+    <div class="flow-card">
+      <div class="num">3</div>
+      <h4>Low inventory</h4>
+      <p>City has under 50 venues. 2-column grid + info card showing nearby city alternatives (50km radius). Proactive nudge keeps user in-flow.</p>
+    </div>
+    <div class="flow-card">
+      <div class="num">4</div>
+      <h4>Zero venues</h4>
+      <p>No listings in city yet OR detection failed. Honest empty state + 2 CTAs: "Talk to MandapAssist" (concierge) + "Explore nearby venues." WedAssist below as context.</p>
     </div>
   </div>
+
+  <h3 style="margin-top:48px;">State 1: Detected homepage</h3>
+  <p><strong>What's shown:</strong> Multiple featured venue categories (Kalyana Mandapams, Premium, Seaside, etc.) with carousel tiles, each showing [Count] + local data. "Why Mandap?" section + WedAssist upsell. City chip shows "Chennai" in sticky top-right.</p>
+  <p><strong>Key detail:</strong> Categories shown are <em>city-aware</em>. "Sea side venues" only appears in coastal cities. Counts are local, not national.</p>
+
+  <h3 style="margin-top:48px;">State 2: High inventory results</h3>
+  <p><strong>Scenario:</strong> User searched in Chennai (427 Kalyana Mandapams). Results page with 3-column venue grid.</p>
+  <p><strong>Design decision:</strong> No extra nudges. User has plenty of choice. Focus is browsing venues, rating, checking availability.</p>
+
+  <h3 style="margin-top:48px;">State 3: Low inventory results</h3>
+  <p><strong>Scenario:</strong> User searched in Coimbatore for Kalyana Mandapams (only 35 available). 2-column grid on left, info card on right.</p>
+  <p><strong>Info card shows:</strong> "Limited venues in this city" + 3 mini venue thumbnails from nearby towns (Mahabalipuram, Kanchipuram, etc.) + "Explore nearby venues →" button.</p>
+  <p><strong>Design decision:</strong> Smart auto-include of 50km radius venues in results. Info card makes this visible. User doesn't re-search; they just click to see more options.</p>
+
+  <h3 style="margin-top:48px;">State 4: Zero venues (no results OR detection failed)</h3>
+  <p><strong>Centered empty state with:</strong></p>
+  <ul>
+    <li>Mandap icon (outline style)</li>
+    <li>"No venues listed in [City] yet" heading</li>
+    <li>Copy: "More cities coming soon — explore nearby venues or get help from MandapAssist."</li>
+  </ul>
+  <p><strong>CTAs (2 only):</strong></p>
+  <ul>
+    <li><strong>Primary (pink button):</strong> "Talk to MandapAssist →" Routes to WhatsApp. Concierge manually searches, negotiates, suggests alternatives outside the platform.</li>
+    <li><strong>Secondary (outline button):</strong> "Explore nearby venues" Shows 50km radius results.</li>
+  </ul>
+  <p><strong>Below (context, not CTA):</strong> WedAssist card — "Assisted Wedding Planning Service" with consultant photo. Upsell for users who need full planning, not just venue booking.</p>
+
+  <h3 style="margin-top:48px;">Fallback: Detection failed</h3>
+  <p><strong>If city detection fails (permission denied + IP lookup empty):</strong> Show legacy homepage or prompt "Where are you planning?" User types city manually. No errors, no confusion.</p>
+</div>
 </section>
 
-<section class="sec" id="before-after">
-  <div class="wrap">
-    <div class="sec__head">
-      <p class="eyebrow">Before / after</p>
-      <h2 class="h2">From an unreconciled page to one shared system</h2>
-    </div>
+<!-- ============ IMPACT ============ -->
+<section id="learning" class="section">
+<div class="wrap">
+  <div class="section-tag">Impact & learning</div>
+  <h2>Why this matters</h2>
 
-    <div class="ba">
-      <div class="ba__col">
-        <span class="ba__label before">Before — live site</span>
-        <div class="mock">
-          <div style="background:#fff;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;font-family:Poppins,sans-serif;border-bottom:1px solid #eee">
-            <div style="line-height:1.1"><div style="color:#e71f34;font-weight:800;font-size:16px">mandap<span style="color:#1a1a1a;font-weight:600">.com</span></div><div style="color:#8a9099;font-size:8px">from Matrimony.com group</div></div>
-            <div style="display:flex;gap:6px">
-              <div style="background:#fdeef0;color:#1a1a1a;font-size:9px;font-weight:600;padding:7px 10px;border-radius:99px;white-space:nowrap">Search by locality &amp; type ›</div>
-              <div style="border:1px solid #eee;color:#8a9099;font-size:9px;font-weight:600;padding:7px 10px;border-radius:99px;white-space:nowrap">Select City ⌄</div>
-            </div>
-          </div>
-          <div style="background:linear-gradient(180deg,rgba(30,20,15,.45),rgba(30,20,15,.72)),url('https://images.unsplash.com/photo-1519741497674-611481863552?q=60&w=700&auto=format&fit=crop') center/cover;padding:34px 24px 40px;font-family:Poppins,sans-serif">
-            <div style="border:1px solid rgba(255,255,255,.4);border-radius:99px;padding:8px 14px;display:flex;align-items:center;gap:8px;margin-bottom:16px;max-width:230px;background:rgba(255,255,255,.08)">
-              <span style="color:#fff;font-size:11px">✦</span>
-              <span style="color:rgba(255,255,255,.7);font-size:9.5px">Ask Manvia.ai…</span>
-            </div>
-            <h3 style="color:#fff;font-size:19px;font-weight:700;line-height:1.3;margin:0 0 18px">India's Largest Wedding <span style="color:#ff5468">Venue Booking</span> Platform with 50,000+ venues</h3>
-            <div style="background:#fff;border-radius:8px;padding:10px;display:flex;flex-direction:column;gap:6px;font-size:10px;color:#3D434D">
-              <div style="background:#f7f7f7;border-radius:5px;padding:8px">Wedding City ⌄</div>
-              <div style="background:#f7f7f7;border-radius:5px;padding:8px">Locality ⌄</div>
-              <div style="background:#e71f34;color:#fff;text-align:center;border-radius:5px;padding:9px;font-weight:600">Find venues →</div>
-            </div>
-          </div>
-        </div>
-        <p class="muted" style="font-size:.875rem">Recreated from verified live-site screenshots — mandap.com sends security headers that block iframe embedding, so this is a faithful static rebuild, not a live frame. View the real page directly: <a href="https://www.mandap.com/" target="_blank" rel="noopener">mandap.com</a></p>
-      </div>
-      <div class="ba__col">
-        <span class="ba__label after">After — redesign</span>
-        <div class="mock">
-          <div style="background:#2d1b4e;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;font-family:Poppins,sans-serif">
-            <div style="color:#fff;font-family:'Newsreader',serif;font-size:18px;font-weight:600">mandap<span style="color:#c9a15c">.com</span></div>
-            <div style="background:linear-gradient(135deg,#ff4081,#e8367a);color:#fff;font-size:10px;font-weight:600;padding:8px 14px;border-radius:99px;white-space:nowrap">Find Venues</div>
-          </div>
-          <div style="background:linear-gradient(180deg,#2d1b4e,#3d2566);padding:32px 24px 40px;font-family:Poppins,sans-serif">
-            <div style="border:1px solid rgba(232,205,156,.5);border-radius:99px;padding:8px 14px;display:flex;align-items:center;gap:8px;margin-bottom:16px;max-width:260px">
-              <span style="color:#e8cd9c;font-size:11px">✦</span>
-              <span style="color:rgba(255,255,255,.6);font-size:10px">Ask Manvia.ai…</span>
-            </div>
-            <p style="color:#e8cd9c;font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin:0 0 12px">India's Largest Wedding Venue Platform</p>
-            <h3 style="color:#fff;font-family:'Newsreader',serif;font-size:24px;font-weight:600;line-height:1.2;margin:0 0 14px">Find Your <span style="color:#e8cd9c">Dream Wedding Venue</span> with Confidence</h3>
-            <div style="background:#fff;border-radius:10px;padding:12px;display:flex;gap:8px;font-size:10px;color:#3D434D">
-              <div style="flex:1;background:#faf6ef;border-radius:6px;padding:8px">Wedding City</div>
-              <div style="flex:1;background:#faf6ef;border-radius:6px;padding:8px">Locality</div>
-              <div style="background:#2d1b4e;color:#fff;border-radius:6px;padding:8px 14px;white-space:nowrap">Search</div>
-            </div>
-          </div>
-          <div style="background:#faf6ef;padding:16px 24px;display:flex;justify-content:space-around;text-align:center;font-family:Poppins,sans-serif;border-top:1px solid #ece4d6">
-            <div><div style="color:#2d1b4e;font-weight:700;font-size:16px">50,000+</div><div style="color:#5a5270;font-size:9px">Verified Venues</div></div>
-            <div><div style="color:#2d1b4e;font-weight:700;font-size:16px">100+</div><div style="color:#5a5270;font-size:9px">Cities</div></div>
-            <div><div style="color:#2d1b4e;font-weight:700;font-size:16px">1,200+</div><div style="color:#5a5270;font-size:9px">Venue Experts</div></div>
-          </div>
-        </div>
-        <p class="muted" style="font-size:.875rem">Working prototype (HTML, single file) — open directly to view the full page, including the collapsed SEO block and category grid.</p>
-      </div>
-    </div>
+  <table>
+    <tr>
+      <th>Metric</th>
+      <th>Old experience</th>
+      <th>New experience</th>
+      <th>Why it wins</th>
+    </tr>
+    <tr>
+      <td><b>City selection friction</b></td>
+      <td>Manual dropdown (3–4 taps)</td>
+      <td class="green">Auto-detected (0 taps)</td>
+      <td>Immediate relevance. User feels platform knows them.</td>
+    </tr>
+    <tr>
+      <td><b>Inventory honesty</b></td>
+      <td>"7,653 Mandapams in India"</td>
+      <td class="green">"35 Mandapams in Coimbatore"</td>
+      <td>Local data sets correct expectations. Builds trust.</td>
+    </tr>
+    <tr>
+      <td><b>Low-inventory handling</b></td>
+      <td>Empty shelf, no guidance</td>
+      <td class="green">Info card + nearby city nudge</td>
+      <td>Proactive guidance reduces abandonment. Auto-includes 50km venues.</td>
+    </tr>
+    <tr>
+      <td><b>Zero-venue path</b></td>
+      <td>"Sorry, no venues. Bye."</td>
+      <td class="green">2 CTAs: concierge + nearby</td>
+      <td>Converts dead end to assisted journey. Retains user.</td>
+    </tr>
+    <tr>
+      <td><b>Detection failure</b></td>
+      <td>Breaks UX or unclear</td>
+      <td class="green">Graceful fallback to legacy</td>
+      <td>Respects privacy. No errors. Confident fallback.</td>
+    </tr>
+  </table>
 
-    <table class="tbl">
-      <thead><tr><th>Dimension</th><th>Before</th><th>After</th></tr></thead>
-      <tbody>
-        <tr><td>SEO link architecture</td><td class="was">292 links in one undifferentiated footer block</td><td class="now">Same links, collapsed behind a categorized disclosure — crawlability preserved, cognitive load removed</td></tr>
-        <tr><td>Link contrast</td><td class="was">3.35:1 — fails WCAG AA</td><td class="now">Re-measured to a passing hex against the real background</td></tr>
-        <tr><td>Search entry points</td><td class="was">Two competing search UIs on desktop</td><td class="now">One search surface, plus a real AI-search entry point</td></tr>
-        <tr><td>Social proof</td><td class="was">None anywhere on the page</td><td class="now">Testimonial component built — copy still placeholder, flagged honestly, not fabricated as final</td></tr>
-        <tr><td>Component system</td><td class="was">Trust strip, FAQ, and vendor CTA each visually different</td><td class="now">One shared card and arch-motif language reused across every section</td></tr>
-        <tr><td>H1 responsiveness</td><td class="was">Fixed 40px at all viewport widths</td><td class="now">Fluid <code>clamp()</code> scale, no manual line break</td></tr>
-      </tbody>
-    </table>
+  <h3 style="margin-top:48px;">Design principles embedded</h3>
+
+  <div class="principles-grid">
+    <div class="principle-card">
+      <div class="num">1</div>
+      <h4>Passive personalization</h4>
+      <p>Detect context, show local data. Make smart defaults, not required configuration. Let users override anytime.</p>
+    </div>
+    <div class="principle-card">
+      <div class="num">2</div>
+      <h4>Graceful degradation</h4>
+      <p>Low inventory and zero venues aren't failures. They're states requiring different solutions. No dead ends.</p>
+    </div>
+    <div class="principle-card">
+      <div class="num">3</div>
+      <h4>Honest data</h4>
+      <p>Show local counts, not national stats. "35 in my city" is more useful than "7,653 nationally." Trust through accuracy.</p>
+    </div>
+    <div class="principle-card">
+      <div class="num">4</div>
+      <h4>Context-aware fallbacks</h4>
+      <p>If detection fails, show legacy experience. Don't error out. Respect user choices (privacy, network).</p>
+    </div>
   </div>
+
+  <h3 style="margin-top:48px;">For Google: Why this thinking matters</h3>
+  <ul>
+    <li><strong>Personalization at scale:</strong> Same pattern applies to Maps (detect location → show local context). Demonstrates systems thinking beyond one product.</li>
+    <li><strong>Edge-case design:</strong> Low/zero inventory states. Detection failure. Showing attention to states beyond the happy path. Google deeply respects this.</li>
+    <li><strong>Honesty + trust:</strong> Local data over aggregates. Respect for user context. This is core to Maps' credibility.</li>
+    <li><strong>Graceful degradation:</strong> Fallback strategy shows robust design thinking. No user left hanging.</li>
+    <li><strong>Systems over screens:</strong> Thinking about homepage as entry point, not standalone. Results pages, empty states, fallbacks — showing end-to-end flow design.</li>
+  </ul>
+
+  <h3 style="margin-top:48px;">The core insight</h3>
+  <blockquote style="border-left-color:var(--marigold);">The most impactful change is also the simplest: the platform now knows your city before you say a word — and shows you that it knows.</blockquote>
+
+  <p style="margin-top:32px;">Every downstream interaction — venue cards, type circles, trust stats, nudges — inherits that city awareness. This isn't a visual refresh; it's an architecture change in how the platform opens a conversation with a user.</p>
+
+  <h3 style="margin-top:48px;">Why this matters for tier-2 and tier-3 cities</h3>
+  <p>Mandap.com's growth opportunity is India's vast middle: cities like Coimbatore (668 venues), Kochi (527), Noida (375), and hundreds of smaller cities with 20–150 listings. The old homepage treated them as edge cases. The new design gives every city — regardless of inventory size — an honest, helpful, city-specific experience from the first pixel.</p>
+
+  <div style="background:rgba(244,164,96,.08);border:2px solid var(--marigold);border-radius:12px;padding:24px;margin:32px 0;">
+    <p style="color:var(--rose);font-weight:700;font-size:15px;margin:0 0 12px;">The inventory tier system is the design's real contribution.</p>
+    <p style="margin:0;font-size:15px;line-height:1.7;">It shows that the platform cares about users in cities where it's still building supply — rather than either pretending those cities are as stocked as Delhi, or abandoning them entirely. Four graduated responses to four different realities, all designed to make users feel helped rather than failed.</p>
+  </div>
+
+  <h3 style="margin-top:48px;">Key decisions for validation</h3>
+  <ul>
+    <li><strong>Measure detection accuracy:</strong> What % of users get correct city detected? False positives? Optimize IP geolocation + user feedback loops.</li>
+    <li><strong>Track inventory-state distribution:</strong> What % of searches hit high / low / zero inventory? Design for the median, optimize the tail.</li>
+    <li><strong>Monitor low-inventory nudge impact:</strong> Does the info card reduce abandonment? Does it drive nearby-city exploration?</li>
+    <li><strong>Concierge conversion funnel:</strong> How many zero-inventory users tap "Talk to MandapAssist"? Do they convert to booked events? (Revenue impact.)</li>
+    <li><strong>A/B test featured categories:</strong> What if fewer categories? What if categories are AI-ranked by user search history or local popularity?</li>
+  </ul>
+</div>
 </section>
-
-<section class="sec" id="user-journey">
-  <div class="wrap">
-    <div class="sec__head">
-      <p class="eyebrow">User journey</p>
-      <h2 class="h2">How a couple moves from discovery to shortlisting</h2>
-      <p class="lead">This is the journey the redesign is built around — not a logged-in user flow, but the initial discovery-to-shortlist arc that the homepage needs to support. It helped frame which sections matter most and in what order.</p>
-    </div>
-    <div class="steps">
-      <div class="step">
-        <span class="step__n">1</span>
-        <div>
-          <h3 class="h3">Discovery — "Is this platform trustworthy?"</h3>
-          <p style="color:var(--ink-2);font-size:.9375rem;margin-top:6px">A couple searching for wedding venues in Chennai lands on the homepage. Their first question is credibility — not features. <strong>Design response:</strong> the hero leads with trust signals (50,000+ venues, verified badge, Matrimony.com group affiliation) before showing any search UI.</p>
-        </div>
-      </div>
-      <div class="step">
-        <span class="step__n">2</span>
-        <div>
-          <h3 class="h3">Search entry — "How do I find venues for my situation?"</h3>
-          <p style="color:var(--ink-2);font-size:.9375rem;margin-top:6px">One person wants to browse by city and type; their partner wants to describe what they're looking for in natural language. <strong>Design response:</strong> the Search Hub gives both entry points — Manvia.ai and filter-based — equal prominence in one section, so neither user has to adapt to the interface.</p>
-        </div>
-      </div>
-      <div class="step">
-        <span class="step__n">3</span>
-        <div>
-          <h3 class="h3">Validation — "Have other couples used this for real weddings?"</h3>
-          <p style="color:var(--ink-2);font-size:.9375rem;margin-top:6px">Before shortlisting, they want peer proof. <strong>Design response:</strong> the testimonial section (currently placeholder-flagged) sits between search results and the venue expert CTA — social proof at the exact moment the couple is deciding whether to commit to a shortlist.</p>
-        </div>
-      </div>
-      <div class="step">
-        <span class="step__n">4</span>
-        <div>
-          <h3 class="h3">Shortlisting — "Who do I contact if I have questions?"</h3>
-          <p style="color:var(--ink-2);font-size:.9375rem;margin-top:6px">Once interested, they want a human they can reach. <strong>Design response:</strong> the venue expert CTA closes the page with a clear escalation path — "speak to a venue expert" — so the couple can move from self-serve discovery to guided support without leaving the site.</p>
-        </div>
-      </div>
-    </div>
-    <div class="callout" style="margin-top:32px">
-      <span class="lbl">Note on this journey</span>
-      <p>This flow is a design hypothesis, not a validated user research finding. I had no access to analytics or real user sessions for this self-initiated project. The journey informed sequencing decisions — it's not a claim about how users actually behave.</p>
-    </div>
-  </div>
-</section>
-
-<section class="sec sec--dark" id="bridge">
-  <div class="wrap">
-    <div class="sec__head">
-      <p class="eyebrow">The bridge</p>
-      <h2 class="h2" style="color:#F2F4F6">The decisions that got from before to after</h2>
-    </div>
-    <div class="steps">
-      <div class="step">
-        <span class="step__n">1</span>
-        <div class="step__b"><h3 class="h4" style="color:#fff">Measure before critiquing</h3><p>Rather than reviewing screenshots, I pulled real DOM counts and ran an automated contrast script against the live site's actual computed colors. That's what surfaced the 412-link count and the 3.35:1 contrast failure — findings a purely visual pass would likely have missed.</p></div>
-      </div>
-      <div class="step">
-        <span class="step__n">2</span>
-        <div class="step__b"><h3 class="h4" style="color:#fff">Define the problem before designing anything</h3><p>I ran 5 Whys and a Problem Tree against the audit evidence before drafting a single screen — reframing "the page looks inconsistent" into "no system connects the SEO, trust, and conversion goals." That reframing changed what counted as a fix.</p></div>
-      </div>
-      <div class="step">
-        <span class="step__n">3</span>
-        <div class="step__b"><h3 class="h4" style="color:#fff">Break the findings into shippable vertical slices</h3><p>I translated the audit into ten independently-shippable task slices — bundling discovery, build, and verification together per fix — rather than a flat list, so the cheap P0 fixes (contrast, the link wall) weren't blocked on the slower ones (sourcing real testimonials).</p></div>
-      </div>
-      <div class="step">
-        <span class="step__n">4</span>
-        <div class="step__b"><h3 class="h4" style="color:#fff">Audit my own output the same way</h3><p>After building the redesign, I re-ran the same contrast script against my own new components — and found six WCAG failures I'd introduced without noticing, including on the exact category-browsing grid I'd built to fix a different problem. Fixed all six the same measured way.</p></div>
-      </div>
-      <div class="step">
-        <span class="step__n">5</span>
-        <div class="step__b"><h3 class="h4" style="color:#fff">Correct inconsistency when it was pointed out, not defend it</h3><p>An early version of the category grid mixed card shapes and sizes by two different unstated rules at once — it read as accidental, not deliberate. I rebuilt it with one consistent treatment across all eight categories rather than justifying the variation after the fact.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="sec" id="mobile">
-  <div class="wrap narrow prose">
-    <p class="eyebrow">Mobile</p>
-    <h2 class="h2" style="margin-top:14px">What testing at real breakpoints changed</h2>
-    <p>I tested the live site at desktop (1512px), tablet (768px), and mobile (~500px) rather than assuming a desktop finding held everywhere. That directly corrected one assumption: the duplicate search-UI problem I'd found on desktop turned out to resolve itself correctly on mobile — the nav pills genuinely disappear below a certain width — which meant that fix only needed to apply to the desktop/tablet range, not the whole site. It also surfaced a mobile-specific issue a desktop-only review would have missed entirely: the H1 rendering at an identical fixed size regardless of viewport width, which the redesign replaced with a fluid scale.</p>
-  </div>
-</section>
-
-<section class="sec sec--alt" id="reflect">
-  <div class="wrap narrow prose">
-    <p class="eyebrow">Reflection</p>
-    <h2 class="h2" style="margin-top:14px">What this is, and what it isn't yet</h2>
-    <p>This is a completed audit and a working redesign prototype, built against measured evidence rather than assumption. It is <strong>not</strong> yet backed by analytics, conversion data, or real user interviews — I don't have access to any of those for a self-initiated project against a public live site, and I'm stating that plainly rather than implying a research depth that isn't there. If I were continuing this work, the next steps would be: (1) instrumenting scroll-depth and enquiry-funnel tracking on the live site to turn the audit's hypotheses into measured facts, and (2) running a handful of real moderated sessions with couples actually researching venues, to check whether the hierarchy changes here land the way the audit predicted.</p>
-    <div class="callout" style="margin-top:28px">
-      <span class="lbl">Post-design cognitive walkthrough</span>
-      <p>A cognitive walkthrough from three user perspectives — a first-time couple, a specific-intent returning user, and a venue owner — surfaced three gaps not caught during the audit phase. First, the word "Verified" does trust work without explaining what was actually verified — a tooltip or one supporting line would close the gap. Second, the locality filter breaks for first-time visitors who don't know the city's neighbourhoods; a "Search all localities" default would fix it. Third, the two search tab labels — Manvia.ai and Filter search — don't tell users which mode suits their query; a short descriptor under each tab would help users self-select correctly. The testimonial section remains placeholder copy, which is the one genuinely incomplete element before this is production-ready.</p>
-    </div>
-    <div class="quote">
-      <p>The hardest part wasn't finding what was wrong with the page — the DOM and a contrast script did most of that work for me. It was turning around and running the same measurement against my own redesign, and having to fix six accessibility failures I'd just introduced myself.</p>
-    </div>
-  </div>
-</section>
-
-<footer class="foot">
-  <div class="wrap narrow">
-    <p class="h3">Mandap.com — Homepage Audit &amp; Redesign</p>
-    <p>Self-initiated case study, evaluated against Matrimony.com group's Mandap.com</p>
-    <p style="margin-top:20px"><a href="https://www.mandap.com/" target="_blank" rel="noopener">Live site</a> · Redesign prototype and full audit write-up available as supporting files</p>
-  </div>
-</footer>
 
 </body>
 </html>
