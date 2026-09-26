@@ -24,7 +24,20 @@ footer{background:#17131a;color:#fff;padding:75px 0}footer p{color:#cfc8d0}
 </style>
 </head>
 <body>
-<nav class="nav"><div class="wrap navin"><a class="brand" href="#">meesho</a><div class="navlinks"><a href="#overview">Overview</a><a href="#research">Research</a><a href="#problem">Problem</a><a href="#solution">Solution</a><a href="#metrics">Metrics</a><a href="#learn">Learnings</a></div></div></nav><div style="position:fixed;left:0;top:68px;height:2px;background:#d92d83;width:100%;transform-origin:left;z-index:49;opacity:.7"></div>
+<nav class="nav">
+  <div class="wrap navin">
+    <a class="brand" href="#">meesho</a>
+
+    <div class="navlinks">
+      <a href="#overview">Overview</a>
+      <a href="#research">Research</a>
+      <a href="#problem">Problem</a>
+      <a href="#final-design">Solution</a>
+      <a href="#metrics">Metrics</a>
+      <a href="#learn">Learnings</a>
+    </div>
+  </div>
+</nav>
 
 <header class="hero">
 <div class="wrap">
@@ -109,8 +122,8 @@ footer{background:#17131a;color:#fff;padding:75px 0}footer p{color:#cfc8d0}
 <div class="kicker">07 · Evidence</div><h2>What the current Meesho experience already does well.</h2>
 <p class="lead">Before designing anything new, I wanted to understand the existing shopping journey. I used two current Meesho screens as the baseline: the product listing page and the product detail page.</p>
 <div class="scroll-grid">
-<div class="scroll-screen"><div class="scroll-window"><img src="assets/live-plp.png" alt="Current Meesho live product listing page"></div><div class="cap"><strong>Current PLP · Discovery</strong><span>Categories, offers, filters, product cards, price, ratings and marketplace signals are already part of the browsing experience.</span></div></div>
-<div class="scroll-screen"><div class="scroll-window"><img src="assets/live-pdp.png" alt="Current Meesho live product detail page"></div><div class="cap"><strong>Current PDP · Product decision</strong><span>Size, seller, product details, similar products, ratings, customer photos, delivery and purchase actions are already available.</span></div></div>
+<div class="scroll-screen"><div class="scroll-window"><img src="assets/live-plp.jpg" alt="Current Meesho live product listing page"></div><div class="cap"><strong>Current PLP · Discovery</strong><span>Categories, offers, filters, product cards, price, ratings and marketplace signals are already part of the browsing experience.</span></div></div>
+<div class="scroll-screen"><div class="scroll-window"><img src="assets/live-pdp.jpg" alt="Current Meesho live product detail page"></div><div class="cap"><strong>Current PDP · Product decision</strong><span>Size, seller, product details, similar products, ratings, customer photos, delivery and purchase actions are already available.</span></div></div>
 </div>
 <div class="quote2" style="margin-top:45px">The audit changed my framing. The problem wasn't that Meesho had no useful information. It was that the shopping experience could do more to connect that information around the decisions a shopper is actually trying to make.</div>
 <div class="evidence"><span class="dot"></span><div><strong>What this evidence tells me:</strong> the concept should build on the existing product experience rather than pretend that trust, reviews, delivery or seller information are missing.</div></div>
@@ -132,11 +145,50 @@ footer{background:#17131a;color:#fff;padding:75px 0}footer p{color:#cfc8d0}
 <div class="flow"><div class="node">I like this</div><span class="arrow">→</span><div class="node">Can I trust it?</div><span class="arrow">→</span><div class="node">Will it suit me?</div><span class="arrow">→</span><div class="node">How do I style it?</div><span class="arrow">→</span><div class="node">What goes with it?</div><span class="arrow">→</span><div class="node">Should I buy?</div></div>
 </div></section>
 
-<section id="opportunity"><div class="wrap">
-<div class="kicker">10 · Opportunity</div><h2>The opportunity I chose to explore</h2>
-<p class="lead">The opportunity is to make Meesho feel less like a collection of product information and more like a connected decision journey.</p>
-<div class="principles"><div class="principle"><div class="ico">🛡️</div><h3>TRUST</h3><p>Make relevant confidence signals easier to understand at the decision point.</p></div><div class="principle"><div class="ico">🤖</div><h3>ASSIST</h3><p>Help users solve concrete shopping tasks instead of adding a generic chatbot.</p></div><div class="principle"><div class="ico">👗</div><h3>INSPIRE</h3><p>Connect styling inspiration directly to shoppable products.</p></div></div>
-</div></section>
+<section id="opportunity">
+  <div class="wrap">
+
+    <div class="kicker">10 · Opportunity</div>
+
+    <h2>The opportunity I chose to explore</h2>
+
+    <p class="lead">
+      The opportunity is to make Meesho feel less like a collection of
+      product information and more like a connected decision journey.
+    </p>
+
+    <div class="principles">
+
+      <div class="principle">
+        <div class="ico">🛡️</div>
+        <h3>TRUST</h3>
+        <p>
+          Make relevant confidence signals easier to understand
+          at the decision point.
+        </p>
+      </div>
+
+      <div class="principle">
+        <div class="ico">🤖</div>
+        <h3>ASSIST</h3>
+        <p>
+          Help users solve concrete shopping tasks instead of
+          adding a generic chatbot.
+        </p>
+      </div>
+
+      <div class="principle">
+        <div class="ico">👗</div>
+        <h3>INSPIRE</h3>
+        <p>
+          Connect styling inspiration directly to shoppable products.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
 
 <section class="soft"><div class="wrap">
 <div class="kicker">11 · Product Strategy</div><h2>A few principles kept the solution focused.</h2>
@@ -161,15 +213,71 @@ footer{background:#17131a;color:#fff;padding:75px 0}footer p{color:#cfc8d0}
 </div>
 </div></section>
 
-<section class="soft"><div class="wrap">
-<div class="kicker">14 · Final Design</div><h2>The final screens.</h2>
-<p class="lead">These are the two main screens I designed for the concept. The original mobile proportions are preserved, and each screen can be scrolled inside the frame so the full design stays readable without changing the case-study layout.</p>
+<section class="soft" id="final-design">
+  <div class="wrap">
 
-<div class="scroll-grid">
-<div class="scroll-screen"><div class="scroll-window"><img src="assets/final-home.jpg" alt="Meesho redesigned home screen full length"></div><div class="cap"><strong>01 · Home / Discovery</strong><span>Personalized discovery, festive content, flash deals, community styling, curated collections, popular picks and the Meesho Trust Guarantee.</span></div></div>
-<div class="scroll-screen"><div class="scroll-window"><img src="assets/final-pdp-long.jpg" alt="Meesho redesigned product detail screen full length"></div><div class="cap"><strong>02 · Product Detail / Purchase Confidence</strong><span>Product information, size, Styling Studio, Style This Look, transparent bundle pricing, delivery, seller context, similar products and reviews.</span></div></div>
-</div>
-</div></section>
+    <div class="kicker">14 · Final Design</div>
+
+    <h2>The final screens.</h2>
+
+    <p class="lead">
+      These are the two main screens I designed for the concept.
+      The original mobile proportions are preserved, and each screen
+      can be scrolled inside the frame so the full design stays readable
+      without changing the case-study layout.
+    </p>
+
+    <div class="scroll-grid">
+
+      <!-- 01 · Home / Discovery -->
+      <div class="scroll-screen">
+
+        <div class="scroll-window">
+          <img
+            src="assets/final-home.jpg"
+            alt="Meesho redesigned home screen full length"
+          >
+        </div>
+
+        <div class="cap">
+          <strong>01 · Home / Discovery</strong>
+
+          <span>
+            Personalized discovery, festive content, flash deals,
+            community styling, curated collections, popular picks
+            and the Meesho Trust Guarantee.
+          </span>
+        </div>
+
+      </div>
+
+
+      <!-- 02 · Product Detail / Purchase Confidence -->
+      <div class="scroll-screen">
+
+        <div class="scroll-window">
+          <img
+            src="assets/final-pdp-long.jpg"
+            alt="Meesho redesigned product detail screen full length"
+          >
+        </div>
+
+        <div class="cap">
+          <strong>02 · Product Detail / Purchase Confidence</strong>
+
+          <span>
+            Product information, size, Styling Studio, Style This Look,
+            transparent bundle pricing, delivery, seller context,
+            similar products and reviews.
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
 
 <section><div class="wrap">
 <div class="kicker">15 · Design Decisions</div><h2>The important part was deciding what not to add.</h2>
