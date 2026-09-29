@@ -1,0 +1,559 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Snapchat — Product Design Case Study</title>
+<meta content="Snapchat product design case study: making Snapchat's existing ecosystem easier to discover at the right moment and context." name="description"/>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --ink:#111214;
+  --muted:#6c7076;
+  --soft:#f5f5f2;
+  --paper:#fbfbf9;
+  --white:#fff;
+  --line:#dedfdd;
+  --line-dark:#2b2d30;
+  --accent:#46515f;
+  --max:1180px;
+  --radius:24px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  line-height:1.65;
+  font-size:16px;
+}
+a{color:inherit}
+img{max-width:100%;height:auto}
+.wrap{width:min(var(--max),calc(100% - 56px));margin:auto}
+.progress{position:fixed;left:0;top:0;height:2px;background:#111;width:0;z-index:100}
+
+.nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(251,251,249,.94);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line);
+}
+.navin{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{font-weight:700;text-decoration:none;font-size:13px;letter-spacing:.02em}
+.brand i{display:none}
+.navlinks{display:flex;gap:20px;font-size:11px;font-weight:600;color:#777;white-space:nowrap}
+.navlinks a{text-decoration:none}
+.navlinks a:hover{color:#111}
+
+.hero{
+  background:#111214;color:#fff;
+  padding:84px 0 76px;
+}
+.hero-inner{display:flex;flex-direction:column;gap:58px}
+.hero-copy{max-width:900px}
+.eyebrow{
+  font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  font-weight:600;color:#a6a8ab;
+}
+.hero h1{
+  margin:20px 0 24px;
+  font-size:clamp(54px,8vw,104px);
+  line-height:.94;letter-spacing:-.065em;font-weight:700;
+  max-width:950px;
+}
+.hero h1 span{color:#fff}
+.hero .lead{font-size:19px;line-height:1.55;color:#c6c8cb;max-width:760px;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.pill{
+  border:1px solid #3a3d40;border-radius:999px;
+  padding:7px 11px;font-size:11px;color:#d4d6d8;
+}
+.hero-art{
+  width:100%;border-radius:26px;overflow:hidden;
+  background:#1a1b1d;border:1px solid #303236;
+}
+.hero-art img{display:block;width:100%;aspect-ratio:16/7;object-fit:cover;object-position:center}
+
+section{padding:92px 0}
+section.soft{background:#f1f1ee}
+.section-head{
+  display:block;
+  margin-bottom:34px;
+}
+.section-no{
+  font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:#777b80;font-weight:600;padding-top:8px
+}
+.section-title{
+  margin:0;font-size:clamp(38px,5.2vw,70px);
+  line-height:1.02;letter-spacing:-.055em;font-weight:700;
+  max-width:900px
+}
+.section-head .section-no{margin-bottom:16px}
+.section-head .section-title{max-width:900px}
+#overview .section-title{max-width:none;white-space:nowrap;font-size:clamp(38px,4.4vw,62px)}
+#overview .quote{max-width:1180px;font-size:clamp(25px,2.55vw,36px);line-height:1.22}
+#strategy .intro{margin-top:-10px;max-width:760px}
+.intro{font-size:18px;color:#5f6368;max-width:820px;margin:0 0 32px}
+.rule{height:1px;background:var(--line);margin:34px 0}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.card{
+  background:#fff;border:1px solid var(--line);border-radius:18px;
+  padding:26px
+}
+.card h3{font-size:21px;line-height:1.18;margin:0 0 10px;font-weight:650;letter-spacing:-.025em}
+.card p{margin:0;color:#686d72}
+.method-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:34px 0 16px}
+.method{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;display:block}
+.method b{display:block;font-size:18px;line-height:1.25;margin-bottom:9px}
+.method span{display:block;color:#686d72}
+.finding{display:grid;grid-template-columns:48px minmax(0,1fr);gap:12px;margin-bottom:12px}
+.finding:last-child{margin-bottom:0}
+.audit-head{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:0;background:#f1f1ee;color:#6e7277;font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:700}
+.audit-head>div{padding:17px 18px;border-right:1px solid var(--line)}
+.audit-head>div:last-child{border-right:0}
+.journey-step .num{white-space:nowrap;font-size:18px;letter-spacing:.06em}
+.strategy .word{font-weight:700;color:#111;letter-spacing:.12em}
+.hmw h3{font-size:42px;line-height:1.08;max-width:1000px}
+.final-thought{background:#f6f6f3;color:#111;padding:120px 0 110px;text-align:center}
+.final-thought .kicker{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#6f7479;margin-bottom:22px}
+.final-thought h2{max-width:1050px;margin:0 auto;font-size:clamp(48px,7vw,88px);line-height:.98;letter-spacing:-.065em;font-weight:700}
+.final-thought h2 .muted{color:#7a7d80;display:block}
+.final-thought p{max-width:760px;margin:34px auto 0;color:#62676c;font-size:17px}
+.final-thought .back-top{display:inline-block;margin-top:30px;padding:11px 18px;border:1px solid #111;border-radius:999px;text-decoration:none;font-size:12px;font-weight:700;background:#111;color:#fff}
+.card.dark{background:#17181a;color:#fff;border-color:#17181a}
+.card.dark p{color:#c5c7ca}
+.label{
+  font-size:10px;letter-spacing:.13em;text-transform:uppercase;
+  font-weight:600;color:#85898e;margin-bottom:12px
+}
+.big-stat{font-size:52px;line-height:1;letter-spacing:-.055em;font-weight:700;margin-bottom:5px}
+.small{font-size:12px;color:#7a7f84}
+.quote{
+  font-size:clamp(29px,4vw,50px);line-height:1.15;
+  letter-spacing:-.04em;max-width:920px;margin:0;font-weight:500
+}
+.quote-mark{color:#aaa}
+
+.evidence-wall{display:grid;grid-template-columns:1.15fr .85fr;gap:16px}
+.evidence-main{background:#17181a;color:#fff;border-radius:20px;padding:34px}
+.evidence-main h3{font-size:30px;line-height:1.15;margin:0 0 12px}
+.evidence-main p{color:#c5c7ca}
+.evidence-side{display:grid;gap:16px}
+.finding,.signal,.method,.audit-row,.principle,.decision,.test,.metric,.limit,.next-item{
+  background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px
+}
+.finding-num,.num{font-size:11px;color:#8a8e93;letter-spacing:.12em;font-weight:600;margin-bottom:12px}
+.finding h3,.signal h3,.method h3,.principle h3,.decision h3,.test h3,.metric h3,.limit h3,.next-item h3{
+  margin:0 0 8px;font-size:20px;line-height:1.2;font-weight:650
+}
+.finding p,.signal p,.method p,.principle p,.decision p,.test p,.metric p,.limit p,.next-item p{margin:0;color:#676c71}
+
+.journey{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.journey-step{padding:24px 18px 26px;border-right:1px solid var(--line)}
+.journey-step:last-child{border-right:0}
+.journey-step .num{font-size:22px;color:#111}
+.journey-step h3{margin:0 0 7px;font-size:17px}
+.journey-step p{margin:0;color:#6b7075;font-size:13px}
+
+.audit{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#fff}
+.audit-head,.audit-row{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:0}
+.audit-head{background:#f1f1ee;color:#6e7277;font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:700}
+.audit-head>div,.audit-row>div{padding:17px 18px;border-right:1px solid var(--line)}
+.audit-head>div:last-child,.audit-row>div:last-child{border-right:0}
+.audit-row{border-top:1px solid var(--line);font-size:14px}
+.audit-row b{font-weight:650}
+.audit-row span{color:#6a6f74}
+
+.problem{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.problem .card:first-child{background:#17181a;color:#fff}
+.problem .card:first-child p{color:#c5c7ca}
+
+.hmw{
+  background:#17181a;color:#fff;border-radius:24px;
+  padding:52px;max-width:1000px
+}
+.hmw .label{color:#9ea2a7}
+.hmw h3{font-size:clamp(30px,4vw,54px);line-height:1.08;letter-spacing:-.045em;margin:0;font-weight:600}
+.hmw p{color:#c4c7ca;margin:20px 0 0;max-width:760px}
+
+.principles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.principle strong{display:block;font-size:14px;margin-bottom:8px}
+
+.strategy{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.word{font-size:13px;color:#888;margin-bottom:10px;letter-spacing:.12em;text-transform:uppercase}
+.strategy .card h3{font-size:32px}
+
+.ia-map{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;align-items:center}
+.ia-node{
+  border:1px solid var(--line);border-radius:18px;background:#fff;padding:24px
+}
+.ia-node h3{margin:0 0 7px;font-size:21px}
+.ia-node p{margin:0;color:#6c7176;font-size:13px}
+.ia-map .node{
+  grid-column:1/-1;background:#17181a;color:#fff;
+  border-radius:20px;padding:28px;text-align:center
+}
+.ia-map .node p{color:#c5c7ca}
+
+.flow-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.flow-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px}
+.flow-card .num{margin-bottom:16px}
+.flow-card h3{font-size:23px;margin:0 0 14px}
+.flow{font-size:14px;color:#54595e;line-height:1.9}
+.arrow{color:#a0a4a8;padding:0 5px}
+
+.design-intro{
+  border-left:3px solid #17181a;
+  padding:4px 0 4px 20px;margin-bottom:54px;max-width:850px
+}
+.design-intro h3{font-size:25px;margin:0 0 7px;line-height:1.25}
+.design-intro p{margin:0;color:#686d72}
+.story{padding:12px 0 0}
+.story-head{
+  display:grid;grid-template-columns:150px minmax(0,1fr);
+  gap:24px;align-items:start;margin-bottom:22px
+}
+.story-no{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#85898e;font-weight:600;padding-top:7px}
+.story-head h3{font-size:34px;line-height:1.08;letter-spacing:-.035em;margin:0 0 8px}
+.story-desc{color:#676c71;max-width:800px;margin:0}
+.story-image{
+  background:#161719;border-radius:22px;padding:14px;
+  border:1px solid #2c2e31;overflow:hidden
+}
+.story-image img{
+  display:block;width:100%;height:auto;border-radius:12px
+}
+.story-caption{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}
+.caption-card{
+  border:1px solid var(--line);border-radius:14px;padding:17px 18px;
+  background:#fff
+}
+.caption-card b{display:block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#85898e;margin-bottom:6px}
+.caption-card span{font-size:13px;color:#5f6469}
+.story-divider{height:1px;background:var(--line);margin:66px 0}
+
+.decision-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.decision h3{font-size:24px}
+.validation{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.test{min-height:150px}
+.metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.metric .big-stat{font-size:40px}
+.limitations{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.next{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.next-list{display:grid;gap:12px}
+
+.footer{background:#17181a;color:#fff;padding:90px 0}
+.footer-kicker{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#96999e;font-weight:600;margin-bottom:20px}
+.footer h2{font-size:clamp(48px,7vw,90px);line-height:.95;letter-spacing:-.06em;margin:0 0 20px}
+.footer p{color:#bfc2c5;max-width:650px;margin:0}
+
+@media(max-width:900px){
+  .navlinks{display:none}
+  .grid3,.principles,.strategy,.metrics,.limitations,.method-row{grid-template-columns:1fr 1fr}
+  .journey{grid-template-columns:1fr 1fr}
+  .journey-step:nth-child(2n){border-right:0}
+  .journey-step{border-bottom:1px solid var(--line)}
+  .evidence-wall,.problem,.decision-grid,.validation,.next{grid-template-columns:1fr}
+  .ia-map{grid-template-columns:1fr}
+  .story-head{grid-template-columns:1fr;gap:6px}
+}
+@media(max-width:620px){
+  .wrap{width:min(var(--max),calc(100% - 32px))}
+  .hero{padding:60px 0 48px}
+  .hero h1{font-size:54px}
+  section{padding:68px 0}
+  .grid2,.grid3,.principles,.strategy,.metrics,.limitations,.flow-grid,.story-caption,.method-row{grid-template-columns:1fr}
+  .journey{grid-template-columns:1fr}
+  .journey-step{border-right:0!important}
+  .audit{overflow:auto}
+  .audit-head,.audit-row{min-width:700px}
+  .hmw{padding:32px 24px}
+  .hmw h3{font-size:34px}
+  .story-head h3{font-size:28px}
+  .hero-art img{aspect-ratio:4/3;object-fit:cover}
+}
+
+
+/* Problem Definition: use the page width instead of leaving a large empty right column */
+#problem .problem-card{
+  width:100%;
+  max-width:none;
+  box-sizing:border-box;
+}
+#problem .problem-card p{
+  max-width:1120px;
+}
+@media (min-width: 1000px){
+  #problem .problem-card{
+    padding:42px 48px;
+  }
+  #problem .problem-card p{
+    max-width:1180px;
+  }
+}
+
+
+/* Product Audit — exact requested typography */
+.audit-head > div {
+  color: #111111 !important;
+  font-weight: 800 !important;
+}
+.audit-row > div:first-child,
+.audit-row > div:first-child .tag {
+  color: #111111 !important;
+  font-weight: 700 !important;
+}
+
+
+/* Problem Definition — full-width context */
+#problem .problem {
+  display: block !important;
+  width: 100% !important;
+}
+#problem .problem .card {
+  width: 100% !important;
+  max-width: none !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+}
+#problem .problem .card h3,
+#problem .problem .card p {
+  max-width: 1180px;
+}
+
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<nav class="nav"><div class="wrap navin"><a class="brand" href="#top"><i></i>SNAPCHAT / REIMAGINED</a><div class="navlinks"><a href="#research">Research</a><a href="#problem">Problem</a><a href="#strategy">Strategy</a><a href="#final">Final Design</a><a href="#metrics">Metrics</a></div></div></nav>
+<main id="top">
+<header class="hero">
+<div class="wrap hero-inner">
+<div class="hero-copy">
+<div class="eyebrow">00 — Cover</div>
+<h1>I redesigned how people<br/><span>discover Snapchat.</span></h1>
+<p class="lead">A research-led exploration of how Snapchat’s growing ecosystem could become easier to navigate, understand, and use at the right moment.</p>
+<div class="meta">
+<span class="pill">Product Designer</span>
+<span class="pill">Mobile · Self-initiated</span>
+<span class="pill">Research · UX · UI</span>
+</div>
+</div>
+<div class="hero-art">
+<img alt="Snapchat redesign — explore and share moment story" src="assets/story-06-explore-share.jpg"/>
+</div>
+</div>
+</header>
+<section id="overview"><div class="wrap">
+<div class="section-head"><div class="section-no">01 — Overview</div><h2 class="section-title">I started with a simple question.</h2></div>
+<p class="quote"><span class="quote-mark">“</span> Snapchat has grown far beyond Camera + Chat. But do users<br/>actually know what else they can do — and does the product<br/>make those experiences easy to discover when they matter? <span class="quote-mark">”</span></p>
+<div class="rule"></div>
+<div class="grid3">
+<div class="card"><div class="label">Role</div><h3>Product Designer</h3><p>End-to-end self-initiated concept from research framing to final UI.</p></div>
+<div class="card"><div class="label">Research</div><h3>13 + 3</h3><p>13 survey responses and 3 interviews formed the primary research base.</p></div>
+<div class="card"><div class="label">Focus</div><h3>Connect · Create · Explore</h3><p>Make the existing ecosystem easier to understand and enter at the right moment.</p></div>
+</div>
+</div></section>
+<section class="soft" id="research"><div class="wrap">
+<div class="section-head"><div class="section-no">02 — Research</div><h2 class="section-title">Research before redesign.</h2></div>
+<p class="intro">I didn't want to start by deciding what Snapchat should look like. I wanted to understand what people actually do, what they know about the product, and where discovery breaks down.</p>
+<div class="method-row">
+<div class="method"><b>01 · Survey</b><span>13 responses to understand usage patterns, awareness and preferences.</span></div>
+<div class="method"><b>02 · Interviews</b><span>3 conversations to hear how people describe their real Snapchat behavior.</span></div>
+<div class="method"><b>03 · Product + competitor audit</b><span>Reviewed core Snapchat experiences and competing discovery patterns.</span></div>
+</div>
+<div class="evidence-wall">
+<div class="evidence-main"><div class="label">Primary research</div><h3>The strongest pattern was simple: people came with a reason.</h3><p>In my sample, Camera and Chat were the most familiar behaviors. That made me question my first assumption that the problem was simply “too many features.”</p></div>
+<div class="evidence-side"><div class="signal"><strong>13 responses</strong><span>Directional survey evidence — not representative of Snapchat's full user base.</span></div><div class="signal"><strong>3 interviews</strong><span>Qualitative conversations used to understand the “why” behind the behavior.</span></div></div>
+</div>
+</div></section>
+<section id="findings"><div class="wrap">
+<div class="section-head"><div class="section-no">03 — Research Findings</div><h2 class="section-title">What I heard changed the question.</h2></div>
+<div class="finding"><div class="finding-num">01</div><div><h3>Users mainly came for Snap + Chat.</h3><p>The familiar path was strong. People didn't open Snapchat thinking about which feature to explore next.</p></div></div>
+<div class="finding"><div class="finding-num">02</div><div><h3>Awareness and usage are not the same thing.</h3><p>Knowing that a feature exists does not automatically mean knowing when it is useful.</p></div></div>
+<div class="finding"><div class="finding-num">03</div><div><h3>Discovery often happens incidentally.</h3><p>Secondary experiences can be encountered while navigating rather than intentionally sought out.</p></div></div>
+<div class="finding"><div class="finding-num">04</div><div><h3>Context matters.</h3><p>Relevance, navigation and privacy can shape whether someone continues exploring a feature.</p></div></div>
+<div class="finding"><div class="finding-num">05</div><div><h3>Instagram appeared stronger for some discovery/content tasks in my sample.</h3><p>This is a sample-level observation, not a claim about all users or the market as a whole.</p></div></div>
+</div></section>
+<section class="soft" id="journey"><div class="wrap">
+<div class="section-head"><div class="section-no">04 — User Journey</div><h2 class="section-title">The user journey I was trying to improve.</h2></div>
+<p class="intro">The problem wasn't one broken screen. It was the gap between a user's initial intention and the broader set of experiences Snapchat could offer.</p>
+<div class="journey">
+<div class="journey-step"><div class="num">01 · ARRIVE</div><h3>I have a reason.</h3><p>Open Snapchat to chat, capture or check something familiar.</p></div>
+<div class="journey-step"><div class="num">02 · COMPLETE</div><h3>I do the thing.</h3><p>The core task is usually fast and familiar.</p></div>
+<div class="journey-step"><div class="num">03 · DISCOVER</div><h3>What else is useful?</h3><p>Secondary features need to become relevant, not merely visible.</p></div>
+<div class="journey-step"><div class="num">04 · EXPLORE</div><h3>Give me a reason.</h3><p>Content, places and social experiences should have clear context.</p></div>
+<div class="journey-step"><div class="num">05 · RETURN</div><h3>Bring value back.</h3><p>Discovery can reconnect to friends, creation and sharing.</p></div>
+</div>
+</div></section>
+<section id="audit"><div class="wrap">
+<div class="section-head"><div class="section-no">05 — Product Audit</div><h2 class="section-title">I mapped the product before changing it.</h2></div>
+<p class="intro">The audit looked at the areas most relevant to discovery and everyday use. I was looking for duplicated navigation, unclear entry points, small interaction targets and places where a feature's value wasn't obvious.</p>
+<div class="audit">
+<div class="audit-head"><div>Area</div><div>What I looked at</div><div>Question</div></div>
+<div class="audit-row"><div><span class="tag">Camera</span><span class="tag">Lens</span></div><div>Capture, lens browsing, creation actions</div><div>Can users create quickly and still discover more possibilities?</div></div>
+<div class="audit-row"><div><span class="tag">Chat</span><span class="tag">Friends</span></div><div>Conversations, people, group interactions</div><div>Can users reach people and continue a social action without friction?</div></div>
+<div class="audit-row"><div><span class="tag lav">Explore</span><span class="tag">Spotlight</span></div><div>Content discovery, categories, scrolling</div><div>Is there a clear reason to explore beyond the familiar path?</div></div>
+<div class="audit-row"><div><span class="tag green">Map</span><span class="tag">Places</span></div><div>Location discovery, place context, sharing</div><div>Can Map offer useful discovery while respecting privacy?</div></div>
+<div class="audit-row"><div><span class="tag pink">Search</span><span class="tag">AI</span></div><div>Finding people, content and help</div><div>Can users express intent without having to understand Snapchat's IA first?</div></div>
+</div>
+</div></section>
+<section class="soft" id="insights"><div class="wrap">
+<div class="section-head"><div class="section-no">06 — Key Insights</div><h2 class="section-title">Five insights became my design constraints.</h2></div>
+<div class="grid2">
+<div class="card"><div class="label">Insight 01</div><h3>Habit is powerful.</h3><p>Redesigning Snapchat cannot come at the cost of the Camera + Chat behaviors people already understand.</p></div>
+<div class="card"><div class="label">Insight 02</div><h3>Feature count isn't the same as feature value.</h3><p>The product needs to communicate why an experience is useful, not simply that it exists.</p></div>
+<div class="card"><div class="label">Insight 03</div><h3>Discovery needs context.</h3><p>A feature is easier to explore when it appears in a moment where it makes sense.</p></div>
+<div class="card"><div class="label">Insight 04</div><h3>Privacy changes behavior.</h3><p>Location experiences need control and clarity, especially when social discovery is involved.</p></div>
+<div class="card dark"><div class="label">Insight 05</div><h3>Bring exploration back to people.</h3><p>Discovery becomes more meaningful when it can reconnect with friends, creation and sharing.</p></div>
+</div>
+</div></section>
+<section id="problem"><div class="wrap">
+<div class="section-head"><div class="section-no">07 — Problem Definition</div><h2 class="section-title">The problem I chose to solve.</h2></div>
+<div class="problem"><div class="card dark"><h3>Snapchat has grown into a broad ecosystem, but users' behavior can remain concentrated around familiar Camera and Chat interactions.</h3><p>The problem I chose to solve was how to make the rest of the ecosystem easier to discover and understand without disrupting the core experience.</p></div></div>
+</div></section>
+<section class="soft" id="opportunity"><div class="wrap">
+<div class="section-head"><div class="section-no">08 — Opportunity</div><h2 class="section-title">The opportunity wasn't “add more.”</h2></div>
+<p class="quote">Make Snapchat's existing ecosystem easier to discover <strong>at the right moment + context.</strong></p>
+<div class="grid3"><div class="card"><div class="label">For people</div><h3>Less searching.</h3><p>Help users understand what an experience is for and where to enter it.</p></div><div class="card"><div class="label">For the product</div><h3>More connected journeys.</h3><p>Let discovery, creation and social interaction reinforce one another.</p></div><div class="card dark"><div class="label">For the business</div><h3>More meaningful engagement.</h3><p>Create more opportunities for repeat use, content interaction and monetizable surfaces — to be validated, not assumed.</p></div></div>
+</div></section>
+<section id="hmw"><div class="wrap">
+<div class="section-head"><div class="section-no">09 — HMW</div><h2 class="section-title">The question that guided the redesign.</h2></div>
+<div class="hmw"><div class="label">How might we</div><h3>How might we help Snapchat users discover relevant experiences<br/>beyond their habitual Camera and Chat behaviors —<br/>without making the product feel more complicated?</h3></div>
+</div></section>
+<section class="soft" id="principles"><div class="wrap">
+<div class="section-head"><div class="section-no">10 — Design Principles</div><h2 class="section-title">Design principles.</h2></div>
+<div class="principles"><div class="principle"><b>01 · Protect the core</b><p>Keep the fast, spontaneous Camera experience familiar.</p></div><div class="principle"><b>02 · Context before clutter</b><p>Show discovery where it has a clear reason to exist.</p></div><div class="principle"><b>03 · People over features</b><p>Social relationships remain central to the product.</p></div><div class="principle"><b>04 · Privacy builds trust</b><p>Especially around location and social discovery.</p></div></div>
+</div></section>
+<section id="strategy"><div class="wrap">
+<div class="section-head"><div class="section-no">11 — Product Strategy</div><h2 class="section-title">One product. Three intentions.</h2></div>
+<p class="intro">I reframed the ecosystem around what a person is trying to do, rather than around the number of features Snapchat has.</p>
+<div class="strategy"><div class="card"><div class="word">CONNECT</div><p>Chat · Friends · Stories · Groups</p></div><div class="card"><div class="word">CREATE</div><p>Camera · Lenses · Sounds · Memories</p></div><div class="card"><div class="word">EXPLORE</div><p>Spotlight · Map · Places · Search</p></div></div>
+</div></section>
+<section class="soft" id="ia"><div class="wrap">
+<div class="section-head"><div class="section-no">12 — Information Architecture</div><h2 class="section-title">A clearer mental model.</h2></div>
+<div class="ia"><div><h3>From feature list → user intention.</h3><p>The IA isn't meant to hide features. It gives users a simpler way to understand where an experience belongs and why they might use it.</p></div><div class="ia-map"><div class="ia-node"><b>CONNECT</b><span>Chat · Friends · Stories · Groups</span></div><div class="ia-node"><b>CREATE</b><span>Camera · Lenses · Sounds · Memories</span></div><div class="ia-node"><b>EXPLORE</b><span>Spotlight · Map · Places · Search</span></div><div class="ia-node"><b>ASSIST</b><span>AI for specific shopping/exploration jobs</span></div><div class="ia-node"><b>PROFILE</b><span>Identity · creator · personal activity</span></div><div class="ia-node"><b>SHARE</b><span>Bring discovered moments back to people</span></div></div></div>
+</div></section>
+<section id="flows"><div class="wrap">
+<div class="section-head"><div class="section-no">13 — User Flows</div><h2 class="section-title">The journeys I designed.</h2></div>
+<div class="flow-grid">
+<div class="flow-card"><h3>01 · Connect</h3><p>Make it easier to move from people to conversation and back into creation.</p><div class="flow"><span class="node">Open</span><span class="arrow">→</span><span class="node">Friend</span><span class="arrow">→</span><span class="node">Chat</span><span class="arrow">→</span><span class="node">Share</span></div></div>
+<div class="flow-card"><h3>02 · Create</h3><p>Keep the familiar camera behavior while improving lens discovery.</p><div class="flow"><span class="node">Camera</span><span class="arrow">→</span><span class="node">Lens</span><span class="arrow">→</span><span class="node">Capture</span><span class="arrow">→</span><span class="node">Send</span></div></div>
+<div class="flow-card"><h3>03 · Explore</h3><p>Give content discovery a clearer entry and path back to people.</p><div class="flow"><span class="node">Explore</span><span class="arrow">→</span><span class="node">Content</span><span class="arrow">→</span><span class="node">Creator</span><span class="arrow">→</span><span class="node">Share</span></div></div>
+<div class="flow-card"><h3>04 · Discover a place</h3><p>Turn Map into a useful bridge between location, experience and social sharing.</p><div class="flow"><span class="node">Map</span><span class="arrow">→</span><span class="node">Place</span><span class="arrow">→</span><span class="node">Experience</span><span class="arrow">→</span><span class="node">Moment</span><span class="arrow">→</span><span class="node">Friends</span></div></div>
+</div>
+</div></section>
+<section class="soft" id="final"><div class="wrap">
+<div class="section-head"><div class="section-no">14 — Final Design</div><h2 class="section-title">Final design: stories, not a screen dump.</h2></div>
+<div class="design-intro"><h3>Each story starts with a real user situation and ends in an experience.</h3><p>I grouped the final work by the moments I wanted to improve. This makes the UI easier to evaluate as a product journey rather than as isolated screens.</p></div>
+<div class="story"><div class="story-head"><div class="story-no">STORY 01</div><div><h3>Create a new group / discovery.</h3><p class="story-desc">A social entry point that helps people move from seeing friends to starting a shared conversation.</p></div></div><div class="story-image"><img alt="Snapchat story 01 group discovery" src="assets/story-01-group-discovery.jpg"/></div><div class="story-caption"><div class="caption-card"><b>Design intent</b><span>Make group creation feel like a natural continuation of the social graph.</span></div><div class="caption-card"><b>User value</b><span>Less friction between discovering people and acting on that relationship.</span></div></div></div>
+<div class="story-divider"></div>
+<div class="story"><div class="story-head"><div class="story-no">STORY 02</div><div><h3>Discover a new feature.</h3><p class="story-desc">Help users understand what Snapchat can do without forcing them through a feature catalog.</p></div></div><div class="story-image"><img alt="Snapchat story 02 feature discovery" src="assets/story-02-feature-discovery.jpg"/></div><div class="story-caption"><div class="caption-card"><b>Design intent</b><span>Introduce secondary experiences through context instead of adding more permanent navigation.</span></div><div class="caption-card"><b>User value</b><span>Users can learn something new without having to know the feature name first.</span></div></div></div>
+<div class="story-divider"></div>
+<div class="story"><div class="story-head"><div class="story-no">STORY 03</div><div><h3>Keep the magic fast.</h3><p class="story-desc">Camera remains the heart of Snapchat. The redesign focuses on making lens discovery easier while preserving the capture flow.</p></div></div><div class="story-image"><img alt="Snapchat story 03 camera and lens discovery" src="assets/story-03-camera-lens.jpg"/></div><div class="story-caption"><div class="caption-card"><b>Design intent</b><span>Preserve the camera-first entry, improve lens browsing and keep creation actions close to the thumb.</span></div><div class="caption-card"><b>Product value</b><span>Protect a familiar behavior while creating a clearer path to more of Snapchat's creative system.</span></div></div></div>
+<div class="story-divider"></div>
+<div class="story"><div class="story-head"><div class="story-no">STORY 04</div><div><h3>Give Explore a clearer job.</h3><p class="story-desc">Move from a collection of content surfaces toward a more intentional discovery experience.</p></div></div><div class="story-image"><img alt="Snapchat story 04 explore discovery" src="assets/story-04-explore-discovery.jpg"/></div><div class="story-caption"><div class="caption-card"><b>Design intent</b><span>Make content, categories and discovery pathways easier to understand at a glance.</span></div><div class="caption-card"><b>User value</b><span>Explore becomes something users can choose intentionally, not something they stumble into.</span></div></div></div>
+<div class="story-divider"></div>
+<div class="story"><div class="story-head"><div class="story-no">STORY 05</div><div><h3>Plan together.</h3><p class="story-desc">Connect discovery with people so Snapchat can support a shared plan rather than a solo browsing session.</p></div></div><div class="story-image"><img alt="Snapchat story 05 plan together" src="assets/story-05-plan-together.jpg"/></div><div class="story-caption"><div class="caption-card"><b>Design intent</b><span>Use social context to make places and activities more useful.</span></div><div class="caption-card"><b>Business opportunity</b><span>More meaningful place and activity discovery can create additional engagement surfaces to validate.</span></div></div></div>
+<div class="story-divider"></div>
+<div class="story"><div class="story-head"><div class="story-no">STORY 06</div><div><h3>Turn location into an experience.</h3><p class="story-desc">I didn't want to remove Snap Map. I wanted to give it a clearer reason to exist: discover something worth experiencing, then bring that moment back into Snapchat.</p></div></div><div class="story-image"><img alt="Snapchat story 06 explore and share moment" src="assets/story-06-explore-share.jpg"/></div><div class="story-caption"><div class="caption-card"><b>Flow</b><span>Discover a place → Experience it → Capture the moment → Share it.</span></div><div class="caption-card"><b>Guardrail</b><span>Location discovery should remain privacy-conscious and user-controlled.</span></div></div></div>
+<div class="story-divider"></div>
+<div class="story"><div class="story-head"><div class="story-no">STORY 07</div><div><h3>Let discovery lead somewhere.</h3><p class="story-desc">Creator experiences give content discovery a destination and a reason to continue interacting.</p></div></div><div class="story-image"><img alt="Snapchat story 07 creator experience" src="assets/story-07-creator.jpg"/></div><div class="story-caption"><div class="caption-card"><b>Design intent</b><span>Connect content, creator identity and social action.</span></div><div class="caption-card"><b>Product value</b><span>Make creator discovery feel connected to the broader Snapchat ecosystem.</span></div></div></div>
+<div class="story-divider"></div>
+<div class="story"><div class="story-head"><div class="story-no">STORY 08</div><div><h3>Make AI useful, not just present.</h3><p class="story-desc">AI should help with a specific user job rather than becoming another destination that users have to learn.</p></div></div><div class="story-image"><img alt="Snapchat story 08 AI experience" src="assets/story-08-ai.jpg"/></div><div class="story-caption"><div class="caption-card"><b>Design intent</b><span>Give assistance a clear role in discovery and decision-making.</span></div><div class="caption-card"><b>Validation</b><span>Measure whether task-based assistance actually reduces time or confusion.</span></div></div></div>
+<div class="story-divider"></div>
+<div class="story"><div class="story-head"><div class="story-no">STORY 09</div><div><h3>Bring identity back into the system.</h3><p class="story-desc">The profile experience closes the loop between what a person creates, discovers and shares.</p></div></div><div class="story-image"><img alt="Snapchat story 09 profile experience" src="assets/story-09-profile.jpg"/></div><div class="story-caption"><div class="caption-card"><b>Design intent</b><span>Make personal activity and identity feel connected to the wider ecosystem.</span></div><div class="caption-card"><b>System value</b><span>Support continuity between social, content and personal experiences.</span></div></div></div>
+</div></section>
+<section id="decisions"><div class="wrap">
+<div class="section-head"><div class="section-no">15 — Design Decisions</div><h2 class="section-title">The decisions behind the screens.</h2></div>
+<div class="decision-grid">
+<div class="decision"><div class="label">01 · Camera</div><h3>Why keep Camera prominent?</h3><p>Because the research pointed back to familiar Camera + Chat behavior. A redesign should build on a habit before trying to replace it.</p></div>
+<div class="decision"><div class="label">02 · Map</div><h3>Why not remove Map?</h3><p>Low or selective usage does not prove a feature has no value. I treated awareness, usefulness and privacy as the design problems to solve.</p></div>
+<div class="decision"><div class="label">03 · Explore</div><h3>Why create clearer discovery?</h3><p>Because the ecosystem is broader than the habitual path. The goal is to make exploration easier to choose, not harder to avoid.</p></div>
+<div class="decision"><div class="label">04 · AI</div><h3>Why task-based assistance?</h3><p>A generic assistant creates another blank destination. A specific job gives the user a reason to engage and gives the product something measurable to test.</p></div>
+<div class="decision"><div class="label">05 · Sharing</div><h3>Why connect discovery back to people?</h3><p>Because social context is one of Snapchat's strongest assets. Exploration becomes more meaningful when it can return to friends and shared moments.</p></div>
+<div class="decision"><div class="label">06 · Scope</div><h3>Why redesign the ecosystem, not every detail?</h3><p>I focused on the journeys most connected to the research question. The goal was a coherent product direction, not a cosmetic replacement of every screen.</p></div>
+</div>
+</div></section>
+<section class="soft" id="validation"><div class="wrap">
+<div class="section-head"><div class="section-no">16 — What I Would Validate Next</div><h2 class="section-title">What I would validate next.</h2></div>
+<p class="intro">The final designs are a concept. I would not claim that they increase engagement or revenue without testing them. The next step is to put the riskiest assumptions in front of users and measure behavior.</p>
+<div class="validation">
+<div class="test dark"><div class="label">Test 01</div><h3>Can users discover the right experience?</h3><p>Give participants tasks such as “find a new lens,” “discover something nearby,” or “share a place with a friend.” Measure success, time and confidence.</p></div>
+<div class="test"><div class="label">Test 02</div><h3>Does Map feel useful and safe?</h3><p>Test whether users understand the value of place discovery and whether privacy controls feel clear enough to proceed.</p></div>
+<div class="test"><div class="label">Test 03</div><h3>Does the new IA reduce confusion?</h3><p>Compare the proposed mental model with the existing navigation using findability and first-click tasks.</p></div>
+<div class="test"><div class="label">Test 04</div><h3>Does discovery lead to meaningful action?</h3><p>Measure whether users move from content or places into actions such as sharing, saving, creating or connecting.</p></div>
+</div>
+</div></section>
+<section id="metrics"><div class="wrap">
+<div class="section-head"><div class="section-no">17 — Success Metrics</div><h2 class="section-title">Success metrics.</h2></div>
+<p class="intro">I would measure both sides of the experience: whether users can do what they came to do, and whether the product creates healthier opportunities for repeat engagement and monetization.</p>
+<div class="metrics">
+<div class="metric"><b>Feature discovery</b><span>Can users find experiences they didn't already know?</span></div>
+<div class="metric"><b>Task success</b><span>Can users complete key journeys without getting lost?</span></div>
+<div class="metric"><b>Meaningful actions</b><span>Shares, saves, creations, conversations and place actions.</span></div>
+<div class="metric"><b>Repeat use</b><span>Do users return to more than one meaningful product area?</span></div>
+<div class="metric"><b>Content interaction</b><span>Quality engagement with Spotlight, Stories and creators.</span></div>
+<div class="metric"><b>Map engagement</b><span>Useful place discovery, not simply more map opens.</span></div>
+<div class="metric"><b>Retention</b><span>Returning users after exposure to the new experience.</span></div>
+<div class="metric"><b>Monetization</b><span>Downstream impact on ad, creator and premium opportunities.</span></div>
+</div>
+<div class="guardrail"><b>Guardrail metrics matter too:</b> privacy concerns, notification fatigue, content quality, negative feedback and any increase in passive consumption without meaningful value.</div>
+</div></section>
+<section class="soft" id="limitations"><div class="wrap">
+<div class="section-head"><div class="section-no">18 — Limitations</div><h2 class="section-title">Limitations.</h2></div>
+<div class="limitations">
+<div class="limit"><b>Small primary sample</b><p>13 survey responses and 3 interviews provide directional evidence, not a representative picture of Snapchat's entire user base.</p></div>
+<div class="limit"><b>No internal product data</b><p>I did not have access to Snapchat analytics, retention cohorts, monetization data or experimentation infrastructure.</p></div>
+<div class="limit"><b>No controlled usability test yet</b><p>The proposed metrics are validation plans. I am not presenting fabricated improvements as measured outcomes.</p></div>
+<div class="limit"><b>Competitive observations change</b><p>Competitor products evolve continuously, so the audit represents the experiences reviewed during this project.</p></div>
+<div class="limit"><b>Concept scope</b><p>The work explores product direction and interaction design rather than production engineering or backend feasibility.</p></div>
+<div class="limit"><b>Market claims stay cautious</b><p>Sample-level preference observations are not treated as broad market conclusions.</p></div>
+</div>
+</div></section>
+<section id="learnings"><div class="wrap">
+<div class="section-head"><div class="section-no">19 — Learnings</div><h2 class="section-title">What I learned.</h2></div>
+<div class="grid2">
+<div class="card"><div class="label">01</div><h3>Don't let the redesign become the assumption.</h3><p>I started with the idea that Snapchat might have become too complicated. Research made me narrow the problem instead.</p></div>
+<div class="card"><div class="label">02</div><h3>Feature awareness is a product problem.</h3><p>Building a feature is only part of the job. Users need to understand when that feature is useful.</p></div>
+<div class="card"><div class="label">03</div><h3>Existing habits are product assets.</h3><p>Camera and Chat aren't obstacles to redesign. They are anchors the new experience should respect.</p></div>
+<div class="card"><div class="label">04</div><h3>Business value starts with user value.</h3><p>More engagement is not the goal by itself. The stronger question is whether users have a meaningful reason to return.</p></div>
+</div>
+</div></section>
+<section id="next">
+<div class="wrap">
+<div class="section-head">
+<div class="section-no">20 — Next Steps</div>
+<div>
+<h2 class="section-title">From concept to validation.</h2>
+<p class="intro">If this moved from concept to product, I would start by testing the highest-risk assumptions before scaling the experience.</p>
+</div>
+</div>
+<div class="next-list">
+<div class="next-item"><h3>01 · Test</h3><p>Run usability sessions across the key journeys with a larger, more diverse participant set.</p></div>
+<div class="next-item"><h3>02 · Experiment</h3><p>A/B test the highest-confidence information architecture and discovery changes against the existing experience.</p></div>
+<div class="next-item"><h3>03 · Measure</h3><p>Connect user behavior to retention, quality engagement and business outcomes over time.</p></div>
+</div>
+</div>
+</section>
+</main>
+<footer class="final-thought">
+<div class="wrap">
+<div class="kicker">Final thought</div>
+<h2>I didn’t redesign Snapchat to make it look different.<span class="muted">I redesigned the journey to make it make more sense.</span></h2>
+<p>Connect with people. Create a moment. Explore something worth sharing. That became the simple idea behind the redesign.</p>
+<a class="back-top" href="#top">Back to top ↑</a>
+</div>
+</footer>
+<script>
+const progress=document.getElementById('progress');
+window.addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-window.innerHeight;progress.style.width=(h?window.scrollY/h*100:0)+'%';},{passive:true});
+</script>
+</body></html>
+<style>@media (max-width:820px){#overview .section-title{white-space:normal;font-size:clamp(38px,10vw,56px)}#overview .quote br{display:none}}</style>
