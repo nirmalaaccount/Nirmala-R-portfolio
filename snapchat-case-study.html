@@ -43,8 +43,36 @@ img{max-width:100%;height:auto}
   border-bottom:1px solid var(--line);
 }
 .navin{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-.brand{font-weight:700;text-decoration:none;font-size:13px;letter-spacing:.02em}
-.brand i{display:none}
+.brand{
+  display:inline-flex;
+  align-items:center;
+  gap:14px;
+  font-weight:700;
+  text-decoration:none;
+  color:#111827;
+}
+
+.brand-logo{
+  width:46px;
+  height:46px;
+  min-width:46px;
+  border-radius:13px;
+  background:#FFF200;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:25px;
+  line-height:1;
+}
+
+.brand-name{
+  font-family:Inter,ui-sans-serif,system-ui,sans-serif;
+  font-size:20px;
+  line-height:1.35;
+  font-weight:700;
+  letter-spacing:-.025em;
+  color:#111827;
+}
 .navlinks{display:flex;gap:20px;font-size:11px;font-weight:600;color:#777;white-space:nowrap}
 .navlinks a{text-decoration:none}
 .navlinks a:hover{color:#111}
@@ -331,7 +359,22 @@ section.soft{background:#f1f1ee}
 </head>
 <body>
 <div class="progress" id="progress"></div>
-<nav class="nav"><div class="wrap navin"><a class="brand" href="#top"><i></i>SNAPCHAT / REIMAGINED</a><div class="navlinks"><a href="#research">Research</a><a href="#problem">Problem</a><a href="#strategy">Strategy</a><a href="#final">Final Design</a><a href="#metrics">Metrics</a></div></div></nav>
+<nav class="nav">
+  <div class="wrap navin">
+    <a class="brand" href="#top" aria-label="Snapchat Case Study">
+      <span class="brand-logo" aria-hidden="true">👻</span>
+      <span class="brand-name">Snapchat Case<br>Study</span>
+    </a>
+
+    <div class="navlinks">
+      <a href="#research">Research</a>
+      <a href="#problem">Problem</a>
+      <a href="#strategy">Strategy</a>
+      <a href="#final">Final Design</a>
+      <a href="#metrics">Metrics</a>
+    </div>
+  </div>
+</nav>
 <main id="top">
 <header class="hero">
 <div class="wrap hero-inner">
