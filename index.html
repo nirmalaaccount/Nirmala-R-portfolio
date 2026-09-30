@@ -227,7 +227,7 @@ window.addEventListener('pointermove',e=>{
 function loop(){mx+=(tx-mx)*.18;my+=(ty-my)*.18;cursor.style.left=mx+'px';cursor.style.top=my+'px';requestAnimationFrame(loop)}loop();
 
 const previewImg=document.getElementById('preview-img');
-const previewImages={meesho:'meesho-hero.png',snap:'snapchat-hero.png',wed:'wedassist-hero.jpg'};
+const previewImages={meesho:'assets/meesho-hero.png',snap:'assets/snapchat-hero.png',wed:'assets/wedassist-hero.jpg'};
 document.querySelectorAll('.project').forEach(item=>{
  item.addEventListener('mouseenter',()=>{
   preview.className='preview show '+item.dataset.preview;
