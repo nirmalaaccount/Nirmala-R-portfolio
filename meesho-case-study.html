@@ -133,6 +133,16 @@ footer{background:#17131a;color:#fff;padding:75px 0}footer p{color:#cfc8d0}
 <div class="note" style="margin-top:18px"><strong>Limitation:</strong> This is a self-initiated concept. I did not have access to Meesho internal analytics, customers or stakeholders. Primary research and controlled experiments are future validation steps.</div>
 </div></section>
 
+<section class="soft"><div class="wrap">
+<div class="kicker">06A · Qualitative Research</div><h2>Real shopping experiences shaped the direction.</h2>
+<p class="lead">I used two real shopping experiences to understand what makes a purchase feel risky, what makes users switch marketplaces, and which signals matter when the decision becomes more important or time-sensitive.</p>
+<div class="grid2" style="margin-top:28px">
+<div class="card"><span class="tag">STORY 01 · PURCHASE CONFIDENCE</span><h3>Important purchases felt too risky.</h3><p>One user said she avoids using Meesho for <strong>office wear and wedding wear</strong> because of concerns around product quality, delivery taking around a week, and the possibility of receiving the wrong product.</p><p>She is more comfortable using Meesho for <strong>kitchen products, casual items, or products needed for one-time use</strong>, where the purchase feels less risky.</p><div class="note"><strong>Design insight:</strong> For higher-consideration purchases, users need confidence that the product, quality, delivery and purchase experience will meet their expectations.</div></div>
+<div class="card"><span class="tag">STORY 02 · DELIVERY + VALUE</span><h3>Urgency changed the decision.</h3><p>Another user needed <strong>white jeans urgently</strong>. Meesho offered a lower price, but delivery would take around a week. Myntra was faster but more expensive. Ajio offered a combination of <strong>reasonable price, good quality and next-day delivery</strong>, so she chose Ajio.</p><div class="note"><strong>Design insight:</strong> Price is only one part of the decision. When a purchase is urgent, users also consider delivery speed and confidence in the product.</div></div>
+</div>
+<div class="note" style="margin-top:18px"><strong>Research note:</strong> This is early qualitative input from a small number of real conversations and one design-test session. It is directional evidence used to shape and refine the concept, not a statistically representative study or proof of product impact.</div>
+</div></section>
+
 <section class="soft" id="evidence"><div class="wrap">
 <div class="kicker">07 · Evidence</div><h2>What the current Meesho experience already does well.</h2>
 <p class="lead">Before designing anything new, I wanted to understand the existing shopping journey. I used two current Meesho screens as the baseline: the product listing page and the product detail page.</p>
@@ -294,6 +304,24 @@ footer{background:#17131a;color:#fff;padding:75px 0}footer p{color:#cfc8d0}
   </div>
 </section>
 
+<section class="soft" id="validation">
+<div class="wrap">
+<div class="kicker">17 · Validation</div><h2>Testing the experience before calling it solved.</h2>
+<p class="lead">After designing the final experience, I tested it with a user to understand what felt useful, what felt clear, and where the experience still needed refinement.</p>
+<div class="card dark" style="margin-top:28px"><span class="tag">DESIGN VALIDATION</span><h3>I tested the redesigned product experience.</h3><p>The session focused on the redesigned product page and the new discovery, trust and styling elements. I looked for which elements helped the user understand and evaluate the product more easily.</p></div>
+<div class="kicker" style="margin-top:45px">WHAT RESONATED</div>
+<div class="grid3">
+<div class="card"><span class="tag">01 · AI MATCHING</span><h3>More relevant discovery</h3><p>She liked the <strong>AI Matching</strong> experience because it made product discovery feel more relevant.</p></div>
+<div class="card"><span class="tag">02 · AI STYLE STUDIO</span><h3>Helpful styling context</h3><p>She liked the <strong>AI Style Studio</strong> because it helped her explore how the product could be styled.</p></div>
+<div class="card"><span class="tag">03 · TRUST SIGNALS</span><h3>Confidence at the right moment</h3><p>She liked the <strong>original photos near the product images, prominent delivery date, reviews and “Tomorrow” delivery</strong> information.</p></div>
+</div>
+<div class="grid2" style="margin-top:18px"><div class="card"><span class="tag">04 · VISUAL HIERARCHY</span><h3>Clean and clear</h3><p>She liked the experience because it felt <strong>visually clean</strong> with <strong>clear navigation</strong>.</p></div><div class="card"><span class="tag">05 · WISHLIST</span><h3>One clear action</h3><p>She questioned the two wishlist actions and preferred the <strong>wishlist above the product image</strong> because it was easier to notice and add.</p></div></div>
+<div class="kicker" style="margin-top:45px">DESIGN REFINEMENT</div>
+<div class="grid2"><div class="card amber"><span class="tag">01 · PRODUCT DETAILS</span><h3>Bring key information closer</h3><p>She felt the <strong>Product Details</strong> section was too far away because it appeared after the AI Matching section.</p><p><strong>Refinement:</strong> Reconsider the hierarchy so important product details are easier to reach.</p></div><div class="card amber"><span class="tag">02 · WISHLIST</span><h3>Remove the duplicate action</h3><p>The two wishlist placements created unnecessary duplication.</p><p><strong>Refinement:</strong> Keep the wishlist above the product image, the placement she found easier to use.</p></div></div>
+<div class="card" style="margin-top:24px"><strong>What this test tells me</strong><p>The session provided early qualitative validation for specific design directions and exposed usability issues that needed refinement. It does <strong>not</strong> prove that the concept will work for all Meesho users or improve business metrics.</p></div>
+<div class="kicker" style="margin-top:45px">NEXT TEST</div><div class="grid3"><div class="card"><strong>Usability testing</strong><p>Test the revised PDP with multiple users completing realistic shopping tasks.</p></div><div class="card"><strong>Behavioural testing</strong><p>Compare the redesigned experience with the existing PDP using measurable purchase behaviours.</p></div><div class="card"><strong>Business validation</strong><p>Measure conversion and engagement while monitoring returns, cancellations and other quality guardrails.</p></div></div>
+</div></section>
+
 <section><div class="wrap">
 <div class="kicker">15 · Design Decisions</div><h2>The important part was deciding what not to add.</h2>
 <p class="lead">Once the main screens were mapped out, I went back through the concept and challenged each feature. If a feature did not help the shopper make a decision, discover something relevant, or move toward purchase, it did not belong in the MVP.</p>
@@ -317,13 +345,6 @@ footer{background:#17131a;color:#fff;padding:75px 0}footer p{color:#cfc8d0}
 <div class="metric"><strong>Return rate · Guardrail</strong><span>Does improved conversion remain healthy for purchase quality?</span></div>
 </div>
 <div class="card dark" style="margin-top:20px"><strong>Measurement principle</strong><p style="font-size:20px;color:#fff">I would not call the concept successful because AOV rises alone. The experience should improve meaningful shopping outcomes without creating a downstream quality problem.</p></div>
-</div></section>
-
-<section><div class="wrap">
-<div class="kicker">17 · Validation</div><h2>The next step would be to test the concept with real users.</h2>
-<div class="grid2"><div class="card dark"><span class="tag">CONTROL</span><h3>Existing PDP</h3><p>Measure baseline behaviour for the selected shopping task.</p></div><div class="card"><span class="tag">VARIANT</span><h3>Confidence + Assist + Inspire</h3><p>Test the redesigned journey against the existing experience.</p></div></div>
-<div class="grid3" style="margin-top:18px"><div class="card"><strong>Usability</strong><p>Can users find trust, size, styling and complementary products?</p></div><div class="card"><strong>Behaviour</strong><p>Do users engage, add to cart and purchase?</p></div><div class="card"><strong>Guardrails</strong><p>Do returns, cancellations or complaints worsen?</p></div></div>
-<div class="hyp"><span class="dot"></span><div><strong>Important:</strong> These are planned validation measures, not results. No fabricated success percentages are presented.</div></div>
 </div></section>
 
 <section id="learn"><div class="wrap">
