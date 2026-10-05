@@ -20,7 +20,66 @@ footer{background:var(--dark);color:#fff;padding:75px 0}footer p{color:#cfc8d0}@
 /* Compatibility styling for the rewritten content — visual system only. */
 img{max-width:100%;display:block}
 .number{font-size:50px;font-weight:950;color:var(--pink);letter-spacing:-.07em;line-height:1}
-.compare{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:26px}.compare .pane{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 10px 28px #17131a0b}.pane-title{padding:16px 20px;font-weight:800;border-bottom:1px solid var(--line)}.pane img{width:100%;height:620px;object-fit:cover; object-position: top center;background:#f5f2f5}.caption{padding:18px 20px;color:var(--muted);font-size:15px}
+.compare{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+  margin-top:26px;
+}
+
+.compare .pane{
+  border:1px solid var(--line);
+  border-radius:18px;
+  overflow:hidden;
+  background:#fff;
+  box-shadow:0 10px 28px #17131a0b;
+}
+
+.pane-title{
+  padding:16px 20px;
+  font-weight:800;
+  border-bottom:1px solid var(--line);
+}
+
+/* Scrollable PLP / PDP image area */
+.pane-image{
+  height:620px;
+  overflow-y:auto;
+  overflow-x:hidden;
+  background:#f5f2f5;
+
+  scrollbar-width:auto;
+  scrollbar-color:#8d8a8e #f5f2f5;
+}
+
+/* Chrome / Edge scrollbar */
+.pane-image::-webkit-scrollbar{
+  width:12px;
+}
+
+.pane-image::-webkit-scrollbar-track{
+  background:#f5f2f5;
+}
+
+.pane-image::-webkit-scrollbar-thumb{
+  background:#8d8a8e;
+  border-radius:10px;
+  border:3px solid #f5f2f5;
+}
+
+/* Keep the original screenshot ratio */
+.pane-image img{
+  display:block;
+  width:100%;
+  height:auto;
+  max-width:none;
+}
+
+.caption{
+  padding:18px 20px;
+  color:var(--muted);
+  font-size:15px;
+}
 .intent{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:28px}.intent .card{min-height:155px}.intent .icon{font-size:30px}
 .steps{margin-top:20px}.step{display:grid;grid-template-columns:62px 1fr;gap:18px;padding:24px 0;border-bottom:1px solid var(--line)}.step:last-child{border-bottom:0}.stepno{width:48px;height:48px;border-radius:50%;background:#fff0f7;color:var(--pink);display:grid;place-items:center;font-weight:900}
 .decision-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:28px}.decision-card{padding:26px;border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:0 10px 28px #17131a0b}.decision-card .label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:900;color:var(--pink)}.decision-card p{color:var(--muted)}
@@ -84,7 +143,48 @@ img{max-width:100%;display:block}
 <div class="kicker">04 · Product Audit</div><h2>First, I checked what Meesho already had.</h2>
 <p class="lead">This was an important turning point. I wanted to avoid designing around a problem that the current product had already solved.</p>
 <div class="grid3"><div class="card"><span class="tag">CURRENT PLP</span><h3>Rich browsing foundation</h3><p>Search, categories, filters, promotional content, product cards, price, payment options and ratings are already part of the browsing experience.</p></div><div class="card"><span class="tag">CURRENT PDP</span><h3>Many confidence signals</h3><p>Product imagery, size, Gold/Premium, seller information, product details, reviews, customer proof, delivery and purchase actions already exist.</p></div><div class="card"><span class="tag">MY OBSERVATION</span><h3>The opportunity is the journey</h3><p>I shifted from asking “what is missing?” to “what should be easier to see and use at each decision point?”</p></div></div>
-<div class="compare"><div class="pane"><div class="pane-title">Current Meesho · PLP</div><img src="assets/current-plp.jpg" alt="Current Meesho PLP"><div class="caption">The baseline I used for the discovery and product-card audit.</div></div><div class="pane"><div class="pane-title">Current Meesho · PDP</div><img src="assets/current-pdp.jpg" alt="Current Meesho PDP"><div class="caption">The baseline I used for the purchase-decision audit.</div></div></div>
+<div class="compare">
+
+  <div class="pane">
+
+    <div class="pane-title">
+      Current Meesho · PLP
+    </div>
+
+    <div class="pane-image">
+      <img
+        src="assets/current-plp.jpg"
+        alt="Current Meesho PLP"
+      >
+    </div>
+
+    <div class="caption">
+      The baseline I used for the discovery and product-card audit.
+    </div>
+
+  </div>
+
+
+  <div class="pane">
+
+    <div class="pane-title">
+      Current Meesho · PDP
+    </div>
+
+    <div class="pane-image">
+      <img
+        src="assets/current-pdp.jpg"
+        alt="Current Meesho PDP"
+      >
+    </div>
+
+    <div class="caption">
+      The baseline I used for the purchase-decision audit.
+    </div>
+
+  </div>
+
+</div>
 <div class="quote2" style="margin-top:28px">“The question changed from <strong>What information is missing?</strong> to <strong>What information should be easier to use at each decision point?</strong>”</div>
 </div></section>
 
@@ -179,8 +279,9 @@ img{max-width:100%;display:block}
 <section id="occasion"><div class="wrap">
 <div class="kicker">16 · Design Decisions · Occasion</div><h2>Turn an occasion into a shopping journey.</h2>
 <p class="lead">The occasion page is a supporting concept. I used Navratri as a concrete example of how an intent can become a structured discovery experience.</p>
-><div class="card"><span class="tag">WHY THIS DESIGN</span><h3>The user knows the occasion, not necessarily the product.</h3><p>Someone may think “I need to shop for Navratri” without knowing whether they want a kurti, jewellery, footwear, beauty products or decor.</p><p><strong>Decision:</strong> Organize the experience around the occasion first, then help the user move into relevant categories and products.</p><p><strong>Reusable:</strong> The same structure could support Diwali, Raksha Bandhan, wedding season, Pongal, back-to-college and other contextual shopping moments.</p></div></div>
-<div class="note" style="margin-top:22px"><strong>Important framing:</strong> I am not claiming that Meesho lacks festive merchandising. My exploration was to turn an occasion entry into a more complete discovery journey.</div>
+<div class="card"><span class="tag">WHY THIS DESIGN</span><h3>The user knows the occasion, not necessarily the product.</h3><p>Someone may think “I need to shop for Navratri” without knowing whether they want a kurti, jewellery, footwear, beauty products or decor.</p><p><strong>Decision:</strong> Organize the experience around the occasion first, then help the user move into relevant categories and products.</p><p><strong>Reusable:</strong> The same structure could support Diwali, Raksha Bandhan, wedding season, Pongal, back-to-college and other contextual shopping moments.</p></div></div>
+<div class="note" style="margin-top:22px"><strong>Important framing:</strong> I am not claiming that Meesho lacks festive merchandising. 
+  My exploration was to turn an occasion entry into a more complete discovery journey.</div>
 </div></section>
 
 <section class="soft" id="pdp"><div class="wrap">
