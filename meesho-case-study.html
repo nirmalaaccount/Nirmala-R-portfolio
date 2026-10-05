@@ -2,241 +2,223 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Meesho — From discovery to confident purchase</title>
-<meta name="description" content="Meesho product design case study — research, problem, hypotheses and three connected design solutions across discovery, occasion shopping and the PDP.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meesho — Intent-led Shopping Journey | Product Design Case Study</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap');
-:root{--pink:#d92d83;--ink:#252126;--muted:#706970;--line:#e5e0e4;--soft:#faf8fa;--dark:#17131a;--green:#087f5b;--max:1180px}
+:root{--pink:#d92d83;--ink:#252126;--muted:#706970;--line:#e5e0e4;--soft:#faf8fa;--dark:#17131a;--max:1180px;--green:#087f5b}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);font-family:"Source Sans 3",Arial,sans-serif;line-height:1.68;background:#fff}a{color:inherit}.wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
-.nav{position:sticky;top:0;z-index:20;background:#ffffffeb;backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}.navin{height:68px;display:flex;align-items:center;justify-content:space-between}.brand{font-weight:950;font-size:23px;color:var(--pink);letter-spacing:-.06em}.navlinks{display:flex;gap:18px;font-size:14px;color:var(--muted)}.navlinks a{text-decoration:none}.navlinks a:hover{color:var(--pink)}
-.hero{background:radial-gradient(circle at 80% 15%,#ff4fae44,transparent 30%),radial-gradient(circle at 10% 80%,#ff8bc822,transparent 28%),var(--dark);color:#fff;padding:100px 0 88px}.eyebrow,.kicker{ text-transform:uppercase;letter-spacing:.16em;font-size:11px;font-weight:900;color:var(--pink)}.hero .eyebrow{color:#ff8fc8}.hero h1{font-family:"Source Serif 4",Georgia,serif;font-weight:600;font-size:clamp(54px,7vw,92px);line-height:1;letter-spacing:-.045em;max-width:1000px;margin:18px 0 25px}.hero h1 span{color:#ff6eb7}.hero p{font-size:20px;color:#dcd5dd;max-width:820px}.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:32px}.chip{border:1px solid #ffffff26;border-radius:999px;padding:8px 12px;font-size:12px;color:#eee}.quote{font-family:"Source Serif 4",Georgia,serif;margin-top:54px;border-left:3px solid var(--pink);padding-left:20px;font-size:21px;line-height:1.5;max-width:900px}
-section{padding:82px 0}.soft{background:var(--soft)}h2{font-family:"Source Serif 4",Georgia,serif;font-weight:600;font-size:clamp(44px,5vw,70px);line-height:1.05;letter-spacing:-.025em;margin:0 0 18px}h3{font-size:26px;line-height:1.22;letter-spacing:-.012em;margin:0 0 8px}.lead{font-size:20px;color:var(--muted);max-width:920px}.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px}.dark{background:var(--dark);color:#fff;border-color:var(--dark)}.dark p{color:#cbc4cd}.pink{background:#fff0f7;border-color:#ffd3e9}.amber{background:#fff7df;border-color:#f1dfa7}.tag{display:inline-block;padding:5px 9px;border-radius:4px;background:#fff0f7;color:#a91462;font-size:12px;font-weight:900;margin-bottom:11px}.num{font-size:48px;font-weight:950;color:var(--pink);letter-spacing:-.07em}.small{font-size:15px;color:var(--muted)}.note{border:1px solid var(--line);background:#fff;border-radius:16px;padding:15px 17px;font-size:15px;color:var(--muted)}.quote2{font-family:"Source Serif 4",Georgia,serif;font-size:31px;line-height:1.35;letter-spacing:-.02em;border-left:4px solid var(--pink);padding-left:22px;max-width:920px}.flow{display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin-top:28px}.node{padding:12px 15px;background:#fff;border:1px solid var(--line);border-radius:8px;font-weight:700;font-size:15px}.arrow{font-weight:950;color:var(--pink)}
-.evidence-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:30px}.evidence-card,.final-card{overflow:hidden;border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:0 10px 28px #17131a0b}.evidence-window{height:650px;overflow:auto;background:#f5f2f5;padding:18px}.evidence-window img{display:block;width:100%;height:auto;max-width:520px;margin:auto}.cap{padding:18px 20px;border-top:1px solid var(--line)}.cap strong{display:block;font-size:20px}.cap span{display:block;font-size:15px;color:var(--muted);margin-top:4px}
-.final-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:30px}.final-window{height:720px;overflow:auto;background:#f5f2f5;padding:18px}.final-window img{display:block;width:100%;height:auto;max-width:520px;margin:auto}.final-cap{padding:18px 20px;border-top:1px solid var(--line)}.final-cap strong{display:block;font-size:20px}.final-cap span{display:block;font-size:15px;color:var(--muted);margin-top:4px}
-.timeline{display:grid;grid-template-columns:70px 1fr;gap:0 20px;margin-top:28px}.timeline .t{font-weight:800;color:var(--pink);font-size:15px;padding-top:2px}.timeline .item{padding:0 0 27px;border-left:2px solid #f1c5db;padding-left:22px}.timeline .item:last-child{border-left-color:transparent}.metric{border:1px solid var(--line);border-radius:18px;padding:22px;background:#fff}.metric strong{display:block;font-size:19px}.metric span{display:block;color:var(--muted);font-size:15px;margin-top:5px}.decision{border-left:4px solid var(--pink);padding-left:20px}.label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:900;color:var(--pink)}
-footer{background:var(--dark);color:#fff;padding:70px 0}footer p{color:#cfc8d0}
-@media(max-width:1000px){.final-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:850px){.navlinks{display:none}.grid2,.grid3,.evidence-grid,.final-grid{grid-template-columns:1fr}.hero{padding:70px 0}.hero h1{font-size:55px}.evidence-window,.final-window{height:620px}}
+.nav{position:sticky;top:0;z-index:20;background:#ffffffdf;backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}.navin{height:68px;display:flex;align-items:center;justify-content:space-between}.brand{font-weight:950;font-size:23px;color:var(--pink);letter-spacing:-.06em}.navlinks{display:flex;gap:20px;font-size:14px;color:var(--muted)}.navlinks a{text-decoration:none}.navlinks a:hover{color:var(--pink)}
+.hero{background:radial-gradient(circle at 80% 15%,#ff4fae44,transparent 30%),radial-gradient(circle at 10% 80%,#ff8bc822,transparent 28%),var(--dark);color:#fff;padding:105px 0 90px}.eyebrow,.kicker{text-transform:uppercase;letter-spacing:.16em;font-size:11px;font-weight:900;color:var(--pink)}.hero .eyebrow{color:#ff8fc8}.hero h1{font-family:"Source Serif 4",Georgia,serif;font-weight:600;font-size:clamp(54px,7vw,92px);line-height:1;letter-spacing:-.045em;max-width:1000px;margin:18px 0 25px}.hero h1 span{color:#ff6eb7}.hero p{font-size:20px;color:#dcd5dd;max-width:800px}.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:34px}.chip{border:1px solid #ffffff26;border-radius:999px;padding:8px 12px;font-size:12px;color:#eee}.quote{font-family:"Source Serif 4",Georgia,serif;margin-top:60px;border-left:3px solid var(--pink);padding-left:20px;font-size:21px;line-height:1.5;max-width:900px}
+section{padding:85px 0}.soft{background:var(--soft)}h2{font-family:"Source Serif 4",Georgia,serif;font-weight:600;font-size:clamp(46px,5.2vw,72px);line-height:1.05;letter-spacing:-.025em;margin:0 0 18px}h3{font-size:27px;line-height:1.22;letter-spacing:-.012em;margin:0 0 8px}.lead{font-size:21px;color:var(--muted);max-width:900px}.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:30px}.dark{background:var(--dark);color:#fff;border-color:var(--dark)}.dark p{color:#cbc4cd}.pink{background:#fff0f7;border-color:#ffd3e9}.amber{background:#fff7df;border-color:#f1dfa7}.tag{display:inline-block;padding:5px 9px;border-radius:4px;background:#fff0f7;color:#a91462;font-size:13px;font-weight:900;margin-bottom:11px}.num{font-size:50px;font-weight:950;color:var(--pink);letter-spacing:-.07em}.small{font-size:15px;color:var(--muted)}.note{border:1px solid var(--line);background:#fff;border-radius:16px;padding:15px 17px;font-size:16px;color:var(--muted)}.quote2{font-family:"Source Serif 4",Georgia,serif;font-size:34px;line-height:1.35;letter-spacing:-.02em;border-left:4px solid var(--pink);padding-left:22px;max-width:920px}.flow{display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin-top:28px}.node{padding:12px 15px;background:#fff;border:1px solid var(--line);border-radius:8px;font-weight:700;font-size:15px}.arrow{font-weight:950;color:var(--pink)}
+.table{overflow:auto;border:1px solid var(--line);border-radius:20px;margin-top:26px}table{width:100%;min-width:760px;border-collapse:collapse}th,td{text-align:left;padding:15px 16px;border-bottom:1px solid var(--line);vertical-align:top;font-size:15px}th{background:var(--soft);font-size:10px;text-transform:uppercase;letter-spacing:.1em}tr:last-child td{border-bottom:0}
+.screen-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:30px}.screen{overflow:hidden;border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:0 10px 28px #17131a0b}.screen-window{height:690px;overflow:auto;background:#f5f2f5;padding:18px;scrollbar-width:thin}.screen-window img{display:block;width:100%;height:auto;max-width:520px;margin:0 auto}.screen .cap{padding:18px 20px;border-top:1px solid var(--line)}.screen .cap strong{display:block;font-size:20px}.screen .cap span{font-size:15px;color:var(--muted)}
+.final-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:30px}.final-card{overflow:hidden;border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:0 10px 28px #17131a0b}.final-window{height:700px;overflow:auto;background:#f5f2f5;padding:18px;scrollbar-width:thin}.final-window img{display:block;width:100%;height:auto;max-width:520px;margin:0 auto}.final-cap{padding:18px 20px;border-top:1px solid var(--line)}.final-cap strong{display:block;font-size:20px}.final-cap span{font-size:15px;color:var(--muted)}
+.timeline{display:grid;grid-template-columns:80px 1fr;gap:0 22px;margin-top:28px}.timeline .t{font-weight:800;color:var(--pink);font-size:15px;padding-top:2px}.timeline .item{padding:0 0 28px;border-left:2px solid #f1c5db;padding-left:22px}.timeline .item:last-child{border-left-color:transparent}.metric{border:1px solid var(--line);border-radius:20px;padding:23px;background:#fff}.metric strong{display:block;font-size:20px}.metric span{display:block;color:var(--muted);font-size:15px;margin-top:5px}.decision{border-left:4px solid var(--pink);padding-left:20px}.label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:900;color:var(--pink)}
+footer{background:var(--dark);color:#fff;padding:75px 0}footer p{color:#cfc8d0}@media(max-width:1000px){.final-grid{grid-template-columns:1fr 1fr}}@media(max-width:850px){.navlinks{display:none}.grid2,.grid3,.screen-grid,.final-grid{grid-template-columns:1fr}.hero{padding:75px 0}.hero h1{font-size:56px}.screen-window,.final-window{height:620px}}
+
+/* Compatibility styling for the rewritten content — visual system only. */
+img{max-width:100%;display:block}
+.number{font-size:50px;font-weight:950;color:var(--pink);letter-spacing:-.07em;line-height:1}
+.compare{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:26px}.compare .pane{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 10px 28px #17131a0b}.pane-title{padding:16px 20px;font-weight:800;border-bottom:1px solid var(--line)}.pane img{width:100%;height:620px;object-fit:contain;background:#f5f2f5}.caption{padding:18px 20px;color:var(--muted);font-size:15px}
+.intent{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:28px}.intent .card{min-height:155px}.intent .icon{font-size:30px}
+.steps{margin-top:20px}.step{display:grid;grid-template-columns:62px 1fr;gap:18px;padding:24px 0;border-bottom:1px solid var(--line)}.step:last-child{border-bottom:0}.stepno{width:48px;height:48px;border-radius:50%;background:#fff0f7;color:var(--pink);display:grid;place-items:center;font-weight:900}
+.decision-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:28px}.decision-card{padding:26px;border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:0 10px 28px #17131a0b}.decision-card .label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:900;color:var(--pink)}.decision-card p{color:var(--muted)}
+.quote-dark{margin-top:28px;padding:30px;border-radius:16px;background:var(--dark);color:#fff;font-family:"Source Serif 4",Georgia,serif;font-size:24px;line-height:1.45}
+.toc{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}.toc a{font-size:12px;padding:7px 10px;border:1px solid var(--line);border-radius:999px;color:var(--muted);background:#fff}.disclaimer{font-size:13px;color:var(--muted);margin-top:22px}
+.footer{background:var(--dark);color:#fff;padding:75px 0}.footer p{color:#cfc8d0}
+@media(max-width:1000px){.intent{grid-template-columns:1fr 1fr}}@media(max-width:850px){.compare,.decision-grid{grid-template-columns:1fr}.intent{grid-template-columns:1fr 1fr}.pane img{height:auto}}
+@media(max-width:520px){.intent{grid-template-columns:1fr}}
+
+
+/* Final design presentation — visual reference style */
+.final-showcase{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:34px;align-items:start}
+.final-frame{background:#f8f6f8;border:1px solid #e5e0e5;border-radius:24px;overflow:hidden;box-shadow:0 12px 32px rgba(31,22,30,.07)}
+.final-window{height:760px;overflow:auto;background:#f7f5f7;padding:22px 23px 0;scrollbar-width:auto;scrollbar-color:#8e8b8f transparent}
+.final-window::-webkit-scrollbar{width:12px}
+.final-window::-webkit-scrollbar-track{background:transparent}
+.final-window::-webkit-scrollbar-thumb{background:#8d8a8e;border-radius:10px;border:3px solid #f7f5f7}
+.final-window img{display:block;width:100%;height:auto;max-width:none;margin:0;border-radius:0;box-shadow:none}
+.final-caption{padding:18px 20px 20px;background:#fff;border-top:1px solid #e8e3e8}
+.final-caption strong{display:block;font-size:16px;line-height:1.35;color:#17131a}
+.final-caption span{display:block;margin-top:5px;font-size:14px;line-height:1.55;color:#756d76}
+@media(max-width:1050px){.final-showcase{grid-template-columns:1fr 1fr}.final-window{height:680px}}
+@media(max-width:720px){.final-showcase{grid-template-columns:1fr;gap:20px}.final-window{height:650px;padding:18px 18px 0}.final-frame{border-radius:20px}}
+
 </style>
 </head>
 <body>
-<nav class="nav"><div class="wrap navin"><a class="brand" href="#">meesho</a><div class="navlinks"><a href="#overview">Overview</a><a href="#research">Research</a><a href="#evidence">Evidence</a><a href="#hypotheses">Hypotheses</a><a href="#final-design">Final Design</a><a href="#validation">Validation</a></div></div></nav>
+<nav class="nav"><div class="wrap navin"><a class="brand" href="#top">meesho</a><div class="navlinks"><a href="#overview">Overview</a><a href="#audit">Audit</a><a href="#hypotheses">Hypotheses</a><a href="#final">Final Design</a><a href="#plp">PLP Decisions</a><a href="#pdp">PDP Decisions</a><a href="#validation">Validation</a></div></div></nav>
 
-<header class="hero">
-<div class="wrap">
-<div class="eyebrow">00 · Product Design Case Study</div>
-<h1>From <span>discovery</span> to a more confident purchase.</h1>
-<p>A self-initiated Meesho product exploration. I looked at how users discover products, what makes them hesitate, and how the experience could help them move from browsing to a more confident purchase.</p>
-<div class="chips">
-<span class="chip">Role · Product Designer</span><span class="chip">Scope · UX + UI + Product Thinking</span><span class="chip">Platform · Mobile</span><span class="chip">Type · Self-initiated</span>
-</div>
-<div class="quote">“I did not want to redesign all of Meesho. I wanted to understand where users need more confidence, then improve the moments that matter.”</div>
-</div>
-</header>
+<header class="hero" id="top"><div class="wrap">
+<div class="eyebrow">00 · Product Design Case Study · Self-initiated</div>
+<h1>From <span>intent</span> to a more confident purchase.</h1>
+<p class="lead">I explored how Meesho could connect different ways of shopping — occasion, budget, urgency and inspiration — to a clearer journey from discovery to product decision.</p>
+<div class="chips"><span class="chip">Role · Product Designer</span><span class="chip">Scope · UX + UI + Product Thinking</span><span class="chip">Platform · Mobile</span><span class="chip">Type · Self-initiated concept</span></div>
+<div class="quote"><strong>My starting point changed during the project.</strong><br>I initially looked for missing trust and information. The audit showed that Meesho already had many of those capabilities. So I shifted the problem toward how those signals could work together around the shopper's intent.</div>
+<div class="toc"><a href="#overview">01 Overview</a><a href="#research">05 Research</a><a href="#evidence">07 Evidence</a><a href="#hypotheses">08 Hypotheses</a><a href="#final">14 Final Design</a><a href="#plp">15 PLP</a><a href="#occasion">16 Occasion</a><a href="#pdp">17 PDP</a><a href="#validation">18 Validation</a></div>
+</div></header>
 
 <section id="overview"><div class="wrap">
-<div class="kicker">01 · Overview</div><h2>It started with a simple question.</h2>
-<div class="card dark"><p style="font-size:29px;line-height:1.38;color:#fff;margin:0">How might Meesho help shoppers move from <strong>“Is this worth exploring?”</strong> to <strong>“I feel confident buying this”</strong>?</p></div>
-<div class="grid3" style="margin-top:18px">
-<div class="card"><strong>My role</strong><br><span class="small">Product Designer · research, UX, UI and concept strategy</span></div>
-<div class="card"><strong>My approach</strong><br><span class="small">Product audit · competitor review · qualitative conversations · design exploration</span></div>
-<div class="card"><strong>Final output</strong><br><span class="small">Enhanced discovery · occasion-led shopping · redesigned PDP</span></div>
-</div>
-<div class="note" style="margin-top:18px"><strong>Scope:</strong> This is a self-initiated concept. I did not have Meesho internal analytics or access to customers at scale, so the final screens are design hypotheses, not proven business results.</div>
+<div class="kicker">01 · Overview</div><h2>A simple question.</h2>
+<div class="card dark"><p style="font-size:28px;line-height:1.4;margin:0">How might Meesho help shoppers move from <strong>“I have a shopping need”</strong> to <strong>“I found the right product and feel ready to buy”</strong>?</p></div>
+<div class="grid3" style="margin-top:18px"><div class="card"><strong>Discover</strong><p class="small">Give users useful ways to start shopping.</p></div><div class="card"><strong>Explore</strong><p class="small">Turn an intent such as an occasion into relevant discovery.</p></div><div class="card"><strong>Decide</strong><p class="small">Help users evaluate the product before purchase.</p></div></div>
+<div class="note" style="margin-top:18px"><strong>Scope:</strong> This is a self-initiated concept. I did not have Meesho internal analytics or large-scale customer access. The final designs are hypotheses, not proven business results.</div>
 </div></section>
 
 <section class="soft"><div class="wrap">
-<div class="kicker">02 · Business Context</div><h2>Why I chose this problem.</h2>
-<p class="lead">Meesho already gives users a very large selection and strong price value. I was more interested in what happens when a user is interested in a product but is still unsure whether it is the right choice.</p>
-<div class="grid2">
-<div class="card"><span class="tag">USER SIDE</span><h3>The user needs confidence.</h3><p>Before buying, a shopper may ask: Is this product right for me? Can I trust the seller? When will it arrive? What did other customers receive?</p></div>
-<div class="card pink"><span class="tag">PRODUCT SIDE</span><h3>The experience needs to support that decision.</h3><p>Meesho already has many of these signals. The opportunity is to make them easier to notice, understand and use at the right moment.</p></div>
-</div>
+<div class="kicker">02 · Business Context</div><h2>Why this problem?</h2>
+<p class="lead">Meesho already offers a large assortment, categories, promotions, ratings, reviews, Gold/Premium signals and multiple ways to discover products. The shopping journey does not always begin with an exact product search.</p>
+<p class="lead">A shopper might start with an occasion, a budget, a delivery deadline or simply inspiration. I wanted to explore how those different intents could become clearer entry points into the same familiar commerce journey.</p>
+<div class="quote2">The goal was not “add more features.” It was <strong>give existing shopping signals a clearer job at each decision point.</strong></div>
 </div></section>
 
 <section><div class="wrap">
-<div class="kicker">03 · Market Landscape</div><h2>I first looked at how other commerce products solve similar moments.</h2>
-<p class="lead">I reviewed Myntra, AJIO, Amazon, Flipkart and selected fast-delivery patterns. I looked at discovery, delivery visibility, reviews, promotions, styling and product confidence.</p>
-<div class="grid3">
-<div class="card"><div class="num">01</div><h3>Delivery can be a shopping signal.</h3><p>When delivery timing is important, users may want to know it before they invest time in a product.</p></div>
-<div class="card"><div class="num">02</div><h3>Discovery is more than search.</h3><p>Collections, occasions, recommendations and inspiration can help users who are browsing without one exact product in mind.</p></div>
-<div class="card"><div class="num">03</div><h3>Proof helps the final decision.</h3><p>Reviews, customer photos, seller information and product details help users judge what they are about to buy.</p></div>
-</div>
-<div class="note" style="margin-top:20px"><strong>My takeaway:</strong> I used competitor patterns to understand possibilities, not to copy features into Meesho.</div>
+<div class="kicker">03 · Market Landscape</div><h2>What I looked at outside Meesho.</h2>
+<p class="lead">I reviewed Myntra, AJIO, Amazon, Flipkart and fast-delivery patterns to understand how commerce products handle discovery, delivery visibility, promotions, content and purchase confidence.</p>
+<div class="grid3"><div class="card"><div class="number">01</div><h3>Discovery</h3><p>Collections, recommendations, occasion-led content and visual browsing can help users explore without an exact product in mind.</p></div><div class="card"><div class="number">02</div><h3>Delivery</h3><p>Fast or next-day delivery can act as a shopping signal while users are still comparing products.</p></div><div class="card"><div class="number">03</div><h3>Decision support</h3><p>Ratings, customer proof, seller information and product details help users evaluate before purchase.</p></div></div>
+<div class="note" style="margin-top:20px"><strong>What I took from this:</strong> I used competitor patterns as references, not as features to copy.</div>
 </div></section>
 
-<section class="soft"><div class="wrap">
-<div class="kicker">04 · Product Audit</div><h2>Before designing, I checked what Meesho already had.</h2>
-<p class="lead">This was important because I did not want to create a solution for a problem the current product had already solved.</p>
-<div class="grid3">
-<div class="card"><span class="tag">DISCOVERY</span><h3>There are already many signals.</h3><p>Categories, filters, price, ratings, reviews, offers and product cards are already part of the browsing experience.</p></div>
-<div class="card"><span class="tag">PDP</span><h3>The confidence information already exists.</h3><p>The PDP already has product images, size, seller, product details, reviews, customer photos, delivery, returns and purchase actions.</p></div>
-<div class="card"><span class="tag">MY OBSERVATION</span><h3>The problem looked more like hierarchy.</h3><p>The shopper has to move through the experience and connect different pieces of information themselves.</p></div>
-</div>
-<div class="quote2" style="margin-top:38px">“My assumption changed. I stopped asking, ‘What information is missing?’ and started asking, ‘What information should be easier to see at each decision point?’”</div>
+<section class="soft" id="audit"><div class="wrap">
+<div class="kicker">04 · Product Audit</div><h2>First, I checked what Meesho already had.</h2>
+<p class="lead">This was an important turning point. I wanted to avoid designing around a problem that the current product had already solved.</p>
+<div class="grid3"><div class="card"><span class="tag">CURRENT PLP</span><h3>Rich browsing foundation</h3><p>Search, categories, filters, promotional content, product cards, price, payment options and ratings are already part of the browsing experience.</p></div><div class="card"><span class="tag">CURRENT PDP</span><h3>Many confidence signals</h3><p>Product imagery, size, Gold/Premium, seller information, product details, reviews, customer proof, delivery and purchase actions already exist.</p></div><div class="card"><span class="tag">MY OBSERVATION</span><h3>The opportunity is the journey</h3><p>I shifted from asking “what is missing?” to “what should be easier to see and use at each decision point?”</p></div></div>
+<div class="compare"><div class="pane"><div class="pane-title">Current Meesho · PLP</div><img src="assets/current-plp.jpg" alt="Current Meesho PLP"><div class="caption">The baseline I used for the discovery and product-card audit.</div></div><div class="pane"><div class="pane-title">Current Meesho · PDP</div><img src="assets/current-pdp.jpg" alt="Current Meesho PDP"><div class="caption">The baseline I used for the purchase-decision audit.</div></div></div>
+<div class="quote2" style="margin-top:28px">“The question changed from <strong>What information is missing?</strong> to <strong>What information should be easier to use at each decision point?</strong>”</div>
 </div></section>
 
 <section id="research"><div class="wrap">
-<div class="kicker">05 · Research Approach</div><h2>I used two layers of research.</h2>
-<div class="grid2">
-<div class="card"><span class="tag">01 · SECONDARY</span><h3>Product + competitor research</h3><p>I audited the current Meesho journey and reviewed other commerce experiences to understand where discovery, delivery and purchase confidence show up.</p></div>
-<div class="card pink"><span class="tag">02 · QUALITATIVE</span><h3>Short shopper conversations</h3><p>I spoke with two shoppers about how price, quality, delivery time and confidence affect their purchase choices.</p></div>
-</div>
-<div class="note" style="margin-top:18px"><strong>Research limitation:</strong> The qualitative sample is small and directional. I used it to understand behaviours and shape hypotheses, not to represent all Meesho users.</div>
+<div class="kicker">05 · Research Approach</div><h2>How I explored the problem.</h2>
+<div class="grid3"><div class="card"><span class="tag">01</span><h3>Product audit</h3><p>Reviewed the current Meesho browsing and purchase journey.</p></div><div class="card"><span class="tag">02</span><h3>Competitor review</h3><p>Looked at discovery, delivery, promotions, reviews and purchase confidence across marketplaces.</p></div><div class="card"><span class="tag">03</span><h3>Qualitative input</h3><p>Used a small number of shopper conversations to understand how price, quality and delivery affect decisions.</p></div></div>
+<p class="disclaimer">Research was directional and not statistically representative.</p>
 </div></section>
 
 <section class="soft"><div class="wrap">
-<div class="kicker">06 · Qualitative Research</div><h2>Two shopping stories changed the direction.</h2>
-<div class="grid2">
-<div class="card"><span class="tag">SHOPPER 01</span><h3>Low price was not enough for every purchase.</h3><p>The shopper was comfortable using Meesho for lower-risk products. For office or wedding wear, they were more cautious because of quality, wrong-product and delivery concerns.</p><p><strong>What I took from it:</strong> when the purchase feels important, users want more proof before committing.</p></div>
-<div class="card pink"><span class="tag">SHOPPER 02</span><h3>Urgency changed the choice.</h3><p>The shopper needed white jeans quickly. Meesho was cheaper, but slower delivery made another marketplace feel like the better option for that situation.</p><p><strong>What I took from it:</strong> when there is a deadline, delivery can become part of the product decision.</p></div>
-</div>
-<div class="card dark" style="margin-top:20px"><p style="font-size:24px;line-height:1.45;margin:0;color:#fff">The common theme was not <strong>“Meesho has no trust.”</strong> It was that <strong>price, quality proof and delivery timing work together</strong> when a shopper decides what to buy.</p></div>
+<div class="kicker">06 · Research Findings</div><h2>Two observations shaped the direction.</h2>
+<div class="grid2"><div class="card"><span class="tag">STORY 01 · CONFIDENCE</span><h3>Lower price does not remove uncertainty.</h3><p>One shopper was comfortable using Meesho for lower-risk purchases but was more cautious about office and wedding wear because of concerns around quality, receiving the expected product and delivery.</p><div class="note"><strong>Design insight:</strong> For higher-consideration purchases, price is only one part of confidence.</div></div><div class="card"><span class="tag">STORY 02 · URGENCY</span><h3>Delivery can change the decision.</h3><p>Another shopper needed white jeans urgently. Meesho was cheaper, but slower, so a faster marketplace became the better choice.</p><div class="note"><strong>Design insight:</strong> When a purchase has a deadline, delivery can influence which product enters the shortlist.</div></div></div>
 </div></section>
 
-<section id="evidence"><div class="wrap">
-<div class="kicker">07 · Evidence</div><h2>Then I went back to the actual Meesho screens.</h2>
-<p class="lead">I wanted to separate what I observed from what I was assuming. These screens became the starting point for the design.</p>
-<div class="evidence-grid">
-<div class="evidence-card"><div class="evidence-window"><img src="assets/current-plp.jpg" alt="Current Meesho PLP"></div><div class="cap"><strong>Current PLP · Discovery</strong><span>Categories, filters, price, ratings, reviews, offers and product cards are already part of browsing.</span></div></div>
-<div class="evidence-card"><div class="evidence-window"><img src="assets/current-pdp.jpg" alt="Current Meesho PDP"></div><div class="cap"><strong>Current PDP · Product decision</strong><span>Product, size, seller, details, reviews, customer photos, delivery and purchase actions are already available.</span></div></div>
-</div>
-<div class="quote2" style="margin-top:42px">“This changed the direction of the project. Meesho already had the ingredients. I needed to make the shopping journey easier to understand and easier to use.”</div>
+<section class="soft" id="evidence"><div class="wrap">
+<div class="kicker">07 · Evidence</div><h2>What the current journey told me.</h2>
+<p class="lead">The baseline screens showed that Meesho already has the ingredients for discovery and purchase confidence. My concept therefore builds on the existing product instead of replacing it.</p>
+<div class="grid3"><div class="card"><strong>Current strength</strong><p>Large assortment + categories + promotions.</p></div><div class="card"><strong>Current strength</strong><p>Ratings + reviews + Gold/Premium + seller signals.</p></div><div class="card"><strong>Current strength</strong><p>Product details + delivery + purchase actions.</p></div></div>
+<div class="quote2" style="margin-top:24px">The opportunity I chose was to connect these strengths around different <strong>shopping intents</strong> rather than treating every user as if they start with the same search behaviour.</div>
 </div></section>
 
-<section id="hypotheses" class="soft"><div class="wrap">
-<div class="kicker">08 · Hypotheses</div><h2>The questions behind the redesign.</h2>
-<div class="grid3">
-<div class="card amber"><span class="tag">H1 · DISCOVERY</span><h3>Earlier useful signals may help shortlisting.</h3><p>If delivery, value and trust cues are easier to see while browsing, users may be able to narrow their choices more easily.</p></div>
-<div class="card amber"><span class="tag">H2 · OCCASION</span><h3>Context may make discovery easier.</h3><p>If an occasion banner opens a focused shopping page, users may discover relevant products without starting with an exact search.</p></div>
-<div class="card amber"><span class="tag">H3 · PDP</span><h3>A clearer decision layer may improve confidence.</h3><p>If product proof, size, styling, delivery, seller information and reviews are easier to scan together, users may feel more confident evaluating the product.</p></div>
-</div>
-<div class="note" style="margin-top:20px"><strong>Important:</strong> These are hypotheses I would validate. They are not claims that the redesign will automatically increase conversion.</div>
+<section id="hypotheses"><div class="wrap">
+<div class="kicker">08 · Hypotheses</div><h2>What I wanted to test.</h2>
+<div class="grid3"><div class="card"><span class="tag">H1 · INTENT</span><h3>More useful starting points</h3><p>If users can start from an occasion, budget, urgency or inspiration, they may find relevant products without needing an exact product search.</p></div><div class="card"><span class="tag">H2 · CONTEXT</span><h3>Occasion can guide discovery</h3><p>If an occasion becomes a structured shopping destination, users may discover relevant categories and products more naturally.</p></div><div class="card"><span class="tag">H3 · SHORTLIST</span><h3>Earlier decision signals</h3><p>If delivery, ratings and customer proof are easier to scan while browsing, users may shortlist products with less effort.</p></div></div>
+<p class="disclaimer">These are hypotheses, not proven outcomes.</p>
+</div></section>
+
+<section class="soft"><div class="wrap">
+<div class="kicker">09 · Problem Definition</div><h2>From missing features to a clearer journey.</h2>
+<div class="card dark"><p style="font-size:25px;line-height:1.5;margin:0"><strong>Meesho already has many useful shopping signals, but users can enter shopping with different intentions.</strong> I explored how those intentions could become clearer entry points and connect naturally to product evaluation.</p></div>
+<h3 style="margin-top:30px">How might we...</h3><p class="lead"><strong>Help shoppers move from a broad shopping intent to relevant products and a confident purchase decision?</strong></p>
 </div></section>
 
 <section><div class="wrap">
-<div class="kicker">09 · Problem Definition</div><h2>The problem I chose to solve.</h2>
-<div class="card dark"><p style="font-size:29px;line-height:1.42;color:#fff;margin:0">Shoppers may hesitate when the information they need to evaluate a product is spread across the journey, especially when <strong>quality confidence or delivery timing</strong> matters.</p></div>
-<div class="decision" style="margin-top:30px"><div class="label">How might we?</div><p style="font-size:24px;margin:8px 0 0">Help users discover relevant products, shortlist them with useful signals, and make the final purchase decision with less uncertainty?</p></div>
+<div class="kicker">10 · Opportunity</div><h2>Four shopping intents.</h2>
+<div class="intent"><div class="card"><div class="icon">🎉</div><span class="tag">OCCASION</span><h3>“I need something for Navratri.”</h3></div><div class="card"><div class="icon">₹</div><span class="tag">BUDGET</span><h3>“I want something under ₹499.”</h3></div><div class="card"><div class="icon">⚡</div><span class="tag">URGENCY</span><h3>“I need it quickly.”</h3></div><div class="card"><div class="icon">♥</div><span class="tag">INSPIRATION</span><h3>“I don't know exactly what I want.”</h3></div></div>
+<p class="lead" style="margin-top:25px">These became the basis for my discovery exploration.</p>
 </div></section>
 
 <section class="soft"><div class="wrap">
-<div class="kicker">10 · Opportunity</div><h2>Three moments. Three jobs.</h2>
-<div class="grid3">
-<div class="card"><div class="num">01</div><span class="tag">DISCOVER</span><h3>Give users a reason to explore.</h3><p>Help people start from an occasion, category, collection or recommendation instead of only an exact search.</p></div>
-<div class="card"><div class="num">02</div><span class="tag">SHORTLIST</span><h3>Show useful signals while browsing.</h3><p>Make delivery, value and trust cues easier to notice when users decide which products are worth opening.</p></div>
-<div class="card"><div class="num">03</div><span class="tag">DECIDE</span><h3>Bring the important proof together.</h3><p>Make the PDP easier to scan around product, size, styling, delivery, seller and customer proof.</p></div>
-</div>
+<div class="kicker">11 · Product Strategy</div><h2>Keep the familiar shopping model. Improve the important moments.</h2>
+<div class="flow"><div class="node">Shopping mode</div><span class="arrow">→</span><div class="node">Intent</div><span class="arrow">→</span><div class="node">Discovery</div><span class="arrow">→</span><div class="node">Shortlist</div><span class="arrow">→</span><div class="node">PDP</div><span class="arrow">→</span><div class="node">Purchase</div></div>
+<div class="grid3" style="margin-top:28px"><div class="card"><span class="tag">DISCOVER</span><h3>Home + PLP</h3><p>Give users more useful ways to start and better signals while browsing.</p></div><div class="card"><span class="tag">EXPLORE</span><h3>Occasion page</h3><p>Turn one real-world need into a structured discovery journey.</p></div><div class="card"><span class="tag">DECIDE</span><h3>PDP</h3><p>Organize product, size, styling, delivery and proof around the final decision.</p></div></div>
 </div></section>
 
 <section><div class="wrap">
-<div class="kicker">11 · Product Strategy</div><h2>Keep the familiar shopping flow. Improve the important moments.</h2>
-<div class="flow"><div class="node">Home / Discovery</div><span class="arrow">→</span><div class="node">Occasion or PLP</div><span class="arrow">→</span><div class="node">Shortlist</div><span class="arrow">→</span><div class="node">PDP</div><span class="arrow">→</span><div class="node">Cart</div><span class="arrow">→</span><div class="node">Purchase</div></div>
-<div class="grid3" style="margin-top:30px">
-<div class="card"><span class="tag">01 · DISCOVERY</span><h3>Enhanced Home</h3><p>More useful ways to start exploring without removing the familiar shopping structure.</p></div>
-<div class="card"><span class="tag">02 · CONTEXT</span><h3>Occasion page</h3><p>Turn a festival moment into a useful shopping destination rather than only a promotional banner.</p></div>
-<div class="card"><span class="tag">03 · DECISION</span><h3>Confidence-led PDP</h3><p>Organise the product page around the questions users need to answer before buying.</p></div>
-</div>
-</div></section>
-
-<section class="soft"><div class="wrap">
 <div class="kicker">12 · User Flow</div><h2>Two entry points, one decision journey.</h2>
-<div class="grid2">
-<div class="card"><span class="tag">OCCASION ENTRY</span><p style="font-size:20px"><strong>Occasion need</strong> → Occasion page → Curated products → PDP → Purchase</p></div>
-<div class="card"><span class="tag">PRODUCT ENTRY</span><p style="font-size:20px"><strong>Product search</strong> → Enhanced discovery / PLP → Shortlist → PDP → Purchase</p></div>
-</div>
-<p class="lead" style="margin-top:24px">I did not want to create a completely new shopping model. Both paths eventually bring the user to the same purchase-confidence moment: the PDP.</p>
-</div></section>
-
-<section><div class="wrap">
-<div class="kicker">13 · MVP</div><h2>What I would test first.</h2>
-<div class="timeline">
-<div class="t">01</div><div class="item"><h3>Enhanced Home / Product Discovery</h3><p>Improve discovery with categories, personalised picks, deals, delivery signals, community content, curated collections and clearer product cards.</p></div>
-<div class="t">02</div><div class="item"><h3>Occasion-led shopping</h3><p>Use one reusable occasion page, such as Navratri, to test whether context helps users discover products without an exact search.</p></div>
-<div class="t">03</div><div class="item"><h3>Confidence-led PDP</h3><p>Reorder product, size, styling, delivery, seller and customer proof around the final purchase decision.</p></div>
-</div>
-</div></section>
-
-<section class="soft" id="final-design"><div class="wrap">
-<div class="kicker">14 · Final Design</div><h2>Three connected design changes.</h2>
-<p class="lead">These are the final screens I designed. Together they tell one story: <strong>discover → explore in context → decide with confidence.</strong></p>
-<div class="final-grid">
-<div class="final-card"><div class="final-window"><img src="assets/final-discovery.jpg" alt="Final Meesho enhanced home and product discovery design"></div><div class="final-cap"><strong>01 · Enhanced Home / Product Discovery</strong><span>I created more ways to discover through Explore Categories, festival content, personalised picks, Budget Buys, Deal of the Day, Express Delivery, Flash Deals, Community Styling, curated collections and Popular Picks. Product cards also make delivery, ratings and trust cues easier to scan.</span></div></div>
-<div class="final-card"><div class="final-window"><img src="assets/final-occasion.jpg" alt="Final Meesho Navratri occasion page"></div><div class="final-cap"><strong>02 · Occasion-led Shopping</strong><span>I turned the Navratri promotion into a complete shopping destination with a countdown, quick categories, festive deals, fashion, jewellery, puja and decor, gifts and sweets. The structure can be reused for other relevant occasions.</span></div></div>
-<div class="final-card"><div class="final-window"><img src="assets/final-pdp.jpg" alt="Final Meesho redesigned PDP"></div><div class="final-cap"><strong>03 · PDP / Purchase Confidence</strong><span>I redesigned the PDP around the final decision: product proof, size, Styling Studio, Style This Look, transparent look pricing, delivery, seller information, similar products and customer reviews, with Add to Cart and Buy Now always available.</span></div></div>
-</div>
-<div class="card dark" style="margin-top:24px"><h3>Why these three screens?</h3><p>The first screen helps users discover. The occasion page helps them discover with a specific context. The PDP helps them decide whether the product is right to buy. I gave each screen a clear job instead of trying to solve everything on one screen.</p></div>
-</div></section>
-
-<section><div class="wrap">
-<div class="kicker">15 · Design Decisions · Discovery</div><h2>How I changed the first screen.</h2>
-<div class="card dark"><p style="font-size:25px;line-height:1.45;color:#fff;margin:0">“I wanted discovery to feel useful, not just busy. The user should have different ways to enter shopping depending on what they already know.”</p></div>
-<div class="grid3" style="margin-top:18px">
-<div class="card"><span class="tag">01 · MORE ENTRY POINTS</span><h3>Support different shopping intentions.</h3><p>Categories, personalised picks, Budget Buys, deals and collections help users who are browsing without one exact product in mind.</p></div>
-<div class="card"><span class="tag">02 · DELIVERY</span><h3>Show timing earlier.</h3><p>Eligible products show information such as <strong>Get it by Tomorrow</strong>, so delivery can be considered while shortlisting.</p></div>
-<div class="card"><span class="tag">03 · TRUST</span><h3>Make confidence easy to scan.</h3><p>Ratings, customer content, trusted-seller cues and the Trust Guarantee give quick context before the user opens a product.</p></div>
-</div>
+<div class="grid2"><div class="card"><span class="tag">OCCASION ENTRY</span><p style="font-size:20px"><strong>Shopping need</strong> → Occasion → Curated products → PDP → Purchase</p></div><div class="card"><span class="tag">BROWSING ENTRY</span><p style="font-size:20px"><strong>Home / search</strong> → Enhanced PLP → Shortlist → PDP → Purchase</p></div></div>
 </div></section>
 
 <section class="soft"><div class="wrap">
-<div class="kicker">16 · Design Decisions · Occasion</div><h2>Why turn a festival banner into a full shopping page?</h2>
-<div class="grid2">
-<div class="card"><span class="tag">01 · BANNER → JOURNEY</span><h3>Make the promotion useful.</h3><p>Instead of taking users to a generic listing, the Navratri banner opens a page built around the occasion.</p></div>
-<div class="card"><span class="tag">02 · CURATION</span><h3>Group products around a need.</h3><p>Fashion, jewellery, puja, decor, gifts and sweets let users explore even when they don't know the exact product name.</p></div>
-<div class="card"><span class="tag">03 · REUSABLE</span><h3>Use the structure again.</h3><p>The same experience can be adapted for Diwali, Raksha Bandhan, wedding season and other relevant moments.</p></div>
-<div class="card"><span class="tag">04 · ROLE</span><h3>Keep it focused on discovery.</h3><p>The occasion page gets users into the right context. The product page still handles the final purchase decision.</p></div>
-</div>
+<div class="kicker">13 · MVP</div><h2>What I chose to design.</h2>
+<div class="steps"><div class="step"><div class="stepno">01</div><div><h3>Enhanced Home / Product Discovery</h3><p>Bring shopping modes and intent-led discovery into the first screen, then make product cards easier to scan.</p></div></div><div class="step"><div class="stepno">02</div><div><h3>Occasion-led discovery</h3><p>Use Navratri as one example of how an occasion can become a structured shopping destination.</p></div></div><div class="step"><div class="stepno">03</div><div><h3>Confidence-led PDP</h3><p>Reorganize the purchase journey around product, size, styling, delivery, seller and customer proof.</p></div></div></div>
 </div></section>
 
-<section><div class="wrap">
-<div class="kicker">17 · Design Decisions · PDP</div><h2>The PDP is where the final decision happens.</h2>
-<p class="lead">This was not only a visual refresh. I changed the hierarchy and connected the information around the questions a shopper is likely to have before buying.</p>
-<div class="grid2" style="margin-top:28px">
-<div class="card"><span class="tag">01 · PRODUCT + PRICE</span><h3>Understand the product quickly.</h3><p>The top brings the product image, rating, product name, price, discount and key seller/trust information together.</p></div>
-<div class="card"><span class="tag">02 · SIZE</span><h3>Answer the size question early.</h3><p>Size selection is placed close to the main product information so the shopper doesn't have to hunt for it.</p></div>
-<div class="card"><span class="tag">03 · STYLING STUDIO</span><h3>Show how the product can be worn.</h3><p>The Styling Studio gives different looks around the product and answers the next question: “How would I wear this?”</p></div>
-<div class="card"><span class="tag">04 · STYLE THIS LOOK</span><h3>Make inspiration shoppable.</h3><p>Complementary products are shown with individual prices and a total. The shopper chooses what to add rather than having everything added automatically.</p></div>
-<div class="card"><span class="tag">05 · DELIVERY</span><h3>Make the expected date easy to notice.</h3><p>Delivery information is brought closer to the buying decision because timing can change what a shopper chooses.</p></div>
-<div class="card"><span class="tag">06 · SELLER + CUSTOMER PROOF</span><h3>Keep marketplace confidence visible.</h3><p>Seller information, ratings, customer photos and reviews help the shopper judge both the product and the buying experience.</p></div>
+<section id="final"><div class="wrap">
+<div class="kicker">14 · Final Design</div><h2>Three connected experiences.</h2>
+<p class="lead">I designed two core experiences — the <strong>Home/PLP</strong> and the <strong>PDP</strong>. The <strong>Occasion page</strong> is a supporting exploration showing how one shopping intent can become a discovery journey.</p>
+<div class="final-showcase">
+  <article class="final-frame">
+    <div class="final-window"><img src="assets/final-plp.jpg" alt="Final Meesho Home and product discovery design"></div>
+    <div class="final-caption"><strong>01 · Home / Discovery + PLP</strong><span>Shopping modes, intent-led discovery, delivery, deals, community content, curated collections and richer product cards.</span></div>
+  </article>
+  <article class="final-frame">
+    <div class="final-window"><img src="assets/occasion-page.jpg" alt="Final Meesho Navratri occasion page"></div>
+    <div class="final-caption"><strong>02 · Occasion-led Shopping</strong><span>Navratri as a concrete example of turning an occasion into a structured discovery destination.</span></div>
+  </article>
+  <article class="final-frame">
+    <div class="final-window"><img src="assets/final-pdp.jpg" alt="Final Meesho redesigned PDP"></div>
+    <div class="final-caption"><strong>03 · PDP / Purchase Decision</strong><span>Product proof, size, Styling Studio, Style This Look, transparent pricing, delivery, seller context and reviews.</span></div>
+  </article>
 </div>
-<div class="card dark" style="margin-top:24px"><p style="font-size:24px;line-height:1.45;color:#fff;margin:0"><strong>The main PDP idea:</strong> I wanted the shopper to answer four simple questions without searching through the page: <strong>What is it? Can I trust it? When will I get it? What did other buyers experience?</strong></p></div>
+<div class="card dark" style="margin-top:24px"><p style="font-size:23px;margin:0"><strong>Each screen has a different job:</strong> Home/PLP helps users discover and shortlist. Occasion gives discovery context. PDP helps users decide whether the specific product is right to buy.</p></div>
 </div></section>
 
-<section class="soft" id="validation"><div class="wrap">
-<div class="kicker">18 · Validation</div><h2>How I would validate the solution.</h2>
-<p class="lead">Because this is a self-initiated concept and I don't have Meesho behavioural data, I would not claim that the redesign already improved conversion. I would test the experience first.</p>
-<div class="grid3">
-<div class="card"><span class="tag">DISCOVERY TEST</span><h3>Can users shortlist more easily?</h3><p>Give users the same shopping task on the current and redesigned discovery experience. Observe time to shortlist and which signals they use.</p></div>
-<div class="card"><span class="tag">OCCASION TEST</span><h3>Can users discover without exact search?</h3><p>Give users an occasion-based task and see whether they can find relevant products from the Navratri-style experience.</p></div>
-<div class="card"><span class="tag">PDP TEST</span><h3>Can users answer purchase questions faster?</h3><p>Ask users to find size, delivery, seller, reviews and product details, then compare the current and redesigned PDP.</p></div>
+<section class="soft" id="plp"><div class="wrap">
+<div class="kicker">15 · Design Decisions · Home / PLP</div><h2>What I changed on the discovery layer — and why.</h2>
+<p class="lead">This is the main walkthrough of my first final design. I kept the familiar shopping model, but changed the hierarchy and entry points around different shopping intents.</p>
+<div class="decision-grid">
+<div class="decision-card"><div class="label">01 · SHOPPING MODES</div><h3>Bring the main shopping modes upfront</h3><p>Meesho already has propositions such as Meesho, Mall, Prime and Minutes across the ecosystem. I explored bringing the key modes together at the top: <strong>Meesho · Minutes · Prime · Mall</strong>.</p><p><strong>Why:</strong> Let users understand the different ways they can shop before going deeper into the journey.</p></div>
+<div class="decision-card"><div class="label">02 · MINUTES</div><h3>Make delivery speed a shopping choice</h3><p>I did not invent Minutes. I made the fast-delivery proposition a prominent entry point because speed can be a shopping intent by itself.</p><p><strong>Why:</strong> A user with an urgent need can choose a speed-led path upfront instead of discovering delivery options later.</p></div>
+<div class="decision-card"><div class="label">03 · INTENT</div><h3>Give users different ways to start</h3><p>Personalized Picks, Budget Buys, Express Delivery, Deal of the Day and curated collections support different reasons to browse.</p><p><strong>Why:</strong> Not every shopper arrives with a precise product keyword.</p></div>
+<div class="decision-card"><div class="label">04 · PROMOTIONS</div><h3>Make deals directly shoppable</h3><p>Instead of using a promotion only as a banner, Flash Deals shows the products, discount, price, delivery and rating together.</p><p><strong>Why:</strong> Reduce the gap between seeing an offer and understanding what can actually be bought.</p></div>
+<div class="decision-card"><div class="label">05 · DELIVERY</div><h3>Bring delivery into the product card</h3><p>The final card surfaces cues such as <strong>Get it by 3 Oct</strong> closer to the product, rather than making users open every PDP to check timing.</p><p><strong>Why:</strong> Delivery can affect shortlisting, especially when the shopper has a deadline.</p></div>
+<div class="decision-card"><div class="label">06 · CUSTOMER PROOF</div><h3>Bring customer content closer to discovery</h3><p>I used ratings, customer-photo cues and Community Styling & Reviews as lightweight proof while users are still browsing.</p><p><strong>Why:</strong> Help users judge whether a product is worth opening before they commit more time.</p></div>
+<div class="decision-card"><div class="label">07 · PRODUCT CARD</div><h3>Make the card decision-oriented</h3><p>The familiar card remains: image, name, price and rating. Around that, I added context such as trending/bestseller, delivery and trust cues.</p><p><strong>Why:</strong> Improve the information hierarchy without making the commerce pattern unfamiliar.</p></div>
+<div class="decision-card"><div class="label">08 · COMMUNITY</div><h3>Use content as discovery, not only review</h3><p>Community Styling & Reviews brings visual content into the browsing journey.</p><p><strong>Why:</strong> Customer content can help users discover products through inspiration as well as evaluate them after opening the PDP.</p></div>
 </div>
-<div class="note" style="margin-top:20px"><strong>What I would look for:</strong> task success, time to find information, confidence after the task, add-to-cart behaviour and any negative signals such as returns or cancellations.</div>
+<div class="quote-dark"><strong>The core PLP decision:</strong> I didn't want to add more content just to make the home page richer. I wanted each module to support a different reason to start shopping — <strong>occasion, budget, speed, deals or inspiration.</strong></div>
 </div></section>
 
-<section><div class="wrap">
+<section id="occasion"><div class="wrap">
+<div class="kicker">16 · Design Decisions · Occasion</div><h2>Turn an occasion into a shopping journey.</h2>
+<p class="lead">The occasion page is a supporting concept. I used Navratri as a concrete example of how an intent can become a structured discovery experience.</p>
+<div class="screen-grid"><div class="screen full"><img src="assets/occasion-page.jpg" alt="Navratri occasion shopping page"><div class="caption"><strong>Navratri Utsav</strong><br>Fashion, jewellery, beauty, decor, gifts and relevant curated products turn the occasion into a shopping destination.</div></div><div class="card"><span class="tag">WHY THIS DESIGN</span><h3>The user knows the occasion, not necessarily the product.</h3><p>Someone may think “I need to shop for Navratri” without knowing whether they want a kurti, jewellery, footwear, beauty products or decor.</p><p><strong>Decision:</strong> Organize the experience around the occasion first, then help the user move into relevant categories and products.</p><p><strong>Reusable:</strong> The same structure could support Diwali, Raksha Bandhan, wedding season, Pongal, back-to-college and other contextual shopping moments.</p></div></div>
+<div class="note" style="margin-top:22px"><strong>Important framing:</strong> I am not claiming that Meesho lacks festive merchandising. My exploration was to turn an occasion entry into a more complete discovery journey.</div>
+</div></section>
+
+<section class="soft" id="pdp"><div class="wrap">
+<div class="kicker">17 · Design Decisions · PDP</div><h2>From product information to purchase decision.</h2>
+<p class="lead">The PDP is my second major design. Once the user opens a product, the job changes from discovery to evaluation. I reorganized the page around the questions a shopper needs to answer before buying.</p>
+<div class="screen full" style="margin-top:30px"><img src="assets/final-pdp.jpg" alt="Final Meesho PDP full length"><div class="caption"><strong>Final PDP</strong><br>Product → size → styling → delivery → seller → proof → purchase.</div></div>
+<div class="decision-grid">
+<div class="decision-card"><div class="label">01 · PRODUCT + PRICE</div><h3>Understand the product quickly</h3><p>Product imagery, gallery, name, rating, price and discount are made easy to scan at the top.</p></div>
+<div class="decision-card"><div class="label">02 · SIZE</div><h3>Answer the size question early</h3><p>Size selection sits close to the core product information because for fashion, size is part of deciding whether the product is usable for me.</p></div>
+<div class="decision-card"><div class="label">03 · STYLING STUDIO</div><h3>Show how the product can be worn</h3><p>Styling Studio connects the product to different looks and answers the next question after “Do I like this?” — “How would I wear it?”</p></div>
+<div class="decision-card"><div class="label">04 · STYLE THIS LOOK</div><h3>Make inspiration shoppable</h3><p>Complementary products are shown with individual prices and a total. Users choose what to add instead of automatically adding everything.</p></div>
+<div class="decision-card"><div class="label">05 · TRANSPARENT PRICE</div><h3>Make the total easy to understand</h3><p>The complete look shows individual item prices and the combined total before the shopper commits.</p></div>
+<div class="decision-card"><div class="label">06 · DELIVERY</div><h3>Make the expected date easy to notice</h3><p>Delivery is placed close to the buying decision because a deadline can determine whether the shopper continues.</p></div>
+<div class="decision-card"><div class="label">07 · SELLER + PROOF</div><h3>Keep marketplace confidence visible</h3><p>Seller information, ratings, customer photos and reviews help the shopper judge both the product and the seller.</p></div>
+<div class="decision-card"><div class="label">08 · SIMILAR PRODUCTS</div><h3>Offer an alternative without restarting</h3><p>Similar products give users another option if the current product is close but not quite right.</p></div>
+<div class="decision-card"><div class="label">09 · PURCHASE ACTION</div><h3>Keep Add to Cart and Buy Now available</h3><p>After the user has evaluated the product, the purchase action should remain easy to reach.</p></div>
+</div>
+<div class="quote-dark"><strong>The core PDP decision:</strong> I didn't add information just to make the page longer. I organized the experience around five questions: <strong>What is it? Will it work for me? When will I get it? Can I trust it? How can I style it?</strong></div>
+</div></section>
+
+<section id="validation"><div class="wrap">
+<div class="kicker">18 · Validation</div><h2>How I would test the design.</h2>
+<p class="lead">Because this is a self-initiated concept without internal analytics, I would not claim conversion lift. The next step is behavioural validation.</p>
+<div class="grid3"><div class="card"><span class="tag">PLP TEST</span><h3>Can users shortlist more easily?</h3><p>Give users the same shopping task on the current and redesigned discovery experience. Observe time to shortlist and which signals they use.</p></div><div class="card"><span class="tag">OCCASION TEST</span><h3>Can users discover without exact search?</h3><p>Give users an occasion-based task and observe whether they can find relevant categories and products from the Navratri-style experience.</p></div><div class="card"><span class="tag">PDP TEST</span><h3>Can users answer purchase questions faster?</h3><p>Ask users to find size, delivery, seller, reviews, styling and product details. Compare task success with the current PDP.</p></div></div>
+<div class="note" style="margin-top:22px"><strong>Validation status:</strong> The final screens are design hypotheses. I am not claiming conversion lift, increased trust or business impact before behavioural testing.</div>
+</div></section>
+
+<section class="soft"><div class="wrap">
 <div class="kicker">19 · Metrics</div><h2>How I would measure impact.</h2>
-<div class="grid3">
-<div class="metric"><strong>Discovery → PDP</strong><span>Are users opening more relevant products?</span></div>
-<div class="metric"><strong>Shortlisting behaviour</strong><span>Do delivery and trust cues help users narrow choices?</span></div>
-<div class="metric"><strong>Occasion → Product</strong><span>Does occasion context create useful product discovery?</span></div>
-<div class="metric"><strong>PDP task success</strong><span>Can users find size, delivery, seller and reviews more easily?</span></div>
-<div class="metric"><strong>PDP → Add to Cart</strong><span>Does clearer product confidence support purchase intent?</span></div>
-<div class="metric"><strong>Returns / cancellations</strong><span>Guardrail: does stronger purchase confidence maintain purchase quality?</span></div>
-</div>
+<div class="grid3"><div class="metric"><strong>Home → Product View</strong><span>Are users finding and opening relevant products?</span></div><div class="metric"><strong>Shortlist behaviour</strong><span>Are delivery, rating and trust cues helping users narrow choices?</span></div><div class="metric"><strong>Occasion → Product</strong><span>Does contextual discovery lead to relevant product exploration?</span></div><div class="metric"><strong>PDP task success</strong><span>Can users find size, delivery, seller, reviews and styling?</span></div><div class="metric"><strong>PDP → Add to Cart</strong><span>Does clearer decision support increase purchase intent?</span></div><div class="metric"><strong>Returns / cancellations</strong><span>Guardrail: does stronger discovery maintain purchase quality?</span></div></div>
 </div></section>
 
-<section class="soft"><div class="wrap">
-<div class="kicker">20 · Learnings</div><h2>What I learned from the project.</h2>
-<div class="grid2">
-<div class="card"><span class="tag">01 · AUDIT FIRST</span><h3>Don't assume the product needs more features.</h3><p>I started by thinking Meesho needed more trust. The audit showed me that many trust signals already existed.</p></div>
-<div class="card"><span class="tag">02 · SCREEN PURPOSE</span><h3>Every screen should have a job.</h3><p>The discovery screen is for exploring, the occasion page is for contextual discovery, and the PDP is for the final product decision.</p></div>
-<div class="card"><span class="tag">03 · DELIVERY</span><h3>Delivery can influence discovery.</h3><p>When a shopper has a deadline, delivery is not only a checkout detail. It can change which products they choose to consider.</p></div>
-<div class="card"><span class="tag">04 · HONEST VALIDATION</span><h3>A finished UI is not proof.</h3><p>The designs are hypotheses. Real validation would need broader usability testing, behavioural data and business guardrails.</p></div>
-</div>
-<div class="card dark" style="margin-top:24px;padding:38px"><p style="font-size:26px;line-height:1.45;color:#fff;margin:0">“I did not try to redesign all of Meesho. I focused on three connected moments: <strong>help users discover, help them shortlist, and help them decide with more confidence.</strong>”</p></div>
+<section><div class="wrap">
+<div class="kicker">20 · Learnings</div><h2>What I learned.</h2>
+<div class="grid2"><div class="card"><span class="tag">01 · AUDIT FIRST</span><h3>Don't assume the product needs more features.</h3><p>I started by looking for missing trust and information. The audit showed that Meesho already had many of those capabilities.</p></div><div class="card"><span class="tag">02 · DESIGN CONTRIBUTION</span><h3>A feature can exist while the experience can still be explored.</h3><p>Minutes, Mall, Prime, ratings, reviews and categories already exist. My contribution was exploring how they could be surfaced and connected differently around shopping intent.</p></div><div class="card"><span class="tag">03 · DELIVERY</span><h3>Delivery can influence discovery.</h3><p>For a shopper with a deadline, delivery is not only a checkout detail. It can influence which product gets shortlisted.</p></div><div class="card"><span class="tag">04 · DIFFERENT JOBS</span><h3>Every screen needs a clear job.</h3><p>Home/PLP helps users discover and shortlist. Occasion gives discovery context. PDP helps users make the final product decision.</p></div><div class="card"><span class="tag">05 · HONEST VALIDATION</span><h3>A finished screen is not proof.</h3><p>The designs are hypotheses. Real impact would need broader usability testing, behavioural data and business guardrails.</p></div><div class="card"><span class="tag">06 · PRODUCT THINKING</span><h3>Connect the journey, not just the screens.</h3><p>The strongest part of the exploration is the connection between shopping intent, discovery, shortlisting and purchase decision.</p></div></div>
+<div class="card dark" style="margin-top:24px;padding:36px"><p style="font-size:26px;line-height:1.5;margin:0">“I didn't want to redesign Meesho feature by feature. I wanted to connect three moments: <strong>help users discover the right context, shortlist with useful signals, and make a confident product decision.</strong>”</p></div>
 </div></section>
 
-<footer><div class="wrap"><div class="kicker" style="color:#ff8fc8">Meesho · Product Design</div><h2 style="color:#fff">Discover. Shortlist. Decide.</h2><p>This is a self-initiated product design exploration. The next step would be to test the concepts with real users and behavioural data.</p></div></footer>
+<footer class="footer"><div class="wrap"><div class="kicker" style="color:#ff91c9">Meesho · Product Design</div><h2 style="color:#fff">Discover. Explore. Decide.</h2><p>This case study is a self-initiated product design exploration. The next step would be to test the concepts with real users and behavioural data.</p></div></footer>
 </body>
 </html>
