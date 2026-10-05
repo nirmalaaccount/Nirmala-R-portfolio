@@ -20,7 +20,7 @@ footer{background:var(--dark);color:#fff;padding:75px 0}footer p{color:#cfc8d0}@
 /* Compatibility styling for the rewritten content — visual system only. */
 img{max-width:100%;display:block}
 .number{font-size:50px;font-weight:950;color:var(--pink);letter-spacing:-.07em;line-height:1}
-.compare{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:26px}.compare .pane{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 10px 28px #17131a0b}.pane-title{padding:16px 20px;font-weight:800;border-bottom:1px solid var(--line)}.pane img{width:100%;height:620px;object-fit:fill;background:#f5f2f5}.caption{padding:18px 20px;color:var(--muted);font-size:15px}
+.compare{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:26px}.compare .pane{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 10px 28px #17131a0b}.pane-title{padding:16px 20px;font-weight:800;border-bottom:1px solid var(--line)}.pane img{width:100%;height:620px;object-fit:cover; object-position: top center;background:#f5f2f5}.caption{padding:18px 20px;color:var(--muted);font-size:15px}
 .intent{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:28px}.intent .card{min-height:155px}.intent .icon{font-size:30px}
 .steps{margin-top:20px}.step{display:grid;grid-template-columns:62px 1fr;gap:18px;padding:24px 0;border-bottom:1px solid var(--line)}.step:last-child{border-bottom:0}.stepno{width:48px;height:48px;border-radius:50%;background:#fff0f7;color:var(--pink);display:grid;place-items:center;font-weight:900}
 .decision-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:28px}.decision-card{padding:26px;border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:0 10px 28px #17131a0b}.decision-card .label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:900;color:var(--pink)}.decision-card p{color:var(--muted)}
@@ -145,11 +145,11 @@ img{max-width:100%;display:block}
 <p class="lead">I designed two core experiences — the <strong>Home/PLP</strong> and the <strong>PDP</strong>. The <strong>Occasion page</strong> is a supporting exploration showing how one shopping intent can become a discovery journey.</p>
 <div class="final-showcase">
   <article class="final-frame">
-    <div class="final-window"><img src="assets/final-discovery-.jpg" alt="Final Meesho Home and product discovery design"></div>
+    <div class="final-window"><img src="assets/final-discovery.jpg" alt="Final Meesho Home and product discovery design"></div>
     <div class="final-caption"><strong>01 · Home / Discovery + PLP</strong><span>Shopping modes, intent-led discovery, delivery, deals, community content, curated collections and richer product cards.</span></div>
   </article>
   <article class="final-frame">
-    <div class="final-window"><img src="assets/final-occasion-page.jpg" alt="Final Meesho Navratri occasion page"></div>
+    <div class="final-window"><img src="assets/final-occasion.jpg" alt="Final Meesho Navratri occasion page"></div>
     <div class="final-caption"><strong>02 · Occasion-led Shopping</strong><span>Navratri as a concrete example of turning an occasion into a structured discovery destination.</span></div>
   </article>
   <article class="final-frame">
@@ -179,14 +179,13 @@ img{max-width:100%;display:block}
 <section id="occasion"><div class="wrap">
 <div class="kicker">16 · Design Decisions · Occasion</div><h2>Turn an occasion into a shopping journey.</h2>
 <p class="lead">The occasion page is a supporting concept. I used Navratri as a concrete example of how an intent can become a structured discovery experience.</p>
-<div class="screen-grid"><div class="screen full"><img src="assets/occasion-page.jpg" alt="Navratri occasion shopping page"><div class="caption"><strong>Navratri Utsav</strong><br>Fashion, jewellery, beauty, decor, gifts and relevant curated products turn the occasion into a shopping destination.</div></div><div class="card"><span class="tag">WHY THIS DESIGN</span><h3>The user knows the occasion, not necessarily the product.</h3><p>Someone may think “I need to shop for Navratri” without knowing whether they want a kurti, jewellery, footwear, beauty products or decor.</p><p><strong>Decision:</strong> Organize the experience around the occasion first, then help the user move into relevant categories and products.</p><p><strong>Reusable:</strong> The same structure could support Diwali, Raksha Bandhan, wedding season, Pongal, back-to-college and other contextual shopping moments.</p></div></div>
+><div class="card"><span class="tag">WHY THIS DESIGN</span><h3>The user knows the occasion, not necessarily the product.</h3><p>Someone may think “I need to shop for Navratri” without knowing whether they want a kurti, jewellery, footwear, beauty products or decor.</p><p><strong>Decision:</strong> Organize the experience around the occasion first, then help the user move into relevant categories and products.</p><p><strong>Reusable:</strong> The same structure could support Diwali, Raksha Bandhan, wedding season, Pongal, back-to-college and other contextual shopping moments.</p></div></div>
 <div class="note" style="margin-top:22px"><strong>Important framing:</strong> I am not claiming that Meesho lacks festive merchandising. My exploration was to turn an occasion entry into a more complete discovery journey.</div>
 </div></section>
 
 <section class="soft" id="pdp"><div class="wrap">
 <div class="kicker">17 · Design Decisions · PDP</div><h2>From product information to purchase decision.</h2>
 <p class="lead">The PDP is my second major design. Once the user opens a product, the job changes from discovery to evaluation. I reorganized the page around the questions a shopper needs to answer before buying.</p>
-<div class="screen full" style="margin-top:30px"><img src="assets/final-pdp.jpg" alt="Final Meesho PDP full length"><div class="caption"><strong>Final PDP</strong><br>Product → size → styling → delivery → seller → proof → purchase.</div></div>
 <div class="decision-grid">
 <div class="decision-card"><div class="label">01 · PRODUCT + PRICE</div><h3>Understand the product quickly</h3><p>Product imagery, gallery, name, rating, price and discount are made easy to scan at the top.</p></div>
 <div class="decision-card"><div class="label">02 · SIZE</div><h3>Answer the size question early</h3><p>Size selection sits close to the core product information because for fashion, size is part of deciding whether the product is usable for me.</p></div>
